@@ -25,7 +25,6 @@ return require("packer").startup(function(use)
 	use "hrsh7th/cmp-nvim-lsp"
 	use "saadparwaiz1/cmp_luasnip"
 	use "L3MON4D3/LuaSnip"
-	use "no-clown-fiesta/no-clown-fiesta.nvim"
 	use "nvim-tree/nvim-web-devicons"
 	use "folke/trouble.nvim"
 	use "nvim-lua/plenary.nvim"
@@ -57,6 +56,7 @@ return require("packer").startup(function(use)
 		tag = "0.1.1",
 		requires = { "nvim-lua/plenary.nvim" },
 	}
+	use 'nvim-telescope/telescope-symbols.nvim'
 	use "FeiyouG/command_center.nvim"
 
 	-- dap
