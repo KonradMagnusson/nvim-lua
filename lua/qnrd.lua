@@ -66,7 +66,7 @@ local qnrd_theme = lush(function(injected_functions)
 		ModeMsg							{ bg = StatusLine.bg,			fg = StatusLine.fg },
 
 		EndOfBuffer						{								fg = lead },
-		NonText							{								fg = graphite },
+		NonText							{								fg = graphite.darken(20) },
 
 		Comment							{ 								fg = Normal.fg.darken(60) },
 
