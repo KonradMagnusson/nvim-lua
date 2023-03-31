@@ -1,14 +1,9 @@
 local opt = vim.opt
-local lush = require('lush')
 
 -- colors
 vim.cmd("syntax on")
 opt.background = "dark"
 opt.termguicolors = true
-
-lush(require('qnrd'))
-
--- vim.cmd("colorscheme qnrd")
 
 -- default indentation is 4-wide tabs
 opt.tabstop = 4
