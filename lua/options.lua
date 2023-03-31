@@ -20,9 +20,10 @@ opt.expandtab = false
 opt.list = true
 opt.listchars = "tab:▸ ,trail:·"
 
--- 80 usable
-opt.colorcolumn = "81"
+-- 120 usable
+opt.colorcolumn = "121"
 opt.signcolumn = "yes"
+opt.cursorline = true
 
 opt.splitright = true
 opt.splitbelow = true
