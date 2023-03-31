@@ -27,6 +27,12 @@ require("nvim-web-devicons").setup {
     color = "#428850",
     cterm_color = "65",
     name = "inl"
+  },
+  lua = {
+    icon = "L",
+    color = "#428850",
+    cterm_color = "65",
+    name = "lua"
   }
  };
 }
