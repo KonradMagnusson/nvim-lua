@@ -67,6 +67,7 @@ local qnrd_theme = lush(function(injected_functions)
 
 		EndOfBuffer						{								fg = lead },
 		NonText							{								fg = graphite.darken(20) },
+		Whitespace						{								fg = NonText.fg },
 
 		Comment							{ 								fg = Normal.fg.darken(60) },
 
@@ -113,9 +114,11 @@ local qnrd_theme = lush(function(injected_functions)
 
 		-- TODO: populate with nice treesitter colors!
 		sym"@type"						{								fg = dandelion },
+		sym"@type.builtin"				{ 								fg = sky_blue },
 		sym"@type.qualifier"			{ 								fg = sky_blue },
 		sym"@punctuation"				{ 								fg = slate },
 		sym"@preproc"					{								fg = Include.fg },
+		sym"@namespace"					{								fg = cloud },
 
 	} end)
 
