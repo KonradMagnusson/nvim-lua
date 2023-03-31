@@ -31,7 +31,7 @@ nvim_set_keymap("n", "<C-L>", "5<C-Y>5l", {noremap = false, nowait = true })
 -- misc
 nvim_set_keymap("n", "<leader>3", "<CMD>noh<CR>", { noremap = false })
 nvim_set_keymap("n", "<leader>p", '"+p', { noremap = false } )
-nvim_set_keymap("n", "<leader>r", '<CMD>luafile C:\\Users\\konrad.magnusson\\AppData\\Local\\nvim\\init.lua<CR>', { noremap = false } )
+nvim_set_keymap("n", "<leader>R", '<CMD>lua ReloadConfig()<CR>', { noremap = false } )
 nvim_set_keymap("n", "<leader>L", '<CMD>Lushify<CR>', { noremap = false } )
 
 -- telescope
