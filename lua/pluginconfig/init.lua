@@ -1,5 +1,6 @@
 require("pluginconfig.clangd")
 require("pluginconfig.cmp")
+require("pluginconfig.luasnip")
 require("pluginconfig.dap")
 require("pluginconfig.dapui")
 require("pluginconfig.dap-virtual-text")

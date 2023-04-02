@@ -23,6 +23,11 @@ nvim_set_keymap("n", "<leader>p", '"+p', { noremap = false } )
 nvim_set_keymap("n", "<leader>R", '<CMD>lua ReloadConfig()<CR>', { noremap = false } )
 nvim_set_keymap("n", "<leader>L", '<CMD>Lushify<CR>', { noremap = false } )
 
+
+-- snippet navigation
+nvim_set_keymap("", "<leader><leader>", "<Esc>/<++><CR>cf>", { noremap = true })
+nvim_set_keymap("!", "<leader><leader>", "<Esc>/<++><CR>cf>", { noremap = false })
+
 -- telescope
 local cmd_center = "<CMD>Telescope command_center<CR>"
 local find_files = "<CMD>Telescope find_files<CR>"
