@@ -48,6 +48,9 @@ local qnrd_theme = lush(function(injected_functions)
 		Visual							{ bg = lead,					fg = sky_blue },
 		VisualNOS						{ bg = Visual.bg,				fg = Visual.fg,				gui = 'BOLD' },
 
+		Folded							{ bg = graphite,				fg = gunmetal},
+		FoldedColumn					{ bg = Folded.bg,				fg = Folded.fg},
+
 		LineNr							{								fg = gunmetal },
 		CursorLineNr					{								fg = slate },
 
@@ -119,6 +122,7 @@ local qnrd_theme = lush(function(injected_functions)
 		sym"@punctuation"				{ 								fg = slate },
 		sym"@preproc"					{								fg = Include.fg },
 		sym"@namespace"					{								fg = cloud },
+		sym"@variable"					{								fg = Identifier.fg },
 
 	} end)
 
