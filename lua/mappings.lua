@@ -5,23 +5,12 @@ vim.g.mapleader = ","
 
 
 -- basics
-nvim_set_keymap("n", "j", "h", { noremap = true })
-nvim_set_keymap("v", "j", "h", { noremap = true })
-
-nvim_set_keymap("n", "k", "j", { noremap = true })
-nvim_set_keymap("v", "k", "j", { noremap = true })
-
-nvim_set_keymap("n", "l", "k", { noremap = true })
-nvim_set_keymap("v", "l", "k", { noremap = true })
-
-nvim_set_keymap("n", "ö", "l", { noremap = true })
-nvim_set_keymap("v", "ö", "l", { noremap = true })
-
-nvim_set_keymap("n", "h", "0", { noremap = true })
-nvim_set_keymap("v", "h", "0", { noremap = true })
-
-nvim_set_keymap("n", "ä", "$", { noremap = true })
-nvim_set_keymap("v", "ä", "$", { noremap = true })
+nvim_set_keymap("", "j", "h", { noremap = true })
+nvim_set_keymap("", "k", "j", { noremap = true })
+nvim_set_keymap("", "l", "k", { noremap = true })
+nvim_set_keymap("", "ö", "l", { noremap = true })
+nvim_set_keymap("", "h", "0", { noremap = true })
+nvim_set_keymap("", "ä", "$", { noremap = true })
 
 -- scrolling
 nvim_set_keymap("n", "<C-K>", "5<C-E>5k", {noremap = false, nowait = true })
