@@ -22,7 +22,12 @@ nvim_set_keymap("n", "<leader>3", "<CMD>noh<CR>", { noremap = false })
 nvim_set_keymap("n", "<leader>p", '"+p', { noremap = false } )
 nvim_set_keymap("n", "<leader>R", '<CMD>lua ReloadConfig()<CR>', { noremap = false } )
 nvim_set_keymap("n", "<leader>L", '<CMD>Lushify<CR>', { noremap = false } )
+nvim_set_keymap("n", "<leader>h", '<CMD>TSHighlightCapturesUnderCursor<CR>', { noremap = false } )
 
+
+-- ctags
+nvim_set_keymap("n", "gd", "<C-]><CR>", { noremap = false })
+nvim_set_keymap("n", "gD", "g]", { noremap = false })
 
 -- snippet navigation
 nvim_set_keymap("", "<leader><leader>", "<Esc>/<++><CR>cf>", { noremap = true })

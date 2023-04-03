@@ -120,9 +120,25 @@ local qnrd_theme = lush(function(injected_functions)
 		sym"@type.builtin"				{ 								fg = sky_blue },
 		sym"@type.qualifier"			{ 								fg = sky_blue },
 		sym"@punctuation"				{ 								fg = slate },
+		sym"@punctuation.bracket"		{ 								fg = slate },
 		sym"@preproc"					{								fg = Include.fg },
 		sym"@namespace"					{								fg = cloud },
 		sym"@variable"					{								fg = Identifier.fg },
+		sym"@text.literal"				{								fg = String.fg },
+		sym"@conditional.ternary"		{								fg = crimson },
+
+		-- some random ass custom ones..?
+		ClassName						{								fg = sym"@type".fg},
+		StructName						{								fg = ClassName.fg},
+		UnionName						{								fg = ClassName.fg},
+		Enumerator						{								fg = virus },
+		EnumerationName					{								fg = mahogany },
+		FunctionPrototype				{								fg = Function.fg },
+		TypeDef							{								fg = ClassName.fg },
+		Variable						{								fg = light_olive },
+		FileName						{								fg = String.fg },
+		
+
 
 	} end)
 

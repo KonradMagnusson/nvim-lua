@@ -11,6 +11,9 @@ opt.shiftwidth = 4
 opt.softtabstop = 4
 opt.expandtab = false
 
+-- ctags
+vim.o.tags = "C:\\Users\\konrad.magnusson\\AppData\\Local\\nvim\\tags\\ctags"
+
 -- show tabs, trailing whitespace, and newlines
 opt.list = true
 opt.listchars = "tab:▸ ,trail:·"
