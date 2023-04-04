@@ -1,28 +1,25 @@
 local dap = require("dap")
 
-dap.adapters.lldb = {
-	type = "executable",
-	command = "lldb-vscode",
-	name = "lldb",
-}
-
-dap.adapters.gdb = {
-	type = "executable",
-	command = "gdb",
-	name = "gdb",
+dap.adapters.codelldb = {
+  type = 'server',
+  port = "${port}",
+  executable = {
+    command = "/usr/bin/codelldb",
+    args = {"--port", "${port}"},
+  }
 }
 
 dap.configurations.cpp = {{
-	name = "Launch",
-	type = "gdb",
-	request = "launch",
-	program = function()
-		return vim.ui.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
-	end,
-	cwd = "${workspaceFolder}",
-	stopOnEntry = false,
-	args = {},
-}}
+    name = "Launch file",
+    type = "codelldb",
+    request = "launch",
+    program = function()
+      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+    end,
+    cwd = '${workspaceFolder}',
+    stopOnEntry = false,
+  },
+}
 
 dap.defaults.fallback.external_terminal = {
   command = '/usr/bin/alacritty';
