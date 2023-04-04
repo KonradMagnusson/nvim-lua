@@ -20,6 +20,7 @@ local cloud 		= hsl("#add8e6")
 local mint			= hsl("#90ee90")
 local venom 		= hsl("#00ff00")
 local leaf			= hsl("#007700")
+local olive			= hsl("#95ae88")
 local light_olive 	= hsl("#b5cea8")
 local beige 		= hsl("#e9d798")
 local light_mocha 	= hsl("#d69d85")
@@ -139,6 +140,14 @@ local qnrd_theme = lush(function(injected_functions)
 		FileName						{								fg = String.fg },
 		
 
+		-- Rainbow parenteses
+		rainbowcol1						{								fg = sym"@punctuation".fg},
+		rainbowcol2						{								fg = olive },
+		rainbowcol3						{								fg = dandelion },
+		rainbowcol4						{								fg = cote_dazur },
+		rainbowcol5						{},
+		rainbowcol6						{},
+		rainbowcol7						{},
 
 	} end)
 
