@@ -6,9 +6,15 @@ dap.adapters.lldb = {
 	name = "lldb",
 }
 
+dap.adapters.gdb = {
+	type = "executable",
+	command = "gdb",
+	name = "gdb",
+}
+
 dap.configurations.cpp = {{
 	name = "Launch",
-	type = "lldb",
+	type = "gdb",
 	request = "launch",
 	program = function()
 		return vim.ui.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
@@ -17,3 +23,8 @@ dap.configurations.cpp = {{
 	stopOnEntry = false,
 	args = {},
 }}
+
+dap.defaults.fallback.external_terminal = {
+  command = '/usr/bin/alacritty';
+  args = {'-e'};
+}
