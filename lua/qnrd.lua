@@ -11,6 +11,7 @@ local slate 		= hsl("#c8c8c8")
 local white 		= hsl("#f0f0f0")
 
 local virus 		= hsl("#a32da6")
+local pinkface		= hsl("#FF00FF")
 local lavender 		= hsl("#d8a0df")
 local sky_blue 		= hsl("#0078db")
 local light_blue 	= hsl("#569cd6")
@@ -67,6 +68,8 @@ local qnrd_theme = lush(function(injected_functions)
 
 		SignColumn						{								fg = slate },
 		StatusLine						{ bg = lead.darken(50),			fg = slate },
+		StatusLineNC					{ bg = lead.darken(75),			fg = slate },
+		WinSeparator					{ bg = StatusLineNC.bg,			fg = StatusLineNC.bg },
 		ModeMsg							{ bg = StatusLine.bg,			fg = StatusLine.fg },
 
 		EndOfBuffer						{								fg = lead },
