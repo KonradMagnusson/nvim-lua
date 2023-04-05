@@ -1,2 +1,2 @@
 local lush = require('lush')
-lush(require('qnrd'))
+lush(require('colors.forest'))
