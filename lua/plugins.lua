@@ -37,6 +37,7 @@ return require("packer").startup(function(use)
 	use "rcarriga/nvim-notify"
 	use "eandrju/cellular-automaton.nvim"
 	use "rktjmp/lush.nvim"
+	use "johnfrankmorgan/whitespace.nvim"
 
 	-- treesitter
 	use {

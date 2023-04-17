@@ -21,8 +21,12 @@ nvim_set_keymap("n", "<C-L>", "5<C-Y>5l", {noremap = false, nowait = true })
 nvim_set_keymap("n", "<leader>3", "<CMD>noh<CR>", { noremap = false })
 nvim_set_keymap("n", "<leader>p", '"+p', { noremap = false } )
 nvim_set_keymap("n", "<leader>R", '<CMD>lua ReloadConfig()<CR>', { noremap = false } )
+
+-- whitespace
+nvim_set_keymap("n", "<Leader>w", "<CMD>lua require('whitespace-nvim').trim()<CR>", { noremap = false } )
+
+-- lush
 nvim_set_keymap("n", "<leader>L", '<CMD>Lushify<CR>', { noremap = false } )
-nvim_set_keymap("n", "<leader>h", '<CMD>TSHighlightCapturesUnderCursor<CR>', { noremap = false } )
 
 
 -- ctags
@@ -34,11 +38,11 @@ nvim_set_keymap("", "<leader><leader>", "<Esc>/<++><CR>cf>", { noremap = true })
 nvim_set_keymap("!", "<leader><leader>", "<Esc>/<++><CR>cf>", { noremap = false })
 
 -- telescope
-local cmd_center = "<CMD>Telescope command_center<CR>"
-local find_files = "<CMD>Telescope find_files<CR>"
+nvim_set_keymap("n", "<A-p>", "<CMD>Telescope command_center<CR>", { noremap = true })
+nvim_set_keymap("n", "<C-p>", "<CMD>Telescope find_files<CR>", { noremap = true })
 
-nvim_set_keymap("n", "<A-p>", cmd_center, { noremap = true })
-nvim_set_keymap("n", "<C-p>", find_files, { noremap = true })
+-- treesitter
+nvim_set_keymap("n", "<leader>h", '<CMD>TSHighlightCapturesUnderCursor<CR>', { noremap = false } )
 
 
 ---------------------------------------------------------------
