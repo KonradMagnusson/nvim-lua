@@ -113,9 +113,9 @@ local qnrd_theme = lush(function(injected_functions)
 		ErrorMsg						{								fg = crimson,				gui = 'BOLD' },
 
 		DiffAdd							{ bg = leaf,					fg = white },
-		DiffDelete						{ bg = crimson,					fg = lead },
-		DiffChange						{ bg = pumpkin,					fg = lead },
-		DiffText						{ gui = 'BOLD,ITALIC'},
+		DiffDelete						{ bg = crimson.darken(15) },
+		DiffChange						{ bg = pumpkin.darken(15),									gui = 'BOLD,ITALIC'},
+		DiffText						{								fg = pumpkin,				gui = 'BOLD,ITALIC'},
 
 		Directory						{								fg = jade },
 
@@ -141,7 +141,7 @@ local qnrd_theme = lush(function(injected_functions)
 		TypeDef							{								fg = ClassName.fg },
 		Variable						{								fg = light_olive },
 		FileName						{								fg = String.fg },
-		
+
 
 		-- Rainbow parenteses
 		rainbowcol1						{								fg = sym"@punctuation".fg},

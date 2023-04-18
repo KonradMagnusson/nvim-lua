@@ -21,3 +21,9 @@ vim.api.nvim_create_autocmd({ "BufWinEnter", "WinEnter" }, {
 	pattern = "term://*",
 	command = "startinsert",
 })
+
+
+-- workaround to get diff mode things to work in git mergetool/difftool
+vim.api.nvim_create_autocmd( {"VimEnter"}, {
+	callback = function(ev) require("diff") end
+})
