@@ -9,6 +9,12 @@ require("pluginconfig")
 require("mappings")
 require("autocmds")
 
+if package.config:sub(1,1) == "\\" then
+	require("os.windoze")
+else
+	require("os.linux")
+end
+
 
 function ReloadConfig()
 	for k, _ in pairs(package.loaded) do
