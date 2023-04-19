@@ -27,6 +27,7 @@ return require("packer").startup(function(use)
 	use "L3MON4D3/LuaSnip"
 	use "nvim-tree/nvim-web-devicons"
 	use "folke/trouble.nvim"
+	use "folke/neodev.nvim"
 	use "nvim-lua/plenary.nvim"
 	use "RRethy/vim-illuminate"
 	use "akinsho/toggleterm.nvim"
