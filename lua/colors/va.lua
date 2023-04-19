@@ -111,7 +111,6 @@ local qnrd_theme = lush(function(injected_functions)
 		IncSearch						{ bg = graphite,				fg = cote_dazur },
 
 		ErrorMsg						{								fg = crimson,				gui = 'BOLD' },
-		Question						{								fg = gunmetal },
 
 		DiffAdd							{ bg = leaf,					fg = white },
 		DiffDelete						{ bg = crimson.darken(15) },
