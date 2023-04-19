@@ -39,6 +39,7 @@ return require("packer").startup(function(use)
 	use "eandrju/cellular-automaton.nvim"
 	use "rktjmp/lush.nvim"
 	use "johnfrankmorgan/whitespace.nvim"
+	use "f-person/git-blame.nvim"
 
 	-- treesitter
 	use {
