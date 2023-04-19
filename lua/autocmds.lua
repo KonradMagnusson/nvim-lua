@@ -25,5 +25,9 @@ vim.api.nvim_create_autocmd({ "BufWinEnter", "WinEnter" }, {
 
 -- workaround to get diff mode things to work in git mergetool/difftool
 vim.api.nvim_create_autocmd( {"VimEnter"}, {
-	callback = function(ev) require("diff") end
+	callback = function(ev)
+		if vim.api.nvim_win_get_option(0, "diff") then
+			require("diff")
+		end
+	end
 })
