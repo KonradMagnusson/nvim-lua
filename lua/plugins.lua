@@ -40,6 +40,7 @@ return require("packer").startup(function(use)
 	use "rktjmp/lush.nvim"
 	use "johnfrankmorgan/whitespace.nvim"
 	use "f-person/git-blame.nvim"
+	use "lewis6991/gitsigns.nvim"
 
 	-- treesitter
 	use {
