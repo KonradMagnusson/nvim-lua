@@ -176,6 +176,35 @@ local qnrd_theme = lush(function(injected_functions)
 		rainbowcol6						{},
 		rainbowcol7						{},
 
+
+		-- Rainbow csv
+		column0							{ bg = cloud,					fg = lead },
+		column1							{ bg = graphite,				fg = cote_dazur },
+		column2							{ bg = column0.bg, 				fg = column0.fg },
+		column3							{ bg = column1.bg,				fg = column1.fg },
+		column4							{ bg = column0.bg, 				fg = column0.fg },
+		column5							{ bg = column1.bg,				fg = column1.fg },
+		column6							{ bg = column0.bg, 				fg = column0.fg },
+		column7							{ bg = column1.bg,				fg = column1.fg },
+		column8							{ bg = column0.bg, 				fg = column0.fg },
+		column9							{ bg = column1.bg,				fg = column1.fg },
+		column10						{ bg = column0.bg, 				fg = column0.fg },
+		column11						{ bg = column1.bg,				fg = column1.fg },
+		column12						{ bg = column0.bg, 				fg = column0.fg },
+		column13						{ bg = column1.bg,				fg = column1.fg },
+		column14						{ bg = column0.bg, 				fg = column0.fg },
+		column15						{ bg = column1.bg,				fg = column1.fg },
+		column16						{ bg = column0.bg, 				fg = column0.fg },
+		column17						{ bg = column1.bg,				fg = column1.fg },
+		column18						{ bg = column0.bg, 				fg = column0.fg },
+		column19						{ bg = column1.bg,				fg = column1.fg },
+		column20						{ bg = column0.bg, 				fg = column0.fg },
+		column21						{ bg = column1.bg,				fg = column1.fg },
+		column22						{ bg = column0.bg, 				fg = column0.fg },
+		column23						{ bg = column1.bg,				fg = column1.fg },
+		column24						{ bg = column0.bg, 				fg = column0.fg },
+		column25						{ bg = column1.bg,				fg = column1.fg },
+
 	} end)
 
 	return qnrd_theme
