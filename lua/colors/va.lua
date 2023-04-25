@@ -166,17 +166,6 @@ local qnrd_theme = lush(function(injected_functions)
 		Variable						{								fg = light_olive },
 		FileName						{								fg = String.fg },
 
-
-		-- Rainbow parenteses
-		rainbowcol1						{								fg = sym"@punctuation".fg},
-		rainbowcol2						{								fg = olive },
-		rainbowcol3						{								fg = dandelion },
-		rainbowcol4						{								fg = cote_dazur },
-		rainbowcol5						{},
-		rainbowcol6						{},
-		rainbowcol7						{},
-
-
 		-- Rainbow csv
 		column0							{ bg = cloud,					fg = lead },
 		column1							{ bg = graphite,				fg = cote_dazur },
