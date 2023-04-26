@@ -166,6 +166,15 @@ local qnrd_theme = lush(function(injected_functions)
 		Variable						{								fg = light_olive },
 		FileName						{								fg = String.fg },
 
+		-- XML specifics
+		xmlAttrib						{								fg = sky_blue,				gui = 'ITALIC' },
+		xmlEntity						{								fg = lavender },
+		xmlEntityPunct					{								fg = lavender.darken(10)},
+		xmlTag							{								fg = mahogany },
+		xmlEndTag						{								fg = xmlTag.fg,				gui = 'BOLD' },
+		xmlTagName						{								fg = clownfish },
+		xmlString						{								fg = String.fg },
+
 		-- Rainbow csv
 		column0							{ bg = cloud,					fg = lead },
 		column1							{ bg = graphite,				fg = cote_dazur },
