@@ -17,7 +17,7 @@ opt.listchars = "tab:▸ ,trail:·"
 
 -- 120 usable
 opt.colorcolumn = "121"
-opt.signcolumn = "yes"
+opt.signcolumn = "auto"
 opt.cursorline = true
 
 opt.splitright = true

@@ -41,6 +41,7 @@ return require("packer").startup(function(use)
 	use "johnfrankmorgan/whitespace.nvim"
 	use "lewis6991/gitsigns.nvim"
 	use "mechatroner/rainbow_csv"
+	use "chentoast/marks.nvim"
 
 	-- treesitter
 	use {

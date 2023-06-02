@@ -8,5 +8,6 @@ cmdc.add({
 	{ desc = "Symbols",			cmd = "<CMD>Telescope lsp_dynamic_workspace_symbols<CR>", },
 	{ desc = "Quickfix",		cmd = "<CMD>Telescope quickfix<CR>", },
 	{ desc = "Trouble",			cmd = "<CMD>TroubleToggle<CR>", },
-	{ desc = "DAP UI",			cmd = "<CMD>lua require('dapui').toggle()<CR>", }
+	{ desc = "Marks",			cmd = "<CMD>BookmarksListAll<CR>", },
+	{ desc = "DAP UI",			cmd = "<CMD>lua require('dapui').toggle()<CR>", },
 })

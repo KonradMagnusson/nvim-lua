@@ -106,8 +106,8 @@ local qnrd_theme = lush(function(injected_functions)
 		Conditional						{ bg = Statement.bg,			fg = Statement.fg },
 		Repeat							{ bg = Conditional.bg,			fg = Conditional.fg },
 		Label							{ bg = Repeat.bg,				fg = Repeat.fg },
-		Operator						{ 								fg = sky_blue },
-		Keyword							{ bg = Operator.bg,				fg = Operator.fg },
+		Operator						{ 								fg = virus },
+		Keyword							{								fg = sky_blue },
 		Exception						{ bg = Conditional.bg,			fg = Conditional.fg },
 
 		PreProc							{ 								fg = virus },
@@ -166,6 +166,11 @@ local qnrd_theme = lush(function(injected_functions)
 		Variable						{								fg = light_olive },
 		FileName						{								fg = String.fg },
 
+		-- marks
+		MarkSignHL						{								fg = kiwi },
+		MarkSignNumHL					{								fg = kiwi },
+		MarkVirtTextHL					{								fg = kiwi.darken(60) },
+
 		-- XML specifics
 		xmlAttrib						{								fg = sky_blue,				gui = 'ITALIC' },
 		xmlEntity						{								fg = lavender },
@@ -203,6 +208,9 @@ local qnrd_theme = lush(function(injected_functions)
 		column24						{ bg = column0.bg, 				fg = column0.fg },
 		column25						{ bg = column1.bg,				fg = column1.fg },
 
+		-- JSON
+		jsonKeyword						{								fg = sky_blue	},
+		jsonKeywordMatch				{								fg = sky_blue,			gui = 'UNDERLINE'	},
 	} end)
 
 	return qnrd_theme
