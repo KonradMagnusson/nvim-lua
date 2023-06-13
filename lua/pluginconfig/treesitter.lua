@@ -1,6 +1,6 @@
 require("nvim-treesitter.configs").setup({
 	ensure_installed = {
-		"lua", "vim", "help", "query",
+		"lua", "vim", "vimdoc", "query",
 		"c", "cpp",
 	},
 	sync_install = false,
