@@ -82,7 +82,7 @@ local qnrd_theme = lush(function(injected_functions)
 		SignColumn						{								fg = slate },
 		StatusLine						{ bg = lead.darken(50),			fg = slate },
 		StatusLineNC					{ bg = lead.darken(75),			fg = slate },
-		WinSeparator					{ bg = StatusLineNC.bg,			fg = StatusLineNC.bg },
+		WinSeparator					{								fg = StatusLineNC.fg },
 		ModeMsg							{ bg = StatusLine.bg,			fg = StatusLine.fg },
 
 		EndOfBuffer						{								fg = lead },
@@ -116,8 +116,8 @@ local qnrd_theme = lush(function(injected_functions)
 		Macro							{ bg = PreProc.bg,				fg = PreProc.fg },
 		PreConduit						{ bg = Define.bg,				fg = Define.fg },
 
-		Type							{ 								fg = sky_blue },
-		StorageClass					{ bg = Keyword.bg,				fg = Keyword.fg },
+		Type							{ 								fg = dandelion },
+		StorageClass					{								fg = Keyword.fg },
 		Structure						{ bg = StorageClass.bg,			fg = StorageClass.fg },
 
 		Search							{ bg = graphite,				fg = venom },
