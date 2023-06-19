@@ -13,8 +13,8 @@ nvim_set_keymap("", "h", "0", { noremap = true })
 nvim_set_keymap("", "ä", "$", { noremap = true })
 
 -- scrolling
-nvim_set_keymap("n", "<C-K>", "5<C-E>5k", {noremap = false, nowait = true })
-nvim_set_keymap("n", "<C-L>", "5<C-Y>5l", {noremap = false, nowait = true })
+nvim_set_keymap("n", "<C-K>", "10<C-E>10k", {noremap = false, nowait = true })
+nvim_set_keymap("n", "<C-L>", "10<C-Y>10l", {noremap = false, nowait = true })
 
 
 -- misc
