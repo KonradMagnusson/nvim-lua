@@ -20,6 +20,7 @@ nvim_set_keymap("n", "<C-L>", "10<C-Y>10l", {noremap = false, nowait = true })
 -- misc
 nvim_set_keymap("n", "<leader>3", "<CMD>noh<CR>", { noremap = false })
 nvim_set_keymap("n", "<leader>p", '"+p', { noremap = false } )
+nvim_set_keymap("n", "<leader>y", '"+y', { noremap = false } )
 nvim_set_keymap("n", "<leader>R", '<CMD>lua ReloadConfig()<CR>', { noremap = false } )
 
 -- whitespace
