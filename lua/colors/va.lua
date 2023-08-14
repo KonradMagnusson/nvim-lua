@@ -211,6 +211,43 @@ local qnrd_theme = lush(function(injected_functions)
 		-- JSON
 		jsonKeyword						{								fg = sky_blue	},
 		jsonKeywordMatch				{								fg = sky_blue,			gui = 'UNDERLINE'	},
+
+
+		-- Neorg
+		sym"@neorg.markup.bold"			{ bg = normal.bg,				fg = normal.fg,			gui = 'BOLD'},
+		sym"@neorg.markup.italic"		{ bg = normal.bg,				fg = normal.fg,			gui = 'ITALIC'},
+
+
+		-- lsp
+		sym"@lsp.type.class.cpp"		{								fg = dandelion },
+
+
+		-- DAP UI
+		DapStoppedLine			   		{								fg = crimson,			gui = ''},
+		DapUIBreakpointsCurrentLine		{								fg = crimson,			gui = ''},
+		DapUIBreakpointsInfo			{								fg = clownfish,			gui = ''},
+		DapUIBreakpointsPath			{								fg = mocha,				gui = ''},
+		DapUIDecoration					{								fg = gunmetal,			gui = ''},
+		DapUIFloatBorder				{								fg = gunmetal,			gui = ''},
+		DapUIFrameName					{								fg = clownfish,			gui = ''},
+		DapUILineNumber					{								fg = heavy_cloud,		gui = ''},
+		DapUIModifiedValue				{								fg = pinkface,			gui = ''},
+		DapUIPlayPause					{								fg = venom,				gui = ''},
+		DapUIRestart					{								fg = dandelion,			gui = ''},
+		DapUIScope						{								fg = sky_blue,			gui = ''},
+		DapUISource						{								fg = papaya,			gui = ''},
+		DapUIStepBack					{								fg = venom,				gui = ''},
+		DapUIStepInto					{								fg = venom,				gui = ''},
+		DapUIStepOut					{								fg = venom,				gui = ''},
+		DapUIStepOver					{								fg = venom,				gui = ''},
+		DapUIStop						{								fg = crimson,			gui = ''},
+		DapUIStoppedThread				{								fg = crimson,			gui = ''},
+		DapUIThread						{								fg = jade,				gui = ''},
+		DapUIType						{								fg = dandelion,			gui = ''},
+		DapUIWatchesEmpty				{								fg = dust,				gui = ''},
+		DapUIWatchesError				{								fg = rosso_corsa,		gui = ''},
+		DapUIWatchesValue				{								fg = slate,				gui = ''},
+		DapUIWinSelect			   		{								fg = turqoise,			gui = ''},
 	} end)
 
 	return qnrd_theme
