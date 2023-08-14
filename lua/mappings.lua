@@ -54,20 +54,25 @@ local dap_step_over = "<CMD>lua require('dap').step_over()<CR>"
 local dap_step_into = "<CMD>lua require('dap').step_into()<CR>"
 local dap_step_out = "<CMD>lua require('dap').step_out()<CR>"
 local dap_repl = "<CMD>lua require('dap').repl.open()<CR>"
+local dap_up = "<CMD>lua require('dap').up()<CR>"
+local dap_down = "<CMD>lua require('dap').down()<CR>"
 
-nvim_set_keymap("n", "<Leader>db", dap_toggle_breakpoint, { noremap = true })
+nvim_set_keymap("n", "<leader>db", dap_toggle_breakpoint, { noremap = true })
 nvim_set_keymap("n", "<F9>", dap_toggle_breakpoint, { noremap = true })
 
-nvim_set_keymap("n", "<Leader>dc", dap_continue, { noremap = true })
+nvim_set_keymap("n", "<leader>dc", dap_continue, { noremap = true })
 nvim_set_keymap("n", "<F5>", dap_continue, { noremap = true })
 
-nvim_set_keymap("n", "<Leader>ds", dap_step_over, { noremap = true })
+nvim_set_keymap("n", "<leader>ds", dap_step_over, { noremap = true })
 nvim_set_keymap("n", "<F10>", dap_step_over, { noremap = true })
 
-nvim_set_keymap("n", "<Leader>di", dap_step_into, { noremap = true })
+nvim_set_keymap("n", "<leader>di", dap_step_into, { noremap = true })
 nvim_set_keymap("n", "<F11>", dap_step_into, { noremap = true })
 
-nvim_set_keymap("n", "<Leader>do", dap_step_out, { noremap = true })
-nvim_set_keymap("n", "<F23>", dap_step_out, { noremap = true })
+nvim_set_keymap("n", "<leader>do", dap_step_out, { noremap = true })
+nvim_set_keymap("n", "<F12>", dap_step_out, { noremap = true })
 
-nvim_set_keymap("n", "<Leader>dr", dap_repl, { noremap = true })
+nvim_set_keymap("n", "<leader>dr", dap_repl, { noremap = true })
+
+nvim_set_keymap("n", "<leader>du", dap_up, { noremap = true  })
+nvim_set_keymap("n", "<leader>dd", dap_down, { noremap = true  })
