@@ -41,6 +41,7 @@ nvim_set_keymap("!", "<leader><leader>", "<Esc>/<++><CR>cf>", { noremap = false 
 -- telescope
 nvim_set_keymap("n", "<A-p>", "<CMD>Telescope command_center<CR>", { noremap = true })
 nvim_set_keymap("n", "<C-p>", "<CMD>Telescope find_files<CR>", { noremap = true })
+nvim_set_keymap("n", "<leader>s", "<CMD>Telescope lsp_dynamic_workspace_symbols<CR>", { noremap = true })
 
 -- treesitter
 nvim_set_keymap("n", "<leader>h", '<CMD>TSHighlightCapturesUnderCursor<CR>', { noremap = false } )
