@@ -60,7 +60,7 @@ local FontMods = {
 local Palette = {
 	DarkBg = Colors.charcoal.darken(20),
 	Bg = Colors.charcoal,
-	LightBg = Colors.charcoal.lighten(10),
+	LightBg = Colors.charcoal.lighten(2),
 	HighlightBg = Colors.mint,
 
 	DarkFg = Colors.heavy_cloud,
@@ -94,7 +94,7 @@ local Q = {
 			Scroll = { Fg = Colors.slate, Bg = Colors.graphite, Gui = NoFmt },
 		},
 		Inactive = {
-			Border = { Fg = Colors.heavy_cloud, Bg = Colors.lead.darken(75), Gui = NoFmt },
+			Border = { Fg = Colors.graphite, Bg = Colors.lead.darken(75), Gui = NoFmt },
 			Scroll = { Fg = Colors.slate, Bg = Colors.graphite, Gui = NoFmt },
 		}
 	},
@@ -113,12 +113,13 @@ local Q = {
 }
 
 local qnrd_theme = lush( function(injected_functions)
+	local sym = injected_functions.sym
 	return {
 		Normal							{ fg = Q.Normal.Fg,			bg = Q.Normal.Bg,			gui = Q.Normal.Gui },
 		NormalFloat						{ fg = Q.Normal.Fg,			bg = Q.Normal.Bg,			gui = Q.Normal.Gui },
 		FloatBorder						{ fg = Q.Window.Active.Border.Fg,  bg = Q.Window.Active.Border.Bg,	gui = Q.Window.Active.Border.Gui },
 		FloatTitle						{ fg = Q.Normal.Fg,			bg = Q.Normal.Bg,			gui = FontMods.B },
-		NormalNC						{ fg = Q.Unimportant.Fg,	bg = Q.Unimportant.Bg,		gui = Q.Unimportant.Gui },
+		NormalNC						{ fg = Q.Normal.Fg,			bg = Q.Normal.Bg,			gui = Q.Normal.Gui },
 
 		Pmenu							{ fg = Q.Menu.Inactive.Fg,	bg = Q.Menu.Inactive.Bg,	gui = Q.Menu.Inactive.Gui },
 		PmenuSel						{ fg = Q.Menu.Active.Fg,	bg = Q.Menu.Active.Bg,		gui = Q.Menu.Active.Gui },
@@ -169,7 +170,7 @@ local qnrd_theme = lush( function(injected_functions)
 
 		Comment							{ fg = Palette.DarkFg,		bg = Q.Normal.Bg,			gui = Q.Normal.Gui },
 
-		-- <++>Constant						{ fg = <++>,<++>bg = <++>,<++>gui = <++> },
+		Constant						{ fg = Colors.sage,			bg = Q.Normal.Bg,			gui = Q.Normal.Gui },
 		-- <++>Number							{ fg = <++>,<++>bg = <++>,<++>gui = <++> },
 		-- <++>String							{ fg = <++>,<++>bg = <++>,<++>gui = <++> },
 		-- <++>Character						{ fg = <++>,<++>bg = <++>,<++>gui = <++> },
@@ -194,7 +195,7 @@ local qnrd_theme = lush( function(injected_functions)
 		-- <++>Macro							{ fg = <++>,<++>bg = <++>,<++>gui = <++> },
 		-- <++>PreConduit						{ fg = <++>,<++>bg = <++>,<++>gui = <++> },
 
-		-- <++>Type							{ fg = <++>,<++>bg = <++>,<++>gui = <++> },
+		Type							{ fg = Colors.sky_blue,		bg = Q.Normal.Bg,		gui = Q.Normal.Gui },
 		-- <++>StorageClass					{ fg = <++>,<++>bg = <++>,<++>gui = <++> },
 		-- <++>Structure						{ fg = <++>,<++>bg = <++>,<++>gui = <++> },
 		--
@@ -277,32 +278,38 @@ local qnrd_theme = lush( function(injected_functions)
 
 		-- lsp
 		-- <++>sym('@lsp.type.class.cpp')		{ fg = <++>,<++>bg = <++>,<++>gui = <++> },
-
+--
 
 		-- DAP UI
-		DapStoppedLine					{ fg = Colors.turqoise,		bg = Q.Normal.Bg,		gui = Q.Normal.Gui },
-		-- <++>DapUIBreakpointsCurrentL		{ fg = <++>,<++>bg = <++>,<++>gui = <++> },
-		-- <++>DapUIBreakpointsInfo			{ fg = <++>,<++>bg = <++>,<++>gui = <++> },
-		-- <++>DapUIBreakpointsPath			{ fg = <++>,<++>bg = <++>,<++>gui = <++> },
-		-- <++>DapUIDecoration					{ fg = <++>,<++>bg = <++>,<++>gui = <++> },
-		-- <++>DapUIFloatBorder				{ fg = <++>,<++>bg = <++>,<++>gui = <++> },
-		-- <++>DapUIFrameName					{ fg = <++>,<++>bg = <++>,<++>gui = <++> },
-		-- <++>DapUILineNumber					{ fg = <++>,<++>bg = <++>,<++>gui = <++> },
-		-- <++>DapUIModifiedValue				{ fg = <++>,<++>bg = <++>,<++>gui = <++> },
-		-- <++>DapUIPlayPause					{ fg = <++>,<++>bg = <++>,<++>gui = <++> },
-		-- <++>DapUIRestart					{ fg = <++>,<++>bg = <++>,<++>gui = <++> },
-		-- <++>DapUIScope						{ fg = <++>,<++>bg = <++>,<++>gui = <++> },
-		-- <++>DapUISource						{ fg = <++>,<++>bg = <++>,<++>gui = <++> },
-		-- <++>DapUIStepBack					{ fg = <++>,<++>bg = <++>,<++>gui = <++> },
-		-- <++>DapUIStepInto					{ fg = <++>,<++>bg = <++>,<++>gui = <++> },
-		-- <++>DapUIStepOut					{ fg = <++>,<++>bg = <++>,<++>gui = <++> },
-		-- <++>DapUIStepOver					{ fg = <++>,<++>bg = <++>,<++>gui = <++> },
-		-- <++>DapUIStop						{ fg = <++>,<++>bg = <++>,<++>gui = <++> },
-		-- <++>DapUIStoppedThread				{ fg = <++>,<++>bg = <++>,<++>gui = <++> },
-		-- <++>DapUIThread						{ fg = <++>,<++>bg = <++>,<++>gui = <++> },
-		-- <++>DapUIType						{ fg = <++>,<++>bg = <++>,<++>gui = <++> },
-		-- <++>DapUIWatchesEmpty				{ fg = <++>,<++>bg = <++>,<++>gui = <++> },
-		-- <++>DapUIWatchesError				{ fg = <++>,<++>bg = <++>,<++>gui = <++> },
+		DapStoppedLine					{ fg = Colors.blue_clay,		bg = Q.Normal.Bg,			gui = Q.Normal.Gui },
+		DapUIBreakpointsCurrentLine		{ fg = Colors.crimson,			bg = Q.Normal.Bg,			gui = FontMods.Combine{FontMods.B, FontMods.U} },
+		DapUIBreakpointsInfo			{ fg = Palette.Hint,			bg = Q.Normal.Bg,			gui = Q.Normal.Gui },
+		DapUIBreakpointsPath			{ fg = Colors.mocha,			bg = Q.Normal.Bg,			gui = Q.Normal.Gui },
+		DapUIDecoration					{ fg = Colors.cloud,			bg = Q.Normal.Bg,			gui = Q.Normal.Gui },
+		DapUIFrameName					{ fg = Colors.dust,				bg = Q.Normal.Bg,			gui = Q.Normal.Gui },
+		DapUISource						{ fg = Colors.mocha,			bg = Q.Normal.Bg,			gui = Q.Normal.Gui },
+		DapUILineNumber					{ fg = Colors.matte_sapphire,	bg = Q.Normal.Bg,			gui = Q.Normal.Gui },
+		DapUIThread						{ fg = Colors.moss,				bg = Q.Normal.Bg,		gui = Q.Normal.Gui },
+		DapUIStoppedThread				{ fg = Colors.kiwi,				bg = Q.Normal.Bg,			gui = FontMods.Combine{FontMods.B, FontMods.U} },
+		DapUIType						{ fg = Type.fg,					bg = Type.bg,				gui = Type.gui },
+		DapUIVariable					{ fg = Colors.beige,			bg = Type.bg,				gui = Type.gui },
+		DapUIValue						{ fg = Constant.fg,				bg = Type.bg,				gui = Type.gui },
+		DapUIModifiedValue				{ fg = Colors.papaya,			bg = Q.Normal.Bg,			gui = Q.Normal.Gui },
+		DapUIPlayPause					{ fg = Colors.venom,			bg = Q.Normal.Bf,			gui = Q.Normal.Gui },
+		DapUIRestart					{ fg = Colors.rosso_corsa,		bg = Q.Normal.Bg,			gui = Q.Normal.Gui },
+		DapUIStop						{ fg = Colors.rosso_corsa,		bg = Q.Normal.Bg,			gui = Q.Normal.Gui },
+		DapUIScope						{ fg = Colors.morning_sky,		bg = Q.Normal.Bg,			gui = FontMods.B },
+		DapUIStepBack					{ fg = Colors.morning_sky,		bg = Q.Normal.Bg,		gui = FontMods.B },
+		DapUIStepOver					{ fg = Colors.morning_sky,		bg = Q.Normal.Bg,		gui = FontMods.B },
+		DapUIStepOut					{ fg = Colors.morning_sky,		bg = Q.Normal.Bg,		gui = FontMods.B },
+		DapUIStepInto					{ fg = Colors.morning_sky,		bg = Q.Normal.Bg,		gui = FontMods.B },
+		DapUIWatchesEmpty				{ fg = Q.Unimportant.Fg,		bg = Q.Unimportant.Bg,	gui = Q.Unimportant.Gui },
+		DapUIWatchesError				{ fg = Palette.Error,			bg = Q.Normal.Bg,		gui = NoFmt},
+		-- idk what these are:
+		DapUIFloatBorder				{ fg = Colors.lead,				bg = Colors.pinkface,		gui = FloatBorder.gui },
+		DapUIWatchesValue				{ fg = Colors.lead,				bg = Colors.pinkface,		gui = FloatBorder.gui },
+		DapUIWinSelect					{ fg = Colors.lead,				bg = Colors.pinkface,		gui = FloatBorder.gui },
+		-- <++>DapUIFloatBorder					{ fg = <++>,<++>bg = <++>,<++>gui = <++> },
 		-- <++>DapUIWatchesValue				{ fg = <++>,<++>bg = <++>,<++>gui = <++> },
 		-- <++>DapUIWinSelect					{ fg = <++>,<++>bg = <++>,<++>gui = <++> },
 	}
