@@ -26,7 +26,10 @@ dap.configurations.cpp = {{
 dap.adapters.lldb = {
 	type = 'executable',
 	command = '/usr/bin/lldb-vscode',
-	name = "lldb"
+	name = "lldb",
+	options = {
+		initialize_timeout_sec = 10,
+	}
 }
 
 dap.configurations.cpp = {
@@ -39,7 +42,8 @@ dap.configurations.cpp = {
 		end,
 		cwd = '${workspaceFolder}',
 		stopOnEntry = false,
-		args = {},
+		--args = {'-skip'},
+		--args = { '-handsoff'},
 		runInTerminal = false,
 	},
 }
