@@ -41,8 +41,8 @@ nvim_set_keymap("n", "gd", "<C-]><CR>", { noremap = false })
 nvim_set_keymap("n", "gD", "g]", { noremap = false })
 
 -- snippet navigation
-nvim_set_keymap("", "<leader><leader>", "<Esc>/<++><CR>cf>", { noremap = true })
-nvim_set_keymap("!", "<leader><leader>", "<Esc>/<++><CR>cf>", { noremap = false })
+nvim_set_keymap("", "<leader><leader>", "<Esc>/<++><CR>:noh<CR>cf>", { noremap = true })
+nvim_set_keymap("!", "<leader><leader>", "<Esc>/<++><CR>:noh<CR>cf>", { noremap = false })
 
 -- telescope
 local find_files = "<CMD>lua require('telescope.builtin').find_files({ search_dirs={ '.', '/home/qnrd/CAL/cw' } })<CR>"
