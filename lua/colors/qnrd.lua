@@ -63,7 +63,7 @@ local Palette = {
 	LightBg = Colors.charcoal.lighten(2),
 	HighlightBg = Colors.mint,
 
-	DarkFg = Colors.heavy_cloud,
+	DarkFg = Colors.graphite.lighten(5),
 	Fg = Colors.white,
 	LightFg = Colors.whiter,
 	HighlightFg = Colors.lead,
@@ -129,7 +129,7 @@ local qnrd_theme = lush( function(injected_functions)
 		PmenuSbar						{ fg = Q.Window.Active.Scroll.Fg,	bg = Q.Window.Active.Scroll.Bg,	gui = Q.Window.Active.Scroll.Gui },
 		PmenuThumb						{ fg = Q.Window.Active.Scroll.Bg,	bg = Q.Window.Active.Scroll.Fg,	gui = Q.Window.Active.Scroll.Gui },
 
-		Question						{ fg = Q.Highlight.Fg,		bg = Q.Highlight.Bg,		gui = Q.Highlight.Gui },
+		Question						{ fg = Colors.mint,			bg = NoFmt,					gui = NoFmt },
 		QuickFixLine					{ fg = Q.Highlight.Fg,		bg = Q.Highlight.Bg,		gui = Q.Highlight.Gui },
 
 		Search							{ fg = Q.Highlight.Fg,		bg = Q.Highlight.Bg,			gui = Q.Highlight.Gui },
@@ -150,9 +150,9 @@ local qnrd_theme = lush( function(injected_functions)
 		TermCursor						{ fg = Q.Selected.Fg,		bg = Q.Selected.Bg,			gui = Q.Selected.Gui },
 		TermCursorNC					{ fg = Q.Selected.Fg,		bg = Q.Unimportant.Bg,		gui = Q.Unimportant.Gui },
 
-		CursorLine						{ fg = Q.Normal.Fg,			bg = Palette.LightBg,		gui = NoFmt },
-		CursorColumn					{ fg = Q.Normal.Fg,			bg = Palette.LightBg,		gui = NoFmt },
-		ColorColumn						{ fg = Q.Normal.Fg,			bg = Palette.LightBg,		gui = FontMods.B },
+		CursorLine						{ fg = NoFmt,				bg = Q.Normal.Bg.lighten(5),		gui = NoFmt },
+		CursorColumn					{ fg = NoFmt,				bg = Q.Normal.Bg.lighten(5),		gui = NoFmt },
+		ColorColumn						{ fg = NoFmt,				bg = Q.Normal.Bg.lighten(5),		gui = FontMods.B },
 
 		SignColumn						{ fg = Q.Window.Active.Border.Fg,	bg = Q.Window.Active.Border.Bg,	gui = Q.Window.Active.Border.Gui },
 		StatusLine						{ fg = Q.Window.Active.Border.Fg,	bg = Q.Window.Active.Border.Bg,	gui = Q.Window.Active.Border.Gui },
@@ -168,48 +168,49 @@ local qnrd_theme = lush( function(injected_functions)
 
 		-- Generic highlight groups
 
-		Comment							{ fg = Palette.DarkFg,		bg = Q.Normal.Bg,			gui = Q.Normal.Gui },
+		Comment							{ fg = Palette.DarkFg,		bg = NoFmt,					gui = Q.Normal.Gui },
 
-		Constant						{ fg = Colors.sage,			bg = Q.Normal.Bg,			gui = Q.Normal.Gui },
-		Number							{ fg = Colors.jade,			bg = Q.Normal.Bg,			gui = Q.Normal.Gui },
-		String							{ fg = Colors.papaya,		bg = Q.Normal.Bg,			gui = Q.Normal.Gui },
-		Character						{ fg = Colors.beige,		bg = Q.Normal.Bg,			gui = Q.Normal.Gui },
-		Boolean							{ fg = Colors.light_blue,	bg = Q.Normal.Bg,			gui = Q.Normal.Gui },
-		Float							{ fg = Colors.mint,			bg = Q.Normal.Bg,			gui = Q.Normal.Gui },
+		Constant						{ fg = Colors.sage,			bg = NoFmt,					gui = Q.Normal.Gui },
+		Number							{ fg = Colors.jade,			bg = NoFmt,					gui = Q.Normal.Gui },
+		String							{ fg = Colors.papaya,		bg = NoFmt,					gui = Q.Normal.Gui },
+		Character						{ fg = Colors.papaya,		bg = NoFmt,					gui = Q.Normal.Gui },
+		Boolean							{ fg = Colors.light_blue,	bg = NoFmt,					gui = Q.Normal.Gui },
+		Float							{ fg = Colors.mint,			bg = NoFmt,					gui = Q.Normal.Gui },
 
-		Identifier						{ fg = Colors.light_olive,	bg = Q.Normal.Bg,			gui = Q.Normal.Gui },
-		Function						{ fg = Colors.beige,		bg = Q.Normal.Bg,			gui = FontMods.B },
-		Tag								{ fg = Colors.beige,		bg = Q.Normal.Bg,			gui = FontMods.B },
+		Identifier						{ fg = Colors.light_olive,	bg = NoFmt,					gui = Q.Normal.Gui },
+		Function						{ fg = Colors.beige,		bg = NoFmt,					gui = FontMods.B },
+		Tag								{ fg = Colors.beige,		bg = NoFmt,					gui = FontMods.B },
 
-		Statement						{ fg = Colors.cactus,		bg = Q.Normal.Bg,			gui = Q.Normal.Gui },
-		Conditional						{ fg = Colors.cactus,		bg = Q.Normal.Bg,			gui = Q.Normal.Gui },
-		Repeat							{ fg = Colors.cactus,		bg = Q.Normal.Bg,			gui = Q.Normal.Gui },
-		Label							{ fg = Colors.cactus,		bg = Q.Normal.Bg,			gui = Q.Normal.Gui },
-		Operator						{ fg = Colors.cactus,		bg = Q.Normal.Bg,			gui = Q.Normal.Gui },
-		Keyword							{ fg = Colors.cactus,		bg = Q.Normal.Bg,			gui = Q.Normal.Gui },
-		Exception						{ fg = Colors.cactus,		bg = Q.Normal.Bg,			gui = Q.Normal.Gui },
+		Statement						{ fg = Colors.cactus,		bg = NoFmt,					gui = Q.Normal.Gui },
+		Conditional						{ fg = Colors.cactus,		bg = NoFmt,					gui = Q.Normal.Gui },
+		Repeat							{ fg = Colors.cactus,		bg = NoFmt,					gui = Q.Normal.Gui },
+		Label							{ fg = Colors.cactus,		bg = NoFmt,					gui = Q.Normal.Gui },
+		Operator						{ fg = Colors.sage,		bg = NoFmt,					gui = Q.Normal.Gui },
+		Keyword							{ fg = Colors.cactus,		bg = NoFmt,					gui = Q.Normal.Gui },
+		Exception						{ fg = Colors.cactus,		bg = NoFmt,					gui = Q.Normal.Gui },
+		Special							{ fg = Colors.cactus,		bg = NoFmt,					gui = Q.Normal.Gui },
 
-		PreProc							{ fg = Colors.leaf,			bg = Q.Normal.Bg,			gui = Q.Normal.Gui },
-		Macro							{ fg = Colors.leaf,			bg = Q.Normal.Bg,			gui = Q.Normal.Gui },
-		Include							{ fg = Colors.gunmetal,		bg = Q.Normal.Bg,			gui = Q.Normal.Gui },
-		Define							{ fg = Colors.gunmetal,		bg = Q.Normal.Bg,			gui = Q.Normal.Gui },
-		PreConduit						{ fg = Colors.gunmetal,		bg = Q.Normal.Bg,			gui = Q.Normal.Gui },
+		Macro							{ fg = Colors.leaf,			bg = NoFmt,					gui = Q.Normal.Gui },
+		PreProc							{ fg = Colors.gunmetal,		bg = NoFmt,					gui = Q.Normal.Gui },
+		Include							{ fg = Colors.gunmetal,		bg = NoFmt,					gui = Q.Normal.Gui },
+		Define							{ fg = Colors.gunmetal,		bg = NoFmt,					gui = Q.Normal.Gui },
+		PreConduit						{ fg = Colors.gunmetal,		bg = NoFmt,					gui = Q.Normal.Gui },
 
-		Type							{ fg = Colors.sky_blue,		bg = Q.Normal.Bg,			gui = Q.Normal.Gui },
-		StorageClass					{ fg = Colors.dust,			bg = Q.Normal.Bg,			gui = Q.Normal.Gui },
-		Structure						{ fg = Colors.jade,			bg = Q.Normal.Bg,			gui = FontMods.B },
+		Type							{ fg = Colors.sky_blue,		bg = NoFmt,					gui = Q.Normal.Gui },
+		StorageClass					{ fg = Colors.dust,			bg = NoFmt,					gui = Q.Normal.Gui },
+		Structure						{ fg = Colors.jade,			bg = NoFmt,					gui = FontMods.B },
 
 		ClassName						{ fg = Structure.fg,		bg = Structure.bg,			gui = Structure.gui },
 		StructName						{ fg = Structure.fg,		bg = Structure.bg,			gui = Structure.gui },
 		UnionName						{ fg = Structure.fg,		bg = Structure.bg,			gui = Structure.gui },
-		Enumerator						{ fg = Colors.mocha,		bg = Q.Normal.Bg,			gui = FontMods.B },
-		EnumerationName					{ fg = Colors.morning_sky,	bg = Q.Normal.Bg,			gui = FontMods.I },
+		Enumerator						{ fg = Colors.mocha,		bg = NoFmt,					gui = FontMods.B },
+		EnumerationName					{ fg = Colors.morning_sky,	bg = NoFmt,					gui = FontMods.I },
 		FunctionPrototype				{ fg = Function.fg,			bg = Function.bg,			gui = Function.gui },
-		TypeDef							{ fg = Colors.sky_blue,		bg = Q.Normal.Bg,			gui = FontMods.I },
+		TypeDef							{ fg = Colors.sky_blue,		bg = NoFmt,					gui = FontMods.I },
 		Variable						{ fg = Identifier.fg,		bg = Identifier.bg,			gui = Identifier.gui },
-		FileName						{ fg = Colors.light_mocha,	bg = Q.Normal.Bg,			gui = Q.Normal.Gui },
+		FileName						{ fg = Colors.light_mocha,	bg = NoFmt,					gui = Q.Normal.Gui },
 
-		ErrorMsg						{ fg = Colors.rosso_corsa,	bg = Colors.cactus,			gui = Q.Normal.Gui },
+		ErrorMsg						{ fg = Colors.rosso_corsa,	bg = NoFmt,					gui = Q.Normal.Gui },
 
 		DiffAdd							{ fg = Palette.DiffAddFg,		bg = Palette.DiffAddBg,		gui = NoFmt },
 		DiffDelete						{ fg = Palette.DiffDeleteFg,	bg = Palette.DiffDeleteBg,	gui = NoFmt },
@@ -224,28 +225,15 @@ local qnrd_theme = lush( function(injected_functions)
 		GitSignsChangeNr				{ fg = GitSignsChange.fg,		bg = GitSignsChange.bg,		gui = GitSignsChange.gui },
 		GitSignsChangeddelete			{ fg = GitSignsDelete.fg,		bg = GitSignsDelete.bg,		gui = FontMods.B },
 		GitSignsChangeddeleteNr			{ fg = GitSignsDelete.fg,		bg = GitSignsDelete.bg,		gui = FontMods.B },
-		GitSignsCurrentLineBlame		{ fg = Palette.DarkFg,			bg = Q.Normal.Bg,			gui = FontMods.I },
+		GitSignsCurrentLineBlame		{ fg = Palette.DarkFg,			bg = NoFmt,					gui = FontMods.I },
 
 
-		Directory						{ fg = Colors.jade,				bg = Q.Normal.Bg,			gui = FontMods.B },
-
-		-- <++>-- TODO: populate with n
-		-- <++>sym('@type')						{ fg = <++>,<++>bg = <++>,<++>gui = <++> },
-		-- <++>sym('@type.builtin')				{ fg = <++>,<++>bg = <++>,<++>gui = <++> },
-		-- <++>sym('@type.qualifier')			{ fg = <++>,<++>bg = <++>,<++>gui = <++> },
-		-- <++>sym('@punctuation')				{ fg = <++>,<++>bg = <++>,<++>gui = <++> },
-		-- <++>sym"@punctuation.bracket		{ fg = <++>,<++>bg = <++>,<++>gui = <++> },
-		-- <++>sym('@preproc')					{ fg = <++>,<++>bg = <++>,<++>gui = <++> },
-		-- <++>sym('@namespace')					{ fg = <++>,<++>bg = <++>,<++>gui = <++> },
-		-- <++>sym('@variable')					{ fg = <++>,<++>bg = <++>,<++>gui = <++> },
-		-- <++>sym('@text.literal')				{ fg = <++>,<++>bg = <++>,<++>gui = <++> },
-		-- <++>sym"@conditional.ternary		{ fg = <++>,<++>bg = <++>,<++>gui = <++> },
-
+		Directory						{ fg = Colors.jade,				bg = NoFmt,					gui = FontMods.B },
 
 		-- marks
 		MarkSignHL						{ fg = Palette.Hint,	bg = Q.Window.Active.Border.Bg,		gui = FontMods.B },
 		MarkSignNumHL					{ fg = Palette.Hint,	bg = Q.Window.Active.Border.Bg,		gui = FontMods.B },
-		MarkVirtTextHL					{ fg = Q.Standout.Fg,	bg = Q.Normal.Bg,					gui = NoFmt },
+		MarkVirtTextHL					{ fg = Q.Standout.Fg,	bg = NoFmt,							gui = NoFmt },
 
 		-- Rainbow csv. Zero is apparently an even number :shrug:
 		column0							{ fg = Q.XMLEven.Fg,	bg = Q.XMLEven.Bg,	gui = Q.XMLEven.Gui },
@@ -273,38 +261,63 @@ local qnrd_theme = lush( function(injected_functions)
 		column22						{ fg = Q.XMLEven.Fg,	bg = Q.XMLEven.Bg,	gui = Q.XMLEven.Gui },
 
 		-- Neorg
-		sym('@neorg.markup.bold')			{ fg = Q.Normal.Fg,		bg = Q.Normal.Bg,		gui = FontMods.B },
-		sym('@neorg.markup.italic')			{ fg = Q.Normal.Fg,		bg = Q.Normal.Bg,		gui = FontMods.I },
+		sym('@neorg.markup.bold')		{ fg = Q.Normal.Fg,		bg = NoFmt,			gui = FontMods.B },
+		sym('@neorg.markup.italic')		{ fg = Q.Normal.Fg,		bg = NoFmt,			gui = FontMods.I },
 
-		-- lsp
-		-- <++>sym('@lsp.type.class.cpp')		{ fg = <++>,<++>bg = <++>,<++>gui = <++> },
---
+		-----------------------------------------------------------------------------------------------------
+		-----------------------------------------------------------------------------------------------------
+
+		sym('@attribute')				{ fg = Function.fg,			bg = Function.bg,			gui = Function.gui },
+		sym('@lsp.type.class')			{ fg = ClassName.fg,		bg = ClassName.bg,			gui = ClassName.gui },
+		sym('@lsp.type.decorator')		{ fg = Function.fg,			bg = Function.bg,			gui = Function.gui },
+		sym('@lsp.type.enum')			{ fg = Enumerator.fg,		bg = Enumerator.bg,			gui = Enumerator.gui },
+		sym('@lsp.type.enumMember')		{ fg = EnumerationName.fg,	bg = EnumerationName.bg,	gui = Enumeration.gui },
+		sym('@lsp.type.function')		{ fg = Function.fg,			bg = Function.bg,			gui = Function.gui },
+		sym('@lsp.type.interface')		{ fg = ClassName.fg,		bg = ClassName.bg,			gui = ClassName.gui },
+		sym('@lsp.type.macro')    		{ fg = Macro.fg,			bg = Macro.bg,				gui = Macro.gui },
+		sym('@lsp.type.method')   		{ fg = Function.fg,			bg = Function.bg,			gui = Function.gui },
+		sym('@lsp.type.namespace')		{ fg = ClassName.fg,		bg = ClassName.bg,			gui = NoFmt },
+		sym('@lsp.type.parameter')		{ fg = Variable.fg,			bg = Variable.bg,			gui = FontMods.I },
+		sym('@lsp.type.property') 		{ fg = Colors.beige,		bg = Variable.bg,			gui = Variable.gui },
+		sym('@lsp.type.struct')			{ fg = ClassName.fg,		bg = ClassName.bg,			gui = ClassName.gui },
+		sym('@lsp.type.type')     		{ fg = Type.fg,				bg = Type.bg,				gui = Type.gui },
+		sym('@lsp.type.typeParameter')	{ fg = TypeDef.fg,			bg = TypeDef.bg,			gui = TypeDef.gui },
+		sym('@lsp.type.variable') 		{ fg = Variable.fg,			bg = Variable.bg,			gui = Variable.gui },
+		sym('@type.qualifier')			{ fg = Type.fg.lighten(40),	bg = Type.bg,				gui = Type.gui },
+		sym('@punctuation.bracket') 	{ fg = Colors.dust,			bg = NoFmt,					gui = NoFmt },
+		sym('@punctuation.delimiter') 	{ fg = Colors.dust,			bg = NoFmt,					gui = NoFmt },
+		sym('@string.escape')			{ fg = Colors.light_mocha,	bg = NoFmt,					gui = FontMods.B },
+
+		sym('@lsp.mod.readonly') 		{ fg = NoFmt,				bg = NoFmt,					gui = NoFmt },
+
+		-----------------------------------------------------------------------------------------------------
+		-----------------------------------------------------------------------------------------------------
 
 		-- DAP UI
-		DapStoppedLine					{ fg = Colors.blue_clay,		bg = Q.Normal.Bg,			gui = Q.Normal.Gui },
-		DapUIBreakpointsCurrentLine		{ fg = Colors.crimson,			bg = Q.Normal.Bg,			gui = FontMods.Combine{FontMods.B, FontMods.U} },
-		DapUIBreakpointsInfo			{ fg = Palette.Hint,			bg = Q.Normal.Bg,			gui = Q.Normal.Gui },
-		DapUIBreakpointsPath			{ fg = Colors.mocha,			bg = Q.Normal.Bg,			gui = Q.Normal.Gui },
-		DapUIDecoration					{ fg = Colors.cloud,			bg = Q.Normal.Bg,			gui = Q.Normal.Gui },
-		DapUIFrameName					{ fg = Colors.dust,				bg = Q.Normal.Bg,			gui = Q.Normal.Gui },
-		DapUISource						{ fg = Colors.mocha,			bg = Q.Normal.Bg,			gui = Q.Normal.Gui },
-		DapUILineNumber					{ fg = Colors.matte_sapphire,	bg = Q.Normal.Bg,			gui = Q.Normal.Gui },
-		DapUIThread						{ fg = Colors.moss,				bg = Q.Normal.Bg,		gui = Q.Normal.Gui },
-		DapUIStoppedThread				{ fg = Colors.kiwi,				bg = Q.Normal.Bg,			gui = FontMods.Combine{FontMods.B, FontMods.U} },
+		DapStoppedLine					{ fg = Colors.blue_clay,		bg = NoFmt,					gui = Q.Normal.Gui },
+		DapUIBreakpointsCurrentLine		{ fg = Colors.crimson,			bg = NoFmt,					gui = FontMods.Combine{FontMods.B, FontMods.U} },
+		DapUIBreakpointsInfo			{ fg = Palette.Hint,			bg = NoFmt,					gui = Q.Normal.Gui },
+		DapUIBreakpointsPath			{ fg = Colors.mocha,			bg = NoFmt,					gui = Q.Normal.Gui },
+		DapUIDecoration					{ fg = Colors.cloud,			bg = NoFmt,					gui = Q.Normal.Gui },
+		DapUIFrameName					{ fg = Colors.dust,				bg = NoFmt,					gui = Q.Normal.Gui },
+		DapUISource						{ fg = Colors.mocha,			bg = NoFmt,					gui = Q.Normal.Gui },
+		DapUILineNumber					{ fg = Colors.matte_sapphire,	bg = NoFmt,					gui = Q.Normal.Gui },
+		DapUIThread						{ fg = Colors.moss,				bg = NoFmt,					gui = Q.Normal.Gui },
+		DapUIStoppedThread				{ fg = Colors.kiwi,				bg = NoFmt,					gui = FontMods.Combine{FontMods.B, FontMods.U} },
 		DapUIType						{ fg = Type.fg,					bg = Type.bg,				gui = Type.gui },
 		DapUIVariable					{ fg = Colors.beige,			bg = Type.bg,				gui = Type.gui },
 		DapUIValue						{ fg = Constant.fg,				bg = Type.bg,				gui = Type.gui },
-		DapUIModifiedValue				{ fg = Colors.papaya,			bg = Q.Normal.Bg,			gui = Q.Normal.Gui },
-		DapUIPlayPause					{ fg = Colors.venom,			bg = Q.Normal.Bf,			gui = Q.Normal.Gui },
-		DapUIRestart					{ fg = Colors.rosso_corsa,		bg = Q.Normal.Bg,			gui = Q.Normal.Gui },
-		DapUIStop						{ fg = Colors.rosso_corsa,		bg = Q.Normal.Bg,			gui = Q.Normal.Gui },
-		DapUIScope						{ fg = Colors.morning_sky,		bg = Q.Normal.Bg,			gui = FontMods.B },
-		DapUIStepBack					{ fg = Colors.morning_sky,		bg = Q.Normal.Bg,		gui = FontMods.B },
-		DapUIStepOver					{ fg = Colors.morning_sky,		bg = Q.Normal.Bg,		gui = FontMods.B },
-		DapUIStepOut					{ fg = Colors.morning_sky,		bg = Q.Normal.Bg,		gui = FontMods.B },
-		DapUIStepInto					{ fg = Colors.morning_sky,		bg = Q.Normal.Bg,		gui = FontMods.B },
-		DapUIWatchesEmpty				{ fg = Q.Unimportant.Fg,		bg = Q.Unimportant.Bg,	gui = Q.Unimportant.Gui },
-		DapUIWatchesError				{ fg = Palette.Error,			bg = Q.Normal.Bg,		gui = NoFmt},
+		DapUIModifiedValue				{ fg = Colors.papaya,			bg = NoFmt,					gui = Q.Normal.Gui },
+		DapUIPlayPause					{ fg = Colors.venom,			bg = NoFmt,					gui = Q.Normal.Gui },
+		DapUIRestart					{ fg = Colors.rosso_corsa,		bg = NoFmt,					gui = Q.Normal.Gui },
+		DapUIStop						{ fg = Colors.rosso_corsa,		bg = NoFmt,					gui = Q.Normal.Gui },
+		DapUIScope						{ fg = Colors.morning_sky,		bg = NoFmt,					gui = FontMods.B },
+		DapUIStepBack					{ fg = Colors.morning_sky,		bg = NoFmt,					gui = FontMods.B },
+		DapUIStepOver					{ fg = Colors.morning_sky,		bg = NoFmt,					gui = FontMods.B },
+		DapUIStepOut					{ fg = Colors.morning_sky,		bg = NoFmt,					gui = FontMods.B },
+		DapUIStepInto					{ fg = Colors.morning_sky,		bg = NoFmt,					gui = FontMods.B },
+		DapUIWatchesEmpty				{ fg = Q.Unimportant.Fg,		bg = Q.Unimportant.Bg,		gui = Q.Unimportant.Gui },
+		DapUIWatchesError				{ fg = Palette.Error,			bg = NoFmt,					gui = NoFmt},
 		-- idk what these are:
 		DapUIFloatBorder				{ fg = Colors.lead,				bg = Colors.pinkface,		gui = FloatBorder.gui },
 		DapUIWatchesValue				{ fg = Colors.lead,				bg = Colors.pinkface,		gui = FloatBorder.gui },
