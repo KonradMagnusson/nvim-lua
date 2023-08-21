@@ -15,11 +15,13 @@ local Colors = {
 
 	lead					= hsl("#332c50"),
 	virus					= hsl("#a32da6"),
+	lilac					= hsl("#b463b8"),
 	pinkface				= hsl("#FF00FF"),
 	lavender 				= hsl("#d8a0df"),
+	chambray				= hsl("#354f9c"),
 	matte_sapphire			= hsl("#5f87d7"),
-	morning_sky				= hsl("#2d93dd"),
 	light_blue 				= hsl("#569cd6"),
+	morning_sky				= hsl("#2d93dd"),
 	sky_blue 				= hsl("#0078db"),
 	cactus					= hsl("#426e5d"),
 	sage					= hsl("#5a857a"),
@@ -40,8 +42,9 @@ local Colors = {
 	light_mocha 			= hsl("#d69d85"),
 	mocha					= hsl("#ab654b"),
 	mahogany 				= hsl("#954a4a"),
-	crimson					= hsl("#dc143c"),
+	burgundy				= hsl("#840000"),
 	rosso_corsa				= hsl("#D70000"),
+	crimson					= hsl("#dc143c"),
 	pumpkin					= hsl("#d75f00"),
 	papaya					= hsl("#d78700"),
 	clownfish 				= hsl("#ff8000"),
@@ -63,7 +66,7 @@ local Palette = {
 	LightBg = Colors.charcoal.lighten(2),
 	HighlightBg = Colors.mint,
 
-	DarkFg = Colors.graphite.lighten(5),
+	DarkFg = Colors.heavy_cloud,
 	Fg = Colors.white,
 	LightFg = Colors.whiter,
 	HighlightFg = Colors.lead,
@@ -151,6 +154,7 @@ local qnrd_theme = lush( function(injected_functions)
 		TermCursorNC					{ fg = Q.Selected.Fg,		bg = Q.Unimportant.Bg,		gui = Q.Unimportant.Gui },
 
 		CursorLine						{ fg = NoFmt,				bg = Q.Normal.Bg.lighten(5),		gui = NoFmt },
+
 		CursorColumn					{ fg = NoFmt,				bg = Q.Normal.Bg.lighten(5),		gui = NoFmt },
 		ColorColumn						{ fg = NoFmt,				bg = Q.Normal.Bg.lighten(5),		gui = FontMods.B },
 
@@ -178,19 +182,19 @@ local qnrd_theme = lush( function(injected_functions)
 		Float							{ fg = Colors.mint,			bg = NoFmt,					gui = Q.Normal.Gui },
 
 		Identifier						{ fg = Colors.light_olive,	bg = NoFmt,					gui = Q.Normal.Gui },
-		Function						{ fg = Colors.beige,		bg = NoFmt,					gui = FontMods.B },
+		Function						{ fg = Colors.leaf,			bg = NoFmt,					gui = FontMods.B },
 		Tag								{ fg = Colors.beige,		bg = NoFmt,					gui = FontMods.B },
 
-		Statement						{ fg = Colors.cactus,		bg = NoFmt,					gui = Q.Normal.Gui },
-		Conditional						{ fg = Colors.cactus,		bg = NoFmt,					gui = Q.Normal.Gui },
-		Repeat							{ fg = Colors.cactus,		bg = NoFmt,					gui = Q.Normal.Gui },
-		Label							{ fg = Colors.cactus,		bg = NoFmt,					gui = Q.Normal.Gui },
-		Operator						{ fg = Colors.sage,		bg = NoFmt,					gui = Q.Normal.Gui },
-		Keyword							{ fg = Colors.cactus,		bg = NoFmt,					gui = Q.Normal.Gui },
-		Exception						{ fg = Colors.cactus,		bg = NoFmt,					gui = Q.Normal.Gui },
-		Special							{ fg = Colors.cactus,		bg = NoFmt,					gui = Q.Normal.Gui },
+		Statement						{ fg = Colors.lilac,		bg = NoFmt,					gui = Q.Normal.Gui },
+		Conditional						{ fg = Colors.lilac,		bg = NoFmt,					gui = Q.Normal.Gui },
+		Repeat							{ fg = Colors.lilac,		bg = NoFmt,					gui = Q.Normal.Gui },
+		Label							{ fg = Colors.lilac,		bg = NoFmt,					gui = Q.Normal.Gui },
+		Operator						{ fg = Colors.sage,			bg = NoFmt,					gui = Q.Normal.Gui },
+		Keyword							{ fg = Colors.lilac,		bg = NoFmt,					gui = Q.Normal.Gui },
+		Exception						{ fg = Colors.lilac,		bg = NoFmt,					gui = Q.Normal.Gui },
+		Special							{ fg = Colors.lilac,		bg = NoFmt,					gui = Q.Normal.Gui },
 
-		Macro							{ fg = Colors.leaf,			bg = NoFmt,					gui = Q.Normal.Gui },
+		Macro							{ fg = Colors.clownfish,	bg = NoFmt,					gui = Q.Normal.Gui },
 		PreProc							{ fg = Colors.gunmetal,		bg = NoFmt,					gui = Q.Normal.Gui },
 		Include							{ fg = Colors.gunmetal,		bg = NoFmt,					gui = Q.Normal.Gui },
 		Define							{ fg = Colors.gunmetal,		bg = NoFmt,					gui = Q.Normal.Gui },
@@ -203,7 +207,7 @@ local qnrd_theme = lush( function(injected_functions)
 		ClassName						{ fg = Structure.fg,		bg = Structure.bg,			gui = Structure.gui },
 		StructName						{ fg = Structure.fg,		bg = Structure.bg,			gui = Structure.gui },
 		UnionName						{ fg = Structure.fg,		bg = Structure.bg,			gui = Structure.gui },
-		Enumerator						{ fg = Colors.mocha,		bg = NoFmt,					gui = FontMods.B },
+		Enumerator						{ fg = Colors.chambray,		bg = NoFmt,					gui = FontMods.B },
 		EnumerationName					{ fg = Colors.morning_sky,	bg = NoFmt,					gui = FontMods.I },
 		FunctionPrototype				{ fg = Function.fg,			bg = Function.bg,			gui = Function.gui },
 		TypeDef							{ fg = Colors.sky_blue,		bg = NoFmt,					gui = FontMods.I },
@@ -293,6 +297,11 @@ local qnrd_theme = lush( function(injected_functions)
 		-----------------------------------------------------------------------------------------------------
 		-----------------------------------------------------------------------------------------------------
 
+		DapBreakpoint					{ fg = Colors.crimson,			bg = NoFmt,					gui = FontMods.B },
+		DapBreakpointCondition			{ fg = Colors.crimson,			bg = NoFmt,					gui = FontMods.B },
+		DapBreakpointRejected			{ fg = Colors.crimson,			bg = NoFmt,					gui = FontMods.B },
+		DapLogPoint						{ fg = Colors.venom,			bg = NoFmt,					gui = FontMods.B },
+		DapStopped						{ fg = Colors.crimson,			bg = NoFmt,					gui = FontMods.B },
 		-- DAP UI
 		DapStoppedLine					{ fg = Colors.blue_clay,		bg = NoFmt,					gui = Q.Normal.Gui },
 		DapUIBreakpointsCurrentLine		{ fg = Colors.crimson,			bg = NoFmt,					gui = FontMods.Combine{FontMods.B, FontMods.U} },
