@@ -83,7 +83,7 @@ nvim_set_keymap("n", "<leader>do", dap_step_out, { noremap = true })
 nvim_set_keymap("n", "<F12>", dap_step_out, { noremap = true })
 
 nvim_set_keymap("n", "<leader>dr", dap_repl, { noremap = true })
---
+
 -- according to dap, callstacks grow downwards
 nvim_set_keymap("n", "<C-A-down>", dap_up, { noremap = true  })
 nvim_set_keymap("n", "<C-A-up>", dap_down, { noremap = true  })
