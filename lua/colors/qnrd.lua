@@ -48,6 +48,7 @@ local Colors = {
 	pumpkin					= hsl("#d75f00"),
 	papaya					= hsl("#d78700"),
 	clownfish 				= hsl("#ff8000"),
+	ripe_lemon				= hsl("#f4d81c"),
 	dandelion 				= hsl("#ffff00"),
 }
 
@@ -108,7 +109,7 @@ local Q = {
 	Normal = { Fg = Colors.white, Bg = Colors.charcoal, Gui = '' },
 	Standout = { Fg = Colors.turqoise, Bg = Colors.graphite, Gui = FontMods.B },
 	Unimportant = { Fg = Colors.lead, Bg = Colors.charcoal, Gui = '' },
-	Highlight = { Fg = Colors.lead, Bg = Colors.mint, Gui = FontMods.B },
+	Highlight = { Fg = Colors.lead, Bg = Colors.venom, Gui = FontMods.B },
 	Selected = { Fg = Colors.cloud, Bg = Colors.lead, Gui = NoFmt },
 
 	XMLEven = { Fg = Colors.jade, Bg = Colors.charcoal, Gui = NoFmt },
@@ -121,6 +122,7 @@ local qnrd_theme = lush( function(injected_functions)
 		Normal							{ fg = Q.Normal.Fg,			bg = Q.Normal.Bg,			gui = Q.Normal.Gui },
 		NormalFloat						{ fg = Q.Normal.Fg,			bg = Q.Normal.Bg,			gui = Q.Normal.Gui },
 		FloatBorder						{ fg = Q.Window.Active.Border.Fg,  bg = Q.Window.Active.Border.Bg,	gui = Q.Window.Active.Border.Gui },
+		Title							{ fg = Q.Normal.Fg,			bg = Q.Normal.Bg,			gui = FontMods.B },
 		FloatTitle						{ fg = Q.Normal.Fg,			bg = Q.Normal.Bg,			gui = FontMods.B },
 		NormalNC						{ fg = Q.Normal.Fg,			bg = Q.Normal.Bg,			gui = Q.Normal.Gui },
 
@@ -151,7 +153,7 @@ local qnrd_theme = lush( function(injected_functions)
 
 		Cursor							{ fg = Q.Selected.Fg,		bg = Q.Selected.Bg,			gui = Q.Selected.Gui },
 		TermCursor						{ fg = Q.Selected.Fg,		bg = Q.Selected.Bg,			gui = Q.Selected.Gui },
-		TermCursorNC					{ fg = Q.Selected.Fg,		bg = Q.Unimportant.Bg,		gui = Q.Unimportant.Gui },
+		TermCursorNC					{ fg = Q.Selected.Fg,		bg = Q.Selected.Bg,			gui = Q.Selected.Gui },
 
 		CursorLine						{ fg = NoFmt,				bg = Q.Normal.Bg.lighten(5),		gui = NoFmt },
 
@@ -176,8 +178,8 @@ local qnrd_theme = lush( function(injected_functions)
 
 		Constant						{ fg = Colors.sage,			bg = NoFmt,					gui = Q.Normal.Gui },
 		Number							{ fg = Colors.jade,			bg = NoFmt,					gui = Q.Normal.Gui },
-		String							{ fg = Colors.papaya,		bg = NoFmt,					gui = Q.Normal.Gui },
-		Character						{ fg = Colors.papaya,		bg = NoFmt,					gui = Q.Normal.Gui },
+		String							{ fg = Colors.light_mocha,	bg = NoFmt,					gui = Q.Normal.Gui },
+		Character						{ fg = Colors.light_mocha,	bg = NoFmt,					gui = Q.Normal.Gui },
 		Boolean							{ fg = Colors.light_blue,	bg = NoFmt,					gui = Q.Normal.Gui },
 		Float							{ fg = Colors.mint,			bg = NoFmt,					gui = Q.Normal.Gui },
 
@@ -271,6 +273,18 @@ local qnrd_theme = lush( function(injected_functions)
 		-----------------------------------------------------------------------------------------------------
 		-----------------------------------------------------------------------------------------------------
 
+		LspReferenceText				{ fg = Colors.light_mocha,	bg = NoFmt,					gui = NoFmt },
+		LspReferenceRead				{ fg = Colors.dust,			bg = NoFmt,					gui = NoFmt },
+		LspReferenceWrite				{ fg = Colors.papaya,		bg = NoFmt,					gui = NoFmt },
+		LspCodeLens						{ fg = Colors.jade,			bg = NoFmt,					gui = NoFmt },
+		LspCodeLensSeparator			{ fg = Colors.sky_blue,		bg = NoFmt,					gui = NoFmt },
+
+		DiagnosticVirtualTextOk			{ fg = Colors.venom,		bg = NoFmt,					gui = NoFmt },
+		DiagnosticVirtualTextHint		{ fg = Colors.mint,			bg = NoFmt,					gui = NoFmt },
+		DiagnosticVirtualTextInfo		{ fg = Colors.gunmetal,		bg = NoFmt,					gui = NoFmt },
+		DiagnosticVirtualTextWarn		{ fg = Colors.pumpkin,		bg = NoFmt,					gui = NoFmt },
+		DiagnosticVirtualTextError		{ fg = Colors.crimson,		bg = NoFmt,				gui = NoFmt },
+
 		sym('@attribute')				{ fg = Function.fg,			bg = Function.bg,			gui = Function.gui },
 		sym('@lsp.type.class')			{ fg = ClassName.fg,		bg = ClassName.bg,			gui = ClassName.gui },
 		sym('@lsp.type.decorator')		{ fg = Function.fg,			bg = Function.bg,			gui = Function.gui },
@@ -325,15 +339,17 @@ local qnrd_theme = lush( function(injected_functions)
 		DapUIStepOver					{ fg = Colors.morning_sky,		bg = NoFmt,					gui = FontMods.B },
 		DapUIStepOut					{ fg = Colors.morning_sky,		bg = NoFmt,					gui = FontMods.B },
 		DapUIStepInto					{ fg = Colors.morning_sky,		bg = NoFmt,					gui = FontMods.B },
-		DapUIWatchesEmpty				{ fg = Q.Unimportant.Fg,		bg = Q.Unimportant.Bg,		gui = Q.Unimportant.Gui },
+		DapUIWatchesEmpty				{ fg = Colors.dust,				bg = NoFmt,					gui = NoFmt },
 		DapUIWatchesError				{ fg = Palette.Error,			bg = NoFmt,					gui = NoFmt},
+		DapUIWatchesValue				{ fg = Colors.venom,			bg = NoFmt,					gui = FontMods.B },
 		-- idk what these are:
 		DapUIFloatBorder				{ fg = Colors.lead,				bg = Colors.pinkface,		gui = FloatBorder.gui },
-		DapUIWatchesValue				{ fg = Colors.lead,				bg = Colors.pinkface,		gui = FloatBorder.gui },
 		DapUIWinSelect					{ fg = Colors.lead,				bg = Colors.pinkface,		gui = FloatBorder.gui },
 		-- <++>DapUIFloatBorder					{ fg = <++>,<++>bg = <++>,<++>gui = <++> },
-		-- <++>DapUIWatchesValue				{ fg = <++>,<++>bg = <++>,<++>gui = <++> },
 		-- <++>DapUIWinSelect					{ fg = <++>,<++>bg = <++>,<++>gui = <++> },
+
+
+		IlluminatedWordText				{ fg = NoFmt,					bg=NoFmt,					gui = FontMods.Combine{ FontMods.B, FontMods.U }},
 	}
 end)
 
