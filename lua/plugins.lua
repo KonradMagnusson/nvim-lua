@@ -19,6 +19,7 @@ end
 local packer_bootstrap = ensure_packer()
 
 return require("packer").startup(function(use)
+	use "konradmagnusson/larry"
 	use "wbthomason/packer.nvim"
 	use "neovim/nvim-lspconfig"
 	use "hrsh7th/nvim-cmp"

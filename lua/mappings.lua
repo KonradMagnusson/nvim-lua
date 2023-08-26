@@ -89,3 +89,11 @@ nvim_set_keymap("n", "<leader>dr", dap_repl, { noremap = true })
 -- according to dap, callstacks grow downwards
 nvim_set_keymap("n", "<C-A-down>", dap_up, { noremap = true  })
 nvim_set_keymap("n", "<C-A-up>", dap_down, { noremap = true  })
+
+
+
+-- larry
+nvim_set_keymap("n", "<leader>C", "<CMD>Configure<CR>", { noremap = true })
+nvim_set_keymap("n", "<leader>c", "<CMD>ToggleConfigureView<CR>", { noremap = true })
+nvim_set_keymap("n", "<leader>B", "<CMD>Build<CR>", { noremap = true })
+nvim_set_keymap("n", "<leader>b", "<CMD>ToggleBuildView<CR>", { noremap = true })
