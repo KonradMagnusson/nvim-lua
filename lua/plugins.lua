@@ -19,7 +19,7 @@ end
 local packer_bootstrap = ensure_packer()
 
 return require("packer").startup(function(use)
-	use "konradmagnusson/larry"
+	use { "konradmagnusson/larry", tag="v1.0.0" }
 	use "wbthomason/packer.nvim"
 	use "neovim/nvim-lspconfig"
 	use "hrsh7th/nvim-cmp"
@@ -63,8 +63,11 @@ return require("packer").startup(function(use)
 		requires = { "nvim-lua/plenary.nvim" },
 	}
 	use "nvim-telescope/telescope-symbols.nvim"
-	use "FeiyouG/command_center.nvim"
-
+	use {
+	  "FeiyouG/commander.nvim",
+	  requires = { "nvim-telescope/telescope.nvim" }
+	}
+	--
 	-- dap
 	use "mfussenegger/nvim-dap"
 	use "mfussenegger/nvim-dap-python"

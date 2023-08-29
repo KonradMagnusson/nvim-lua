@@ -1,6 +1,13 @@
-local cmdc = require("command_center")
-
-cmdc.add({
+local commander = require("commander")
+commander.setup({
+  integration = {
+    telescope = {
+      enable = true,
+      theme = require("telescope.themes").commander
+    }
+  }
+})
+commander.add({
 	{ desc = "Files",			cmd = "<CMD>Telescope find_files<CR>", },
 	{ desc = "Find",			cmd = "<CMD>Telescope live_grep<CR>", },
 	{ desc = "Find in Buffer",	cmd = "<CMD>Telescope current_buffer_fuzzy_find<CR>", },

@@ -49,7 +49,7 @@ nvim_set_keymap("!", "<leader><leader>", "<Esc>/<++><CR>:noh<CR>cf>", { noremap 
 -- telescope
 local find_files = "<CMD>lua require('telescope.builtin').find_files({ search_dirs={ '.', '/home/qnrd/CAL/cw' } })<CR>"
 nvim_set_keymap("n", "<C-p>", find_files, { noremap = true })
-nvim_set_keymap("n", "<A-p>", "<CMD>Telescope command_center<CR>", { noremap = true })
+nvim_set_keymap("n", "<A-p>", "<CMD>Telescope commander<CR>", { noremap = true })
 nvim_set_keymap("n", "<leader>s", "<CMD>Telescope lsp_dynamic_workspace_symbols<CR>", { noremap = true })
 
 -- treesitter
@@ -93,6 +93,7 @@ nvim_set_keymap("n", "<C-A-up>", dap_down, { noremap = true  })
 
 
 -- larry
+nvim_set_keymap("n", "<leader>P", "<CMD>SelectPreset<CR>", { noremap = true })
 nvim_set_keymap("n", "<leader>C", "<CMD>Configure<CR>", { noremap = true })
 nvim_set_keymap("n", "<leader>c", "<CMD>ToggleConfigureView<CR>", { noremap = true })
 nvim_set_keymap("n", "<leader>B", "<CMD>Build<CR>", { noremap = true })
