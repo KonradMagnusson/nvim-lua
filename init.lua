@@ -1,4 +1,4 @@
 require("lazy-bootstrap")
-require("plugins")
+require("lazy-plugins")
 require("options")
 require("mappings")

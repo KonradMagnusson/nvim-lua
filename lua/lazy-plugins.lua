@@ -1,7 +1,4 @@
-local plugins = {
-	{ "rktjmp/lush.nvim", config = function() require("plugcfg.lush") end }
-}
-
+local plugins = require("plugins")
 local opts = {
 	root = vim.fn.stdpath("data") .. "/lazy", -- directory where plugins will be installed
 	defaults = {
@@ -150,4 +147,5 @@ local opts = {
 	},
 
 }
+
 require("lazy").setup(plugins, opts)
