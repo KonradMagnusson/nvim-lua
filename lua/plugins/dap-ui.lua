@@ -11,8 +11,14 @@ local init_dap_ui = function()
 	vim.fn.sign_define('DapBreakpointRejected', {text='×', texthl='DapBreakpointRejected', numhl='DapBreakpointRejected', linehl=''})
 	vim.fn.sign_define('DapLogPoint', {text='L', texthl='DapLogPoint', numhl='DapLogPoint', linehl=''})
 	vim.fn.sign_define('DapStopped', {text='▶', texthl='DapStopped', numhl='DapStopped', linehl='DapStopped'})
+end
 
-	dapui.setup({
+
+return {
+	"rcarriga/nvim-dap-ui",
+	dependencies = { "mfussenegger/nvim-dap" },
+	init = init_dap_ui, 
+	opts = {
 		layouts = {{
 			elements = {{
 				id = "scopes",
@@ -34,12 +40,5 @@ local init_dap_ui = function()
 			position = "left",
 			size = 60,
 		}},
-	})
-end
-
-
-return {
-	"rcarriga/nvim-dap-ui",
-	dependencies = { "mfussenegger/nvim-dap" },
-	init = init_dap_ui
+	}
 }
