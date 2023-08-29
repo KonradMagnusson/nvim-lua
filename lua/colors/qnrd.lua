@@ -349,6 +349,8 @@ local qnrd_theme = lush( function(injected_functions)
 		-- <++>DapUIWinSelect					{ fg = <++>,<++>bg = <++>,<++>gui = <++> },
 
 
+		NotifyBackground				{ fg = NoFmt,					bg=Colors.black,			gui = NoFmt },
+
 		IlluminatedWordText				{ fg = NoFmt,					bg=NoFmt,					gui = FontMods.Combine{ FontMods.B, FontMods.U }},
 	}
 end)

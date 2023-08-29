@@ -149,3 +149,5 @@ local opts = {
 }
 
 require("lazy").setup(plugins, opts)
+
+require("plugins.clangd")

@@ -1,1 +1,3 @@
-return { "neovim/nvim-lspconfig" }
+return {
+	"hrsh7th/nvim-lspconfig"
+}
