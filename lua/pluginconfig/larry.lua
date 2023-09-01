@@ -1,6 +1,6 @@
 require("larry").setup({
 	available_presets = function( cwd )
-			return { "clean", "test" }
+			return { "good-clang-ReleaseOpt", "good-clang-Debug", "good-clang-DebugOpt" }
 		end,
-	default_preset = "build",
+	default_preset = "good-clang-ReleaseOpt",
 })
