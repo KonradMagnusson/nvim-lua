@@ -28,4 +28,5 @@ opt.foldexpr = "nvim_treesitter#foldexpr()"
 opt.number = true
 opt.relativenumber = true
 
+opt.swapfile = false
 opt.hidden = true
