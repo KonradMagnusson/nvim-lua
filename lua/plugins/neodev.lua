@@ -1,5 +1,19 @@
 return {
 	"folke/neodev.nvim",
 
-	opts = {}
+	opts = {},
+
+	config = function()
+		local lspconfig = require('lspconfig')
+
+		lspconfig.lua_ls.setup({
+		  settings = {
+			Lua = {
+			  completion = {
+				callSnippet = "Replace"
+			  }
+			}
+		  }
+		})
+	end
 }
