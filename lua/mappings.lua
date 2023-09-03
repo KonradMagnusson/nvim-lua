@@ -93,8 +93,8 @@ nvim_set_keymap("n", "<C-A-up>", dap_down, { noremap = true  })
 
 
 -- larry
-nvim_set_keymap("n", "<leader>P", "<CMD>SelectPreset<CR>", { noremap = true })
-nvim_set_keymap("n", "<leader>C", "<CMD>Configure<CR>", { noremap = true })
-nvim_set_keymap("n", "<leader>c", "<CMD>ToggleConfigureView<CR>", { noremap = true })
-nvim_set_keymap("n", "<leader>B", "<CMD>Build<CR>", { noremap = true })
-nvim_set_keymap("n", "<leader>b", "<CMD>ToggleBuildView<CR>", { noremap = true })
+nvim_set_keymap("n", "<leader>P", "<CMD>LarrySelectPreset<CR>", { noremap = true })
+nvim_set_keymap("n", "<leader>C", "<CMD>LarryConfigure<CR>", { noremap = true })
+nvim_set_keymap("n", "<leader>c", "<CMD>LarryToggleConfigureView<CR>", { noremap = true })
+nvim_set_keymap("n", "<leader>B", "<CMD>LarryBuild<CR>", { noremap = true })
+nvim_set_keymap("n", "<leader>b", "<CMD>LarryToggleBuildView<CR>", { noremap = true })
