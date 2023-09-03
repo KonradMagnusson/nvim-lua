@@ -1,5 +1,7 @@
 return {
 	"rcarriga/nvim-notify",
 
-	init = function() vim.notify = require("notify") end
+	dependencies = { "rktjmp/lush.nvim" },
+
+	config = function() vim.notify = require("notify") end
 }
