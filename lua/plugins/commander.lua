@@ -24,7 +24,10 @@ end
 return {
 	"FeiyouG/commander.nvim",
 
-	dependencies = { "nvim-telescope/telescope.nvim" },
+	dependencies = {
+		"nvim-telescope/telescope.nvim",
+		"nvim-telescope/telescope-symbols.nvim"
+	},
 
 	init = init_commander
 }

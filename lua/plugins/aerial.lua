@@ -9,7 +9,7 @@ return {
 	},
 
 	opts = {
-		open_automatic = true,
+		open_automatic = false,
 		backends = { "treesitter", "lsp", "markdown"},
 
 		layout = {

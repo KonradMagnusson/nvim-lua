@@ -7,7 +7,14 @@ return {
 
 	config = function()
 		local cmp = require("cmp")
+		local luasnip = require("luasnip")
 		cmp.setup({
+			snippet = {
+				expand = function(args)
+					luasnip.lsp_expand(args.body)
+				end,
+			},
+
 			mapping = {
 				["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
 				["<Esc>"] = cmp.mapping(function()
@@ -36,6 +43,7 @@ return {
 
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp" },
+				{ name = "luasnip" },
 			}),
 		})
 	end
