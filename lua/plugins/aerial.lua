@@ -15,7 +15,7 @@ return {
 		layout = {
 			max_width = { 40, 0.2 },
 			width = nil,
-			min_width = 16,
+			min_width = 10,
 			win_opts = {},
 			default_direction = "prefer_left",
 			placement = "edge",

@@ -97,3 +97,5 @@ nvim_set_keymap("n", "<leader>lc", "<CMD>LarryToggleConfigureView<CR>", { norema
 nvim_set_keymap("n", "<leader>B", "<CMD>LarryBuild<CR>", { noremap = true })
 nvim_set_keymap("n", "<leader>b", "<CMD>LarryToggleBuildView<CR>", { noremap = true })
 
+-- aerial
+nvim_set_keymap("n", "<leader>a", "<CMD>AerialToggle<CR>", { noremap = true })
