@@ -1,5 +1,2 @@
-plugin/
-after/
-tags/
-
+lazy-lock.json
 *.luarc.json*

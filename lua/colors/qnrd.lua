@@ -109,7 +109,7 @@ local Q = {
 	Normal = { Fg = Colors.white, Bg = Colors.charcoal, Gui = '' },
 	Standout = { Fg = Colors.turqoise, Bg = Colors.graphite, Gui = FontMods.B },
 	Unimportant = { Fg = Colors.lead, Bg = Colors.charcoal, Gui = '' },
-	Highlight = { Fg = Colors.lead, Bg = Colors.venom, Gui = FontMods.B },
+	Highlight = { Fg = Colors.lead, Bg = Colors.cloud, Gui = FontMods.B },
 	Selected = { Fg = Colors.cloud, Bg = Colors.lead, Gui = NoFmt },
 
 	XMLEven = { Fg = Colors.jade, Bg = Colors.charcoal, Gui = NoFmt },
@@ -349,7 +349,9 @@ local qnrd_theme = lush( function(injected_functions)
 		-- <++>DapUIWinSelect					{ fg = <++>,<++>bg = <++>,<++>gui = <++> },
 
 
-		IlluminatedWordText				{ fg = NoFmt,					bg=NoFmt,					gui = FontMods.Combine{ FontMods.B, FontMods.U }},
+		NotifyBackground				{ fg = NoFmt,					bg=Colors.black,			gui = NoFmt },
+
+		IlluminatedWordText				{ fg = NoFmt,					bg=NoFmt,					gui = FontMods.Combine{ FontMods.B, FontMods.I }},
 	}
 end)
 
