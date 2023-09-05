@@ -1,10 +1,11 @@
 return {
 	"konradmagnusson/larry",
 
-	dev = true,
+	dev = false,
 
 	dependencies = {
 		"rcarriga/nvim-notify",
+		"norcalli/nvim-terminal.lua",
 	},
 
 	opts = {
