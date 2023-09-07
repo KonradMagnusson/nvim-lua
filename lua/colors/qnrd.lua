@@ -194,7 +194,7 @@ local qnrd_theme = lush( function(injected_functions)
 		Operator						{ fg = Colors.sage,			bg = NoFmt,					gui = Q.Normal.Gui },
 		Keyword							{ fg = Colors.lilac,		bg = NoFmt,					gui = Q.Normal.Gui },
 		Exception						{ fg = Colors.lilac,		bg = NoFmt,					gui = Q.Normal.Gui },
-		Special							{ fg = Colors.lilac,		bg = NoFmt,					gui = Q.Normal.Gui },
+		Special							{ fg = Colors.sage,			bg = NoFmt,					gui = Q.Normal.Gui },
 
 		Macro							{ fg = Colors.clownfish,	bg = NoFmt,					gui = Q.Normal.Gui },
 		PreProc							{ fg = Colors.gunmetal,		bg = NoFmt,					gui = Q.Normal.Gui },
