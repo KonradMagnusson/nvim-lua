@@ -47,5 +47,7 @@ return {
 				"--header-insertion=iwyu",
 			},
 		})
+
+		lspconfig.pyright.setup({})
 	end
 }

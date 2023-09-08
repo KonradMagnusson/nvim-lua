@@ -304,7 +304,7 @@ local qnrd_theme = lush( function(injected_functions)
 		sym('@type.qualifier')			{ fg = Type.fg.lighten(40),	bg = Type.bg,				gui = Type.gui },
 		sym('@punctuation.bracket') 	{ fg = Colors.dust,			bg = NoFmt,					gui = NoFmt },
 		sym('@punctuation.delimiter') 	{ fg = Colors.dust,			bg = NoFmt,					gui = NoFmt },
-		sym('@string.escape')			{ fg = Colors.light_mocha,	bg = NoFmt,					gui = FontMods.B },
+		sym('@string.escape')			{ fg = Colors.mocha,	bg = NoFmt,					gui = FontMods.B },
 
 		sym('@lsp.mod.readonly') 		{ fg = NoFmt,				bg = NoFmt,					gui = NoFmt },
 
