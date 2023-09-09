@@ -46,8 +46,9 @@ local Colors = {
 	rosso_corsa				= hsl("#D70000"),
 	crimson					= hsl("#dc143c"),
 	pumpkin					= hsl("#d75f00"),
-	papaya					= hsl("#d78700"),
 	clownfish 				= hsl("#ff8000"),
+	papaya					= hsl("#d78700"),
+	school_bus				= hsl("#ef8e00"),
 	ripe_lemon				= hsl("#f4d81c"),
 	dandelion 				= hsl("#ffff00"),
 }
@@ -196,7 +197,7 @@ local qnrd_theme = lush( function(injected_functions)
 		Exception						{ fg = Colors.lilac,		bg = NoFmt,					gui = Q.Normal.Gui },
 		Special							{ fg = Colors.sage,			bg = NoFmt,					gui = Q.Normal.Gui },
 
-		Macro							{ fg = Colors.clownfish,	bg = NoFmt,					gui = Q.Normal.Gui },
+		Macro							{ fg = Colors.school_bus,	bg = NoFmt,					gui = Q.Normal.Gui },
 		PreProc							{ fg = Colors.gunmetal,		bg = NoFmt,					gui = Q.Normal.Gui },
 		Include							{ fg = Colors.gunmetal,		bg = NoFmt,					gui = Q.Normal.Gui },
 		Define							{ fg = Colors.gunmetal,		bg = NoFmt,					gui = Q.Normal.Gui },
