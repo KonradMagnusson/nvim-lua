@@ -1,7 +1,7 @@
-return { 
+return {
 	"rktjmp/lush.nvim",
-	init = function() 
+	init = function()
 		local lush = require("lush")
 		lush(require("colors.qnrd"))
-	end 
+	end
 }

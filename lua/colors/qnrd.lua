@@ -109,7 +109,7 @@ local Q = {
 	},
 	Normal = { Fg = Colors.white, Bg = Colors.charcoal, Gui = '' },
 	Standout = { Fg = Colors.turqoise, Bg = Colors.graphite, Gui = FontMods.B },
-	Unimportant = { Fg = Colors.lead, Bg = Colors.charcoal, Gui = '' },
+	Unimportant = { Fg = Colors.heavy_cloud, Bg = Colors.charcoal, Gui = '' },
 	Highlight = { Fg = Colors.lead, Bg = Colors.cloud, Gui = FontMods.B },
 	Selected = { Fg = Colors.cloud, Bg = Colors.lead, Gui = NoFmt },
 

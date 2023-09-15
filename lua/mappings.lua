@@ -29,14 +29,14 @@ nvim_set_keymap("n", "<C-A-L>", "<C-Y>l", {noremap = false, nowait = true })
 nvim_set_keymap("n", "<leader>3", "<CMD>noh<CR>", { noremap = false })
 nvim_set_keymap("n", "<leader>p", '"+p', { noremap = false } )
 nvim_set_keymap("n", "<leader>y", '"+y', { noremap = false } )
-nvim_set_keymap("n", "<leader>R", '<CMD>lua ReloadConfig()<CR>', { noremap = false } )
+nvim_set_keymap("n", "<leader>f", "<CMD>silent !~/CAL/external_libs3/common/clang-format/linux/clang-format -i %:p<CR>", { noremap = false } )
 
 -- whitespace
 nvim_set_keymap("n", "<Leader>w", "<CMD>lua require('whitespace-nvim').trim()<CR>", { noremap = false } )
 
 -- lush
 nvim_set_keymap("n", "<leader>L", '<CMD>Lushify<CR>', { noremap = false } )
-
+nvim_set_keymap("n", "<leader>R", "<CMD>lua require('lush')(require('colors.qnrd'))<CR>", { noremap = false } )
 
 -- ctags
 nvim_set_keymap("n", "gd", "<C-]><CR>", { noremap = false })
@@ -99,3 +99,7 @@ nvim_set_keymap("n", "<leader>b", "<CMD>LarryToggleBuildView<CR>", { noremap = t
 
 -- aerial
 nvim_set_keymap("n", "<leader>a", "<CMD>AerialToggle<CR>", { noremap = true })
+
+
+-- lens
+nvim_set_keymap("n", "<leader>l", "<CMD>LspLensToggle<CR>", { noremap = true })

@@ -1,9 +1,9 @@
 return {
 	"VidocqH/lsp-lens.nvim",
 	opts = {
-		enable = true,
+		enable = false,
 		secition = {
-			definitions = false,
+			definitions = true,
 			references = true,
 			implements = true,
 		}
