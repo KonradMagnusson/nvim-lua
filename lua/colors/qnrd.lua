@@ -223,6 +223,10 @@ local qnrd_theme = lush( function(injected_functions)
 		DiffDelete						{ fg = Palette.DiffDeleteFg,	bg = Palette.DiffDeleteBg,	gui = NoFmt },
 		DiffChange						{ fg = Palette.DiffChangeFg,	bg = Palette.DiffChangeBg,	gui = NoFmt },
 		DiffText						{ fg = Palette.DiffChangeFg,	bg = Palette.DiffChangeBg,	gui = FontMods.Combine{ FontMods.B, FontMods.U } },
+		sym('@text.diff.delete.diff')	{ DiffDelete },
+		sym('@text.diff.add.diff')		{ DiffAdd },
+		sym('@text.diff.change.diff')	{ DiffChange },
+		sym('@text.diff.text.diff')		{ DiffText },
 
 		GitSignsAdd						{ fg = Palette.DiffAddFg,		bg = Palette.DiffAddBg,		gui = NoFmt },
 		GitSignsAddNr					{ fg = GitSignsAdd.fg,			bg = GitSignsAdd.bg,		gui = GitSignsAdd.gui },
@@ -284,9 +288,9 @@ local qnrd_theme = lush( function(injected_functions)
 		DiagnosticVirtualTextHint		{ fg = Colors.mint,			bg = NoFmt,					gui = NoFmt },
 		DiagnosticVirtualTextInfo		{ fg = Colors.gunmetal,		bg = NoFmt,					gui = NoFmt },
 		DiagnosticVirtualTextWarn		{ fg = Colors.pumpkin,		bg = NoFmt,					gui = NoFmt },
-		DiagnosticVirtualTextError		{ fg = Colors.crimson,		bg = NoFmt,				gui = NoFmt },
+		DiagnosticVirtualTextError		{ fg = Colors.crimson,		bg = NoFmt,					gui = NoFmt },
 
-		sym('@attribute')				{ fg = Function.fg,			bg = Function.bg,			gui = Function.gui },
+		sym('@attribute')				{ fg = Colors.dust,			bg = NoFmt,					gui = NoFmt },
 		sym('@lsp.type.class')			{ fg = ClassName.fg,		bg = ClassName.bg,			gui = ClassName.gui },
 		sym('@lsp.type.decorator')		{ fg = Function.fg,			bg = Function.bg,			gui = Function.gui },
 		sym('@lsp.type.enum')			{ fg = Enumerator.fg,		bg = Enumerator.bg,			gui = Enumerator.gui },
@@ -305,7 +309,7 @@ local qnrd_theme = lush( function(injected_functions)
 		sym('@type.qualifier')			{ fg = Type.fg.lighten(40),	bg = Type.bg,				gui = Type.gui },
 		sym('@punctuation.bracket') 	{ fg = Colors.dust,			bg = NoFmt,					gui = NoFmt },
 		sym('@punctuation.delimiter') 	{ fg = Colors.dust,			bg = NoFmt,					gui = NoFmt },
-		sym('@string.escape')			{ fg = Colors.mocha,	bg = NoFmt,					gui = FontMods.B },
+		sym('@string.escape')			{ fg = Colors.mocha,		bg = NoFmt,					gui = FontMods.B },
 
 		sym('@lsp.mod.readonly') 		{ fg = NoFmt,				bg = NoFmt,					gui = NoFmt },
 
