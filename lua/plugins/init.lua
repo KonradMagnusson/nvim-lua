@@ -4,7 +4,10 @@ local plugins = {}
 
 for _, file in ipairs( plugin_files ) do
 	if file ~= "init.lua" then
-		table.insert(plugins, require('plugins.'..file:gsub('%.lua$', '')))
+		local plugin_spec = require('plugins.'..file:gsub('%.lua$', '')) 
+		if plugin_spec ~= nil then
+			table.insert(plugins, plugin_spec)
+		end
 	end
 end
 
