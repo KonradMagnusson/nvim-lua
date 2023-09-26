@@ -17,6 +17,7 @@ nvim_set_keymap("", "ö", "l", { noremap = true })
 nvim_set_keymap("", "h", "0", { noremap = true })
 nvim_set_keymap("", "ä", "$", { noremap = true })
 
+nvim_set_keymap("", "tq", "<CMD>tabclose<CR>", { noremap = true })
 
 -- scrolling
 nvim_set_keymap("n", "<C-K>", "10<C-E>10k", {noremap = false, nowait = true })
