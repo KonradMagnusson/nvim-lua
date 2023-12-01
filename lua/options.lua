@@ -15,7 +15,7 @@ opt.expandtab = false
 opt.list = true
 opt.listchars = "tab:▸ ,trail:·"
 
-opt.colorcolumn = "210"
+opt.colorcolumn = "150,170,210"
 opt.signcolumn = "auto"
 opt.cursorline = true
 

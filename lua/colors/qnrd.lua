@@ -348,8 +348,8 @@ local qnrd_theme = lush( function(injected_functions)
 		DapUIWatchesError				{ fg = Palette.Error,			bg = NoFmt,					gui = NoFmt},
 		DapUIWatchesValue				{ fg = Colors.venom,			bg = NoFmt,					gui = FontMods.B },
 		-- idk what these are:
-		DapUIFloatBorder				{ fg = Colors.lead,				bg = Colors.pinkface,		gui = FloatBorder.gui },
-		DapUIWinSelect					{ fg = Colors.lead,				bg = Colors.pinkface,		gui = FloatBorder.gui },
+		DapUIFloatBorder				{ fg = Colors.lead,				bg = Colors.venom,		gui = FloatBorder.gui },
+		DapUIWinSelect					{ fg = Colors.lead,				bg = Colors.venom,		gui = FloatBorder.gui },
 		-- <++>DapUIFloatBorder					{ fg = <++>,<++>bg = <++>,<++>gui = <++> },
 		-- <++>DapUIWinSelect					{ fg = <++>,<++>bg = <++>,<++>gui = <++> },
 

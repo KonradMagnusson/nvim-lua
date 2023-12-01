@@ -48,10 +48,14 @@ nvim_set_keymap("", "<leader><leader>", "<Esc>/<++><CR>:noh<CR>cf>", { noremap =
 nvim_set_keymap("!", "<leader><leader>", "<Esc>/<++><CR>:noh<CR>cf>", { noremap = false })
 
 -- telescope
-local find_files = "<CMD>lua require('telescope.builtin').find_files({ search_dirs={ '.', '/home/qnrd/CAL/cw' } })<CR>"
+local find_files = ""
+if string.find( os.getenv("PWD"), "CAL" ) then
+	find_files = "<CMD>lua require('telescope.builtin').find_files({ search_dirs={ '.', '/home/qnrd/CAL/cw' } })<CR>"
+else
+	find_files = "<CMD>lua require('telescope.builtin').find_files({ search_dirs={ '.', '/home/qnrd/WT/cw' } })<CR>"
+end
 nvim_set_keymap("n", "<C-p>", find_files, { noremap = true })
 nvim_set_keymap("n", "<A-p>", "<CMD>Telescope commander<CR>", { noremap = true })
-nvim_set_keymap("n", "<leader>s", "<CMD>Telescope lsp_dynamic_workspace_symbols<CR>", { noremap = true })
 
 -- treesitter
 nvim_set_keymap("n", "<leader>h", '<CMD>TSHighlightCapturesUnderCursor<CR>', { noremap = false } )
@@ -97,9 +101,6 @@ nvim_set_keymap("n", "<leader>lC", "<CMD>LarryConfigure<CR>", { noremap = true }
 nvim_set_keymap("n", "<leader>lc", "<CMD>LarryToggleConfigureView<CR>", { noremap = true })
 nvim_set_keymap("n", "<leader>B", "<CMD>LarryBuild<CR>", { noremap = true })
 nvim_set_keymap("n", "<leader>b", "<CMD>LarryToggleBuildView<CR>", { noremap = true })
-
--- aerial
-nvim_set_keymap("n", "<leader>a", "<CMD>AerialToggle<CR>", { noremap = true })
 
 
 -- lens
