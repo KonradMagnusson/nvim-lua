@@ -53,6 +53,7 @@ return {
 				-- edit actions
 				vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>r", "<CMD>lua vim.lsp.buf.rename()<CR>", { noremap = true, silent = true })
 				vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>q", "<CMD>lua vim.lsp.buf.code_action()<CR>", { noremap = true, silent = true })
+				vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>h", "<CMD>lua vim.lsp.buf.hover()<CR>", { noremap = true, silent = true })
 			end,
 
 			flags = {

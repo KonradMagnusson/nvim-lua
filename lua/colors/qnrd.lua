@@ -271,9 +271,14 @@ local qnrd_theme = lush( function(injected_functions)
 		-----------------------------------------------------------------------------------------------------
 		-----------------------------------------------------------------------------------------------------
 
-		LspReferenceText				{ fg = Colors.light_mocha,	bg = NoFmt,					gui = NoFmt },
-		LspReferenceRead				{ fg = Colors.dust,			bg = NoFmt,					gui = NoFmt },
-		LspReferenceWrite				{ fg = Colors.papaya,		bg = NoFmt,					gui = NoFmt },
+		LspReferenceText				{							bg = Colors.chambray.darken(50),		gui = FontMods.Combine{ FontMods.B, FontMods.I } },
+		LspReferenceRead				{							bg = Colors.leaf.darken(50),		gui = FontMods.Combine{ FontMods.B, FontMods.I } },
+		LspReferenceWrite				{							bg = Colors.pumpkin.darken(50),		gui = FontMods.Combine{ FontMods.B, FontMods.I } },
+
+		IlluminatedWordText				{							bg = Colors.chambray.darken(50),		gui = FontMods.Combine{ FontMods.B, FontMods.I } },
+		IlluminatedWordRead				{							bg = Colors.leaf.darken(50),		gui = FontMods.Combine{ FontMods.B, FontMods.I } },
+		IlluminatedWordWrite				{							bg = Colors.pumpkin.darken(50),		gui = FontMods.Combine{ FontMods.B, FontMods.I } },
+
 		LspCodeLens						{ fg = Colors.jade,			bg = NoFmt,					gui = NoFmt },
 		LspCodeLensSeparator			{ fg = Colors.sky_blue,		bg = NoFmt,					gui = NoFmt },
 
@@ -396,7 +401,6 @@ local qnrd_theme = lush( function(injected_functions)
 
 		NotifyBackground				{ fg = NoFmt,					bg=Colors.black,			gui = NoFmt },
 
-		IlluminatedWordText				{ fg = NoFmt,					bg=NoFmt,					gui = FontMods.Combine{ FontMods.B, FontMods.I }},
 	}
 end)
 
