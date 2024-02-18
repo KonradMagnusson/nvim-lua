@@ -115,7 +115,7 @@ local qnrd_theme = lush( function(injected_functions)
 	return {
 		Normal							{ fg = Q.Normal.Fg,			bg = Q.Normal.Bg,			gui = Q.Normal.Gui },
 		NormalFloat						{ fg = Q.Normal.Fg,			bg = Q.Normal.Bg,			gui = Q.Normal.Gui },
-		FloatBorder						{ fg = Q.Window.Active.Border.Fg,  bg = Q.Window.Active.Border.Bg,	gui = Q.Window.Active.Border.Gui },
+		FloatBorder						{ fg = Q.Window.Active.Border.Fg,  bg = Q.Window.Active.Bg,	gui = Q.Window.Active.Border.Gui },
 		Title							{ fg = Q.Normal.Fg,			bg = Q.Normal.Bg,			gui = FontMods.B },
 		FloatTitle						{ fg = Q.Normal.Fg,			bg = Q.Normal.Bg,			gui = FontMods.B },
 		NormalNC						{ fg = Q.Normal.Fg,			bg = Q.Normal.Bg,			gui = Q.Normal.Gui },

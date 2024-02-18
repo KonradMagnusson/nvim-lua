@@ -57,9 +57,6 @@ end
 nvim_set_keymap("n", "<C-p>", find_files, { noremap = true })
 nvim_set_keymap("n", "<A-p>", "<CMD>Telescope commander<CR>", { noremap = true })
 
--- treesitter
-nvim_set_keymap("n", "<leader>h", '<CMD>TSHighlightCapturesUnderCursor<CR>', { noremap = false } )
-
 
 ---------------------------------------------------------------
 -- dap
