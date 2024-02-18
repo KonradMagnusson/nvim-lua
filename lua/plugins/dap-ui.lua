@@ -46,7 +46,7 @@ return {
 				size = 0.3,
 			}},
 			position = "left",
-			size = 60,
+			size = 120,
 		}},
 	}
 }

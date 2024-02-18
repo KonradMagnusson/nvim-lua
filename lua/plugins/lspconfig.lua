@@ -75,8 +75,9 @@ return {
 			},
 		})
 
+		lspconfig.pyright.setup({})
+
 		lspconfig.zls.setup({})
 
-		lspconfig.pyright.setup({})
 	end
 }
