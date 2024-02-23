@@ -16,20 +16,31 @@ local init_dap = function()
 			type = "lldb",
 			request = "launch",
 			program = function()
-				return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+				local exe = vim.fn.getcwd() .. '/build/binaries/' .. vim.g.DAP_RUN_PATH
+				vim.g.DAP_RUN_PATH = nil
+				return exe
 			end,
 			cwd = '${workspaceFolder}',
 			stopOnEntry = false,
-			args = { '-skip' },
+			--args = { '-skip' },
 			--args = { '-skip', '-handsoff' },
 			--args = { '-skip', '-handsoff'},-- '-nographics' },
-			--args = { '-loadsave=nerd' },
+			args = { '-loadsave=nerd' },
 			--args = { '-loadsave=ctd' }, --, '-handsoff', '-nographics' },
 			--args = { '-handsoff'},
 			--args = { '-mapeditor' },
 			runInTerminal = false,
 		},
 	}
+
+	function run_debugger()
+		vim.ui.input( { prompt="Path to executable: ", default="victoria3_D", completion="file" }, function( path )
+			if path ~= nil then
+				vim.g.DAP_RUN_PATH = path
+				require('dap').continue()
+			end
+		end )
+	end
 
 	local dap_toggle_breakpoint = "<CMD>lua require('dap').toggle_breakpoint()<CR>"
 	local dap_toggle_conditional_breakpoint = "<CMD>lua require('dap').toggle_breakpoint(vim.fn.input('Condition: '))<CR>"
@@ -44,6 +55,7 @@ local init_dap = function()
 
 	local nvim_set_keymap = vim.api.nvim_set_keymap
 
+	nvim_set_keymap("n", "<leader>de", "<CMD>lua run_debugger()<CR>", { noremap = true })
 	nvim_set_keymap("n", "<leader>db", dap_toggle_breakpoint, { noremap = true })
 	nvim_set_keymap("n", "<leader>dB", dap_toggle_conditional_breakpoint, { noremap = true })
 	nvim_set_keymap("n", "<leader>dlp", dap_logpoint, { noremap = true })
