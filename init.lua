@@ -1,5 +1,6 @@
 require("lazy-bootstrap")
 require("options")
 require("mappings")
+require("diagnostics")
 require("lazy-plugins")
 require("autocmds")
