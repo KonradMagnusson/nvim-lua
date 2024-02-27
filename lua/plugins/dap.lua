@@ -1,5 +1,32 @@
+local set_map = function( keys, action )
+	vim.api.nvim_set_keymap("n", keys, action, { noremap = true } )
+end
+
+set_map( "<leader>db", "<CMD>lua require('dap').toggle_breakpoint()<CR>" )
+set_map( "<leader>dB", "<CMD>lua require('dap').toggle_breakpoint(vim.fn.input('Condition: '))<CR>" )
+set_map( "<leader>dlp", "<CMD>lua require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>" )
+
+set_map( "<leader>dc", "<CMD>lua require('dap').continue()<CR>" )
+set_map( "<leader>dr", "<CMD>lua require('dap').run_to_cursor()<CR>" )
+
+set_map( "<leader>ds", "<CMD>lua require('dap').step_over()<CR>" )
+set_map( "<leader>di", "<CMD>lua require('dap').step_into()<CR>" )
+set_map( "<leader>do", "<CMD>lua require('dap').step_out()<CR>" )
+
+
+-- according to DAP, callstacks grow downwards
+set_map( "<C-A-down>", "<CMD>lua require('dap').up()<CR>" )
+set_map( "<C-A-up>", "<CMD>lua require('dap').down()<CR>" )
+
+
 local init_dap = function()
 	local dap = require("dap")
+	local daputils = require("dap.utils")
+
+	dap.defaults.fallback.external_terminal = {
+		command = "/usr/bin/alacritty",
+		args = { "-e" }
+	}
 
 	dap.adapters.lldb = {
 		type = 'executable',
@@ -16,12 +43,19 @@ local init_dap = function()
 			type = "lldb",
 			request = "launch",
 			program = function()
-				local exe = vim.fn.getcwd() .. '/build/binaries/' .. vim.g.DAP_RUN_PATH
-				vim.g.DAP_RUN_PATH = nil
-				return exe
+				return coroutine.create(function(dap_run_co)
+					local bin_dir = vim.fn.getcwd() .. "/build/binaries/"
+					local bins = {}
+					for bin in io.popen("ls " .. bin_dir .. "victoria3*"):lines() do
+						bin = bin:gsub( bin_dir, "" )
+						table.insert( bins, bin )
+					end
+					vim.ui.select( bins, { label = "bin: " }, function( bin ) coroutine.resume(dap_run_co, bin_dir .. bin ) end )
+				end)
 			end,
 			cwd = '${workspaceFolder}',
 			stopOnEntry = false,
+			runInTerminal = false,
 			--args = { '-skip' },
 			--args = { '-skip', '-handsoff' },
 			--args = { '-skip', '-handsoff'},-- '-nographics' },
@@ -29,49 +63,17 @@ local init_dap = function()
 			--args = { '-loadsave=ctd' }, --, '-handsoff', '-nographics' },
 			--args = { '-handsoff'},
 			--args = { '-mapeditor' },
-			runInTerminal = false,
 		},
+		{
+			name = "Attach",
+			type = "lldb",
+			request = "attach",
+			cwd = '${workspaceFolder}',
+			stopOnEntry = false,
+			runInTerminal = false,
+			pid = function() return daputils.pick_process({ filter = 'victoria3' }) end
+		}
 	}
-
-	function run_debugger()
-		vim.ui.input( { prompt="Path to executable: ", default="victoria3_D", completion="file" }, function( path )
-			if path ~= nil then
-				vim.g.DAP_RUN_PATH = path
-				require('dap').continue()
-			end
-		end )
-	end
-
-	local dap_toggle_breakpoint = "<CMD>lua require('dap').toggle_breakpoint()<CR>"
-	local dap_toggle_conditional_breakpoint = "<CMD>lua require('dap').toggle_breakpoint(vim.fn.input('Condition: '))<CR>"
-	local dap_logpoint = "<CMD>lua require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>"
-	local dap_continue = "<CMD>lua require('dap').continue()<CR>"
-	local dap_step_over = "<CMD>lua require('dap').step_over()<CR>"
-	local dap_step_into = "<CMD>lua require('dap').step_into()<CR>"
-	local dap_step_out = "<CMD>lua require('dap').step_out()<CR>"
-	local dap_repl = "<CMD>lua require('dap').repl.open()<CR>"
-	local dap_up = "<CMD>lua require('dap').up()<CR>"
-	local dap_down = "<CMD>lua require('dap').down()<CR>"
-
-	local nvim_set_keymap = vim.api.nvim_set_keymap
-
-	nvim_set_keymap("n", "<leader>de", "<CMD>lua run_debugger()<CR>", { noremap = true })
-	nvim_set_keymap("n", "<leader>db", dap_toggle_breakpoint, { noremap = true })
-	nvim_set_keymap("n", "<leader>dB", dap_toggle_conditional_breakpoint, { noremap = true })
-	nvim_set_keymap("n", "<leader>dlp", dap_logpoint, { noremap = true })
-
-	nvim_set_keymap("n", "<leader>da", "<CMD>lua AttachToProcess()<CR>", { noremap = true })
-	nvim_set_keymap("n", "<leader>dc", dap_continue, { noremap = true })
-	nvim_set_keymap("n", "<leader>ds", dap_step_over, { noremap = true })
-	nvim_set_keymap("n", "<leader>di", dap_step_into, { noremap = true })
-	nvim_set_keymap("n", "<leader>do", dap_step_out, { noremap = true })
-
-	nvim_set_keymap("n", "<leader>dr", dap_repl, { noremap = true })
-
-	-- according to dap, callstacks grow downwards
-	nvim_set_keymap("n", "<C-A-down>", dap_up, { noremap = true  })
-	nvim_set_keymap("n", "<C-A-up>", dap_down, { noremap = true  })
-
 end
 
 
