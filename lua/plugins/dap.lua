@@ -47,9 +47,9 @@ function GetOrSetVickyArgs()
 		function( co )
 			vim.ui.input(
 			{ prompt = "Args: ", default = vim.g.VICKY_ARGS },
-			function( selection )
-				vim.g.VICKY_ARGS = selection
-				coroutine.resume( co, selection )
+			function( args )
+				vim.g.VICKY_ARGS = args
+				coroutine.resume( co, { args } )
 			end )
 		end )
 end
