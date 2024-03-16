@@ -16,6 +16,13 @@ vim.api.nvim_create_autocmd("fileType", {
 	command = "setlocal ts=4 sts=4 sw=4 noexpandtab",
 })
 
+-- vertical help
+vim.api.nvim_create_autocmd("fileType", {
+	group = file_type_group,
+	pattern = "help",
+	command = "wincmd L",
+})
+
 -- yaml requires spaces
 vim.api.nvim_create_autocmd("fileType", {
 	group = file_type_group,
