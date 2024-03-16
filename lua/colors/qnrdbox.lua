@@ -403,6 +403,8 @@ local qnrd_theme = lush( function(injected_functions)
 		sym('@lsp.type.type')     		{ fg = Type.fg,				bg = Type.bg,				gui = Type.gui },
 		sym('@lsp.type.typeParameter')	{ fg = TypeDef.fg,			bg = TypeDef.bg,			gui = TypeDef.gui },
 		sym('@lsp.type.variable') 		{ fg = Variable.fg,			bg = Variable.bg,			gui = Variable.gui },
+		sym('@lsp.mod.usedAsMutableReference.cpp')			{ fg = Colors.crimson.lighten(60), 		gui = FontMods.I },
+
 		sym('@punctuation.bracket') 	{ fg = Q.Operator.Fg,		bg = Q.Operator.Bg,			gui = Q.Operator.Gui },
 		sym('@punctuation.delimiter') 	{ fg = Q.Operator.Fg,		bg = Q.Operator.Bg,			gui = Q.Operator.Gui },
 		sym('@string.escape')			{ fg = Q.String.Fg,			bg = Q.String.Bg,			gui = Q.String.Gui },
