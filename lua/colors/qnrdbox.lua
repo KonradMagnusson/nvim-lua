@@ -356,6 +356,7 @@ local qnrd_theme = lush( function(injected_functions)
 		TroubleSignInformation			{ fg = Colors.heavy_cloud,	bg = Q.Active.Border.Bg,			gui = NoFmt },
 		TroubleTextInformation			{ fg = Colors.slate,												gui = NoFmt },
 
+		InlayHint						{ fg = Colors.charcoal.lighten(13), gui = FontMods.I },
 
 		DiagnosticUnnecessary			{ fg = Colors.gunmetal,		bg = Q.Active.Bg,					gui = NoFmt },
 		DiagnosticDeprecated			{ fg = Colors.gunmetal,		bg = Q.Active.Bg,			gui = NoFmt },
