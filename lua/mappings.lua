@@ -57,7 +57,7 @@ end
 nvim_set_keymap("n", "<C-p>", find_files, { noremap = true })
 nvim_set_keymap("n", "<A-p>", "<CMD>Telescope commander<CR>", { noremap = true })
 
-
+nvim_set_keymap("n", "<leader>df", "<CMD>lua vim.diagnostic.open_float()<CR>", { noremap = true })
 
 -- larry
 nvim_set_keymap("n", "<leader>P", "<CMD>LarrySelectPreset<CR>", { noremap = true })

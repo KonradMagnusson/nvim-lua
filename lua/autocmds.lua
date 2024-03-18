@@ -23,12 +23,6 @@ vim.api.nvim_create_autocmd("fileType", {
 	command = "wincmd L",
 })
 
--- diagnostic on hover
-vim.api.nvim_create_autocmd("CursorHold", {
-	group = file_type_group,
-	command = "lua vim.diagnostic.open_float()",
-})
-
 -- yaml requires spaces
 vim.api.nvim_create_autocmd("fileType", {
 	group = file_type_group,
