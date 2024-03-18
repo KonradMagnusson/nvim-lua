@@ -357,7 +357,7 @@ local qnrd_theme = lush( function(injected_functions)
 		TroubleSignInformation			{ fg = Colors.heavy_cloud,	bg = Q.Active.Border.Bg,				gui = NoFmt },
 		TroubleTextInformation			{ fg = Colors.slate,												gui = NoFmt },
 
-		InlayHint						{ fg = Colors.charcoal.lighten(13), gui = FontMods.I },
+		InlayHint						{ fg = Colors.charcoal.lighten(20), gui = FontMods.I },
 
 		DiagnosticUnnecessary			{ fg = Colors.gunmetal,		bg = Q.Active.Bg,					gui = "underdotted" },
 		DiagnosticDeprecated			{ fg = Colors.gunmetal,		bg = Q.Active.Bg,					gui = "strikethrough" },
@@ -379,7 +379,7 @@ local qnrd_theme = lush( function(injected_functions)
 		DiagnosticUnderlineOk			{							bg = Colors.leaf.darken(80),		gui = NoFmt },
 		DiagnosticUnderlineHint			{																gui = "underdotted" },
 		DiagnosticUnderlineInfo			{							bg = Colors.gunmetal.darken(80),	gui = NoFmt },
-		DiagnosticUnderlineWarn			{							bg = Colors.pumpkin.darken(80),		gui = NoFmt },
+		DiagnosticUnderlineWarn			{							bg = Colors.pumpkin.darken(80),		gui = "underdotted" },
 		DiagnosticUnderlineError		{							bg = Colors.crimson.darken(80),		gui = "undercurl" },
 		DiagnosticVirtualTextOk			{ fg = Colors.venom,											gui = NoFmt },
 		DiagnosticVirtualTextHint		{ fg = Palette.Hint,											gui = NoFmt },
