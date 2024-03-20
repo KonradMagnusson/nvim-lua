@@ -30,5 +30,3 @@ opt.relativenumber = true
 
 opt.swapfile = false
 opt.hidden = true
-
-opt.equalprg = "/home/qnrd/CAL/external_libs3/common/clang-format/linux/clang-format"
