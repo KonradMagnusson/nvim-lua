@@ -24,7 +24,7 @@ end
 
 return {
 	"rcarriga/nvim-dap-ui",
-	dependencies = { "mfussenegger/nvim-dap" },
+	dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
 	init = init_dap_ui,
 	opts = {
 		layouts = {{

@@ -80,5 +80,9 @@ return {
 
 		lspconfig.zls.setup({})
 
+		lspconfig.jsonls.setup({})
+
+		lspconfig.tsserver.setup({})
+
 	end
 }

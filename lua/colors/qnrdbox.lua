@@ -387,6 +387,17 @@ local qnrd_theme = lush( function(injected_functions)
 		DiagnosticVirtualTextWarn		{ fg = Colors.pumpkin,											gui = NoFmt },
 		DiagnosticVirtualTextError		{ fg = Colors.crimson,											gui = NoFmt },
 
+		sym('@identifier')	{ fg = Q.Identifier.Fg,	bg = Q.Identifier.Bg, gui = Q.Identifier.Gui },
+		sym('@number')	{ fg = Q.Number.Fg,	bg = Q.Number.Bg, gui = Q.Number.Gui },
+		sym('@string')	{ fg = Q.String.Fg,	bg = Q.String.Bg, gui = Q.String.Gui },
+		sym('@constant')	{ fg = Q.Constant.Fg,	bg = Q.Constant.Bg, gui = Q.Constant.Gui },
+		sym('@linkWithData')	{ fg = Q.Function.Fg,	bg = Q.Function.Bg, gui = Q.Function.Gui },
+		sym('@comment')	{ fg = Q.Comment.Fg,	bg = Q.Comment.Bg, gui = Q.Comment.Gui },
+		sym('@operator')	{ fg = Q.Operator.Fg,	bg = Q.Operator.Bg, gui = Q.Operator.Gui },
+		sym('@punctuation')	{ fg = Q.Operator.Fg,	bg = Q.Operator.Bg, gui = Q.Operator.Gui },
+
+
+
 		sym('@attribute')				{ fg = Colors.dust.darken(20),									gui = NoFmt },
 		sym('@lsp.mod.readonly') 		{ gui = FontMods.I },
 		sym('@lsp.type.class')			{ fg = ClassName.fg,		bg = ClassName.bg,			gui = ClassName.gui },
