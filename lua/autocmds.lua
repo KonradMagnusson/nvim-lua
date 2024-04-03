@@ -30,6 +30,11 @@ vim.api.nvim_create_autocmd("fileType", {
 	command = "setlocal ts=2 sts=2 sw=2 expandtab",
 })
 
+vim.api.nvim_create_autocmd("BufWritePost", {
+	pattern = {"*.cpp", "*.h", "*.inl" };
+	command = "silent !/home/qnrd/CAL/external_libs3/common/clang-format/linux/clang-format -i %:p",
+})
+
 -- enter insert mode when switching to a terminal window
 vim.api.nvim_create_autocmd({ "BufWinEnter", "WinEnter" }, {
 	group = buffer_group,

@@ -272,6 +272,10 @@ local qnrd_theme = lush( function(injected_functions)
 		sym('@text.diff.change.diff')	{ DiffChange },
 		sym('@text.diff.text.diff')		{ DiffText },
 
+		NeogitDiffChange				{ DiffChange },
+		NeogitDiffChangeModified		{ DiffChange },
+		NeogitDiffChangeRegion			{ DiffChange },
+
 		GitSignsAdd						{ fg = Palette.DiffAddFg,		bg = Q.Active.Border.Bg,		gui = NoFmt },
 		GitSignsAddNr					{ fg = GitSignsAdd.fg,			bg = Q.Active.Border.Bg,		gui = GitSignsAdd.gui },
 		GitSignsDelete					{ fg = Palette.DiffDeleteFg,	bg = Q.Active.Border.Bg,		gui = NoFmt },
@@ -388,11 +392,12 @@ local qnrd_theme = lush( function(injected_functions)
 		DiagnosticVirtualTextError		{ fg = Colors.crimson,											gui = NoFmt },
 
 		sym('@identifier')	{ fg = Q.Identifier.Fg,	bg = Q.Identifier.Bg, gui = Q.Identifier.Gui },
-		sym('@number')	{ fg = Q.Number.Fg,	bg = Q.Number.Bg, gui = Q.Number.Gui },
-		sym('@string')	{ fg = Q.String.Fg,	bg = Q.String.Bg, gui = Q.String.Gui },
+		sym('@number')		{ fg = Q.Number.Fg,	bg = Q.Number.Bg, gui = Q.Number.Gui },
+		sym('@string')		{ fg = Q.String.Fg,	bg = Q.String.Bg, gui = Q.String.Gui },
 		sym('@constant')	{ fg = Q.Constant.Fg,	bg = Q.Constant.Bg, gui = Q.Constant.Gui },
-		sym('@linkWithData')	{ fg = Q.Function.Fg,	bg = Q.Function.Bg, gui = Q.Function.Gui },
-		sym('@comment')	{ fg = Q.Comment.Fg,	bg = Q.Comment.Bg, gui = Q.Comment.Gui },
+		sym('@link')		{ fg = Enumerator.fg,		bg = Enumerator.bg,			gui = Enumerator.gui },
+		sym('@link_data')	{ fg = EnumerationName.fg,	bg = EnumerationName.bg,	gui = Enumeration.gui },
+		sym('@comment')		{ fg = Q.Comment.Fg,	bg = Q.Comment.Bg, gui = Q.Comment.Gui },
 		sym('@operator')	{ fg = Q.Operator.Fg,	bg = Q.Operator.Bg, gui = Q.Operator.Gui },
 		sym('@punctuation')	{ fg = Q.Operator.Fg,	bg = Q.Operator.Bg, gui = Q.Operator.Gui },
 

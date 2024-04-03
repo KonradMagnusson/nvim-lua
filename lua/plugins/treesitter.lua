@@ -12,11 +12,12 @@ return {
 
 		require("nvim-treesitter.configs").setup({
 			ensure_installed = {
-				"lua", "vim", "vimdoc", "query", "c", "cpp", "python"
+				"lua", "vim", "vimdoc", "query", "c", "cpp", "python", "cwscript"
 			},
 			sync_install = false,
 
 			highlight = { enable = true },
 		})
+
 	end
 }
