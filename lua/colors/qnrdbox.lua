@@ -395,6 +395,7 @@ local qnrd_theme = lush( function(injected_functions)
 		sym('@number')		{ fg = Q.Number.Fg,	bg = Q.Number.Bg, gui = Q.Number.Gui },
 		sym('@string')		{ fg = Q.String.Fg,	bg = Q.String.Bg, gui = Q.String.Gui },
 		sym('@constant')	{ fg = Q.Constant.Fg,	bg = Q.Constant.Bg, gui = Q.Constant.Gui },
+		sym('@path')		{ fg = Colors.moss,	gui = FontMods.I },
 		sym('@link')		{ fg = Enumerator.fg,		bg = Enumerator.bg,			gui = Enumerator.gui },
 		sym('@link_data')	{ fg = EnumerationName.fg,	bg = EnumerationName.bg,	gui = Enumeration.gui },
 		sym('@comment')		{ fg = Q.Comment.Fg,	bg = Q.Comment.Bg, gui = Q.Comment.Gui },
