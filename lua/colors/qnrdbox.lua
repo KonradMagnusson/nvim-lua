@@ -393,17 +393,20 @@ local qnrd_theme = lush( function(injected_functions)
 
 		sym('@identifier')			{ Identifier },
 		sym('@number')				{ Number },
+		sym('@variable')			{ Variable },
 		sym('@string')				{ String },
-		sym('@constant')			{ Constant },
+		sym('@conditional')			{ Conditional },
 		sym('@path')				{ fg = Colors.moss,	gui = FontMods.I },
-		sym('@link')				{ Enumerator },
-		sym('@link.data')			{ EnumerationName },
+		sym('@comment')				{ Comment },
+		sym('@bool')				{ Boolean },
+		sym('@constant')			{ Constant },
+		sym('@operator')			{ Operator },
+		sym('@punctuation')			{ Operator },
 		sym('@define')				{ Statement },
 		sym('@define.category')		{ ClassName },
 		sym('@define.name')			{ Macro },
-		sym('@comment')				{ Comment },
-		sym('@operator')			{ Operator },
-		sym('@punctuation')			{ Operator },
+		sym('@link')				{ Enumerator },
+		sym('@link.data')			{ EnumerationName },
 
 
 
