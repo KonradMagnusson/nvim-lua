@@ -488,6 +488,9 @@ local qnrd_theme = lush( function(injected_functions)
 		DapUIFloatBorder				{ fg = Colors.lead,				bg = Colors.venom,		gui = FloatBorder.gui },
 		DapUIWinSelect					{ fg = Colors.lead,				bg = Colors.venom,		gui = FloatBorder.gui },
 
+		LeapMatch						{ fg = Colors.black,					bg = Colors.matte_sapphire.darken(10),		gui = FontMods.B },
+		LeapLabelPrimary				{ fg = Colors.black,					bg = Colors.sky_blue.darken(10),			gui = FontMods.B },
+		LeapLabelSecondary				{ fg = Colors.heavy_cloud.lighten(30),	bg = Colors.chambray.darken(10),			gui = FontMods.B},
 
 		NotifyBackground				{ fg = NoFmt,					bg=Colors.black,			gui = NoFmt },
 

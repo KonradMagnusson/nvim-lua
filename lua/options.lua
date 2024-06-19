@@ -1,32 +1,36 @@
-local opt = vim.opt
+vim.g.loaded_node_provider = 0
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_ruby_provider = 0
 
 -- colors
 vim.cmd("syntax on")
-opt.background = "dark"
-opt.termguicolors = true
+vim.opt.background = "dark"
+vim.opt.termguicolors = true
 
 -- default indentation is 4-wide tabs
-opt.tabstop = 4
-opt.shiftwidth = 4
-opt.softtabstop = 4
-opt.expandtab = false
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 4
+vim.opt.expandtab = false
+
+vim.opt.scrolloff = 20
 
 -- show tabs, trailing whitespace, and newlines
-opt.list = true
-opt.listchars = "tab:▸ ,trail:·"
+vim.opt.list = true
+vim.opt.listchars = "tab:▸ ,trail:·"
 
-opt.colorcolumn = "150,170,210"
-opt.signcolumn = "auto"
-opt.cursorline = true
+vim.opt.colorcolumn = "150,170,210"
+vim.opt.signcolumn = "auto"
+vim.opt.cursorline = true
 
-opt.splitright = true
-opt.splitbelow = true
-opt.foldlevel = 99
-opt.foldmethod = "expr"
-opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+vim.opt.foldlevel = 99
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 
-opt.number = true
-opt.relativenumber = true
+vim.opt.number = true
+vim.opt.relativenumber = true
 
-opt.swapfile = false
-opt.hidden = true
+vim.opt.swapfile = false
+vim.opt.hidden = true
