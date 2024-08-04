@@ -72,7 +72,9 @@ return {
 				"--fallback-style=webkit",
 				"--malloc-trim",
 				"--header-insertion-decorators",
-				"--header-insertion=iwyu"
+				"--header-insertion=iwyu",
+				"-j=8" --,
+				--"--hidden-features"
 			},
 		})
 
