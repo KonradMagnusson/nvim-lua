@@ -53,10 +53,12 @@ nvim_set_keymap("!", "<leader><leader>", "<Esc>/<++><CR>:noh<CR>cf>", { noremap 
 
 -- telescope
 local find_files = "<CMD>lua require('telescope.builtin').find_files({ search_dirs={ '.' } })<CR>"
-if string.find( os.getenv("PWD"), "CAL" ) then
-	find_files = "<CMD>lua require('telescope.builtin').find_files({ search_dirs={ '.', '/home/qnrd/CAL/cw' } })<CR>"
-elseif string.find(os.getenv("PWD"), "WT" ) then
-	find_files = "<CMD>lua require('telescope.builtin').find_files({ search_dirs={ '.', '/home/qnrd/WT/cw' } })<CR>"
+if string.find( os.getenv("PWD"), "proj/develop" ) then
+	find_files = "<CMD>lua require('telescope.builtin').find_files({ search_dirs={ '.', '/home/qnrd/proj/develop/cw' } })<CR>"
+elseif string.find(os.getenv("PWD"), "proj/A" ) then
+	find_files = "<CMD>lua require('telescope.builtin').find_files({ search_dirs={ '.', '/home/qnrd/proj/A/cw' } })<CR>"
+elseif string.find(os.getenv("PWD"), "proj/B" ) then
+	find_files = "<CMD>lua require('telescope.builtin').find_files({ search_dirs={ '.', '/home/qnrd/proj/B/cw' } })<CR>"
 end
 
 nvim_set_keymap("n", "<C-p>", find_files, { noremap = true })
