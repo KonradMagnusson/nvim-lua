@@ -49,6 +49,7 @@ function GetOrSetVickyArgs()
 			{ prompt = "Args: ", default = vim.g.VICKY_ARGS },
 			function( args )
 				vim.g.VICKY_ARGS = args
+				args = args .. " -suppress-error-log"
 				coroutine.resume( co, { args } )
 			end )
 		end )
