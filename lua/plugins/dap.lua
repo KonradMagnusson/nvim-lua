@@ -77,6 +77,12 @@ local init_dap = function( opts )
 		}
 	}
 
+	dap.adapters.gdb = {
+		type = "executable",
+		command = "gdb",
+		args = { "-i", "dap" }
+	}
+
 	dap.configurations.cpp = {
 		{
 			name = "Debug V3",
@@ -87,6 +93,7 @@ local init_dap = function( opts )
 			cwd = "${workspaceFolder}",
 			stopOnEntry = false,
 			runInTerminal = false,
+			--stopAtBeginningOfMainSubprogram = false,
 		},
 		{
 			name = "Debug V3 [noargs]",
@@ -96,6 +103,7 @@ local init_dap = function( opts )
 			cwd = "${workspaceFolder}",
 			stopOnEntry = false,
 			runInTerminal = false,
+			--stopAtBeginningOfMainSubprogram = false,
 		},
 		{
 			name = "Attach to running game",
@@ -104,7 +112,8 @@ local init_dap = function( opts )
 			cwd = "${workspaceFolder}",
 			stopOnEntry = false,
 			runInTerminal = false,
-			pid = function() return daputils.pick_process({ filter = "victoria3" }) end
+			pid = function() return daputils.pick_process({ filter = "victoria3" }) end,
+			--stopAtBeginningOfMainSubprogram = false,
 		}
 	}
 end
