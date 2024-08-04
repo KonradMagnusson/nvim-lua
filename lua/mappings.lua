@@ -71,7 +71,5 @@ nvim_set_keymap("n", "<leader>lc", "<CMD>LarryToggleConfigureView<CR>", { norema
 nvim_set_keymap("n", "<leader>B", "<CMD>LarryBuild<CR>", { noremap = true })
 nvim_set_keymap("n", "<leader>b", "<CMD>LarryToggleBuildView<CR>", { noremap = true })
 
-nvim_set_keymap("n", "<leader>T", "<CMD>Trouble<CR>", { noremap = true })
-
 -- lens
 nvim_set_keymap("n", "<leader>l", "<CMD>LspLensToggle<CR>", { noremap = true })
