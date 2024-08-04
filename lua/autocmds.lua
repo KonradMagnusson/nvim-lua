@@ -38,7 +38,7 @@ vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
 
 vim.api.nvim_create_autocmd("BufWritePost", {
 	pattern = {"*.cpp", "*.h", "*.inl" };
-	command = "silent !/home/qnrd/CAL/external_libs3/common/clang-format/linux/clang-format -i %:p",
+	command = "silent !/home/qnrd/bin/clang-format -i %:p",
 })
 
 -- enter insert mode when switching to a terminal window
