@@ -30,6 +30,12 @@ vim.api.nvim_create_autocmd("fileType", {
 	command = "setlocal ts=2 sts=2 sw=2 expandtab",
 })
 
+vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
+	group = file_type_group,
+	pattern = "*.gui",
+	command = "setf text",
+})
+
 vim.api.nvim_create_autocmd("BufWritePost", {
 	pattern = {"*.cpp", "*.h", "*.inl" };
 	command = "silent !/home/qnrd/CAL/external_libs3/common/clang-format/linux/clang-format -i %:p",
