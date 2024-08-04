@@ -70,7 +70,7 @@ local init_dap = function( opts )
 
 	dap.adapters.lldb = {
 		type = "executable",
-		command = "/usr/bin/lldb-vscode",
+		command = "/usr/bin/lldb-dap",
 		name = "lldb",
 		options = {
 			initialize_timeout_sec = 10,
