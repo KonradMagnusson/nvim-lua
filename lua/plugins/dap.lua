@@ -30,11 +30,11 @@ function BlockingUISelect( items, opts )
 end
 
 
-function GetAvailableVickyBinaries()
+function GetAvailableGameBinaries()
 	return coroutine.create(function( co )
 		local bin_dir = vim.fn.getcwd() .. "/build/binaries/"
 		local bins = {}
-		for bin in io.popen("ls " .. bin_dir .. "victoria3*"):lines() do
+		for bin in io.popen("ls " .. bin_dir .. "{victoria3,Marius}*"):lines() do
 			bin = bin:gsub( bin_dir, "" )
 			table.insert( bins, bin )
 		end
@@ -42,13 +42,13 @@ function GetAvailableVickyBinaries()
 	end)
 end
 
-function GetOrSetVickyArgs()
+function GetOrSetGameArgs()
 	return coroutine.create(
 		function( co )
 			vim.ui.input(
-			{ prompt = "Args: ", default = vim.g.VICKY_ARGS },
+			{ prompt = "Args: ", default = vim.g.CMD_LINE_ARGS },
 			function( args )
-				vim.g.VICKY_ARGS = args
+				vim.g.CMD_LINE_ARGS = args
 				args = args .. " -suppress-error-log"
 				coroutine.resume( co, { args } )
 			end )
@@ -59,8 +59,8 @@ local init_dap = function( opts )
 	local dap = require("dap")
 	local daputils = require("dap.utils")
 
-	if vim.g.VICKY_ARGS == nil or type(vim.g.VICKY_ARGS) ~= "string" then
-		vim.g.VICKY_ARGS = ""
+	if vim.g.CMD_LINE_ARGS == nil or type(vim.g.CMD_LINE_ARGS) ~= "string" then
+		vim.g.CMD_LINE_ARGS = ""
 	end
 
 	dap.defaults.fallback.external_terminal = {
@@ -85,21 +85,21 @@ local init_dap = function( opts )
 
 	dap.configurations.cpp = {
 		{
-			name = "Debug V3",
+			name = "Debug",
 			type = "lldb",
 			request = "launch",
-			program = GetAvailableVickyBinaries,
-			args = GetOrSetVickyArgs,
+			program = GetAvailableGameBinaries,
+			args = GetOrSetGameArgs,
 			cwd = "${workspaceFolder}",
 			stopOnEntry = false,
 			runInTerminal = false,
 			--stopAtBeginningOfMainSubprogram = false,
 		},
 		{
-			name = "Debug V3 [noargs]",
+			name = "Debug [noargs]",
 			type = "lldb",
 			request = "launch",
-			program = GetAvailableVickyBinaries,
+			program = GetAvailableGameBinaries,
 			cwd = "${workspaceFolder}",
 			stopOnEntry = false,
 			runInTerminal = false,
@@ -112,7 +112,7 @@ local init_dap = function( opts )
 			cwd = "${workspaceFolder}",
 			stopOnEntry = false,
 			runInTerminal = false,
-			pid = function() return daputils.pick_process({ filter = "victoria3" }) end,
+			pid = function() return daputils.pick_process({ filter = function( proc ) return proc.name:find("victoria3") or proc.name:find("Marius") end }) end,
 			--stopAtBeginningOfMainSubprogram = false,
 		}
 	}

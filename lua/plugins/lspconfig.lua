@@ -41,7 +41,7 @@ return {
 
 				-- code navigation
 				vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<CMD>Telescope lsp_definitions<CR>", { noremap = true, silent = true })
-				vim.api.nvim_buf_set_keymap(bufnr, "n", "go", "<CMD>ClangdSwitchSourceHeader<CR>", { noremap = true, silent = true })
+				vim.api.nvim_buf_set_keymap(bufnr, "n", "go", "<CMD>Ouroboros<CR>", { noremap = true, silent = true })
 				vim.api.nvim_buf_set_keymap(bufnr, "n", "gt", "<CMD>Telescope lsp_type_definitions<CR>", { noremap = true, silent = true })
 				vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<CMD>Telescope lsp_references<CR>", { noremap = true, silent = true })
 				vim.api.nvim_buf_set_keymap(bufnr, "n", "g?", "<CMD>lua vim.lsp.buf.signature_help()<CR>", { noremap = true, silent = true })

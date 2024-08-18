@@ -65,3 +65,38 @@ vim.api.nvim_create_autocmd( "fileType", {
 		vim.api.nvim_buf_set_option(0, "commentstring", "// %s")
 	end
 })
+
+--[[
+vim.api.nvim_create_autocmd( "LspTokenUpdate", {
+	callback = function( args )
+		local token = args.data.token
+		if token.type ~= "class" then
+			return
+		end
+
+		local unnamed_endings = {
+			",", "&,", "*,", "&&,", "**,",
+			" )", "& )", "* )", "&& )", "** )",
+		}
+
+		local tail = vim.api.nvim_buf_get_text( args.buf, token.line, token.end_col + 0, token.line, 500, {})[1]
+		for k, ending in pairs( unnamed_endings ) do
+			if tail == ending then
+				vim.lsp.semantic_tokens.highlight_token( token, args.buf, args.data.client_id, "InlayHint")
+					return
+			end
+		end
+	end
+})
+----]]
+
+
+
+
+vim.api.nvim_create_autocmd( {"WinResized", "WinNew", "WinEnter"}, {
+	callback = function(ev)
+		local window_height = vim.api.nvim_win_get_height( 0 )
+		local offset = math.floor( window_height / 6 )
+		vim.api.nvim_buf_set_option( 0, "scrolloff", offset )
+	end
+})

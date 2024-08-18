@@ -94,12 +94,14 @@ local Palette = {
 local Q = {
 	Active = {
 		Text = { Fg = Palette.NormalFg, Bg = Palette.NormalBg, Gui = NoFmt },
-		Border = { Fg = Colors.slate, Bg = Colors.lead.darken(75), Gui = NoFmt },
+		--Border = { Fg = Colors.slate, Bg = Colors.lead.darken(75), Gui = NoFmt },
+		Border = { Fg = Colors.slate, Bg = Palette.Bg, Gui = NoFmt },
 		Scroll = { Fg = Colors.slate, Bg = Colors.graphite, Gui = NoFmt },
 	},
 	Inactive = {
-		Text = { Fg = Palette.DarkFg, Bg = Palette.DarkBg, Gui = NoFmt },
-		Border = { Fg = Colors.graphite, Bg = Colors.lead.darken(75), Gui = NoFmt },
+		Text = { Fg = Palette.DarkFg, Bg = Palette.NormalBg, Gui = NoFmt },
+		--Border = { Fg = Colors.graphite, Bg = Colors.lead.darken(75), Gui = NoFmt },
+		Border = { Fg = Colors.graphite.lighten(20), Bg = Palette.Bg, Gui = NoFmt },
 		Scroll = { Fg = Colors.slate, Bg = Colors.graphite, Gui = NoFmt },
 	},
 	Menu = {
@@ -492,7 +494,10 @@ local qnrd_theme = lush( function(injected_functions)
 		LeapLabelPrimary				{ fg = Colors.black,					bg = Colors.sky_blue.darken(10),			gui = FontMods.B },
 		LeapLabelSecondary				{ fg = Colors.heavy_cloud.lighten(30),	bg = Colors.chambray.darken(10),			gui = FontMods.B},
 
-		NotifyBackground				{ fg = NoFmt,					bg=Colors.black,			gui = NoFmt },
+		NotifyBackground				{ fg = NoFmt,					bg = Colors.black,			gui = NoFmt },
+
+		HighlightUndo					{ fg = Colors.black,					bg = Colors.matte_sapphire,	gui = NoFmt },
+		HighlightRedo					{ fg = Colors.black,					bg = Colors.faded_green,	gui = NoFmt },
 
 	}
 end)

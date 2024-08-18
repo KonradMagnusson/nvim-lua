@@ -13,8 +13,6 @@ vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
 vim.opt.expandtab = false
 
-vim.opt.scrolloff = 20
-
 -- show tabs, trailing whitespace, and newlines
 vim.opt.list = true
 vim.opt.listchars = "tab:▸ ,trail:·"
@@ -26,8 +24,8 @@ vim.opt.cursorline = true
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.opt.foldlevel = 99
-vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldmethod = "expr"
 
 vim.opt.number = true
 vim.opt.relativenumber = true
