@@ -3,7 +3,7 @@ return {
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	opts = {
 		win = {
-			position = "right",
+			position = "left",
 			width = 80,
 			type = "split"
 		},

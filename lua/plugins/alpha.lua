@@ -80,7 +80,8 @@ return {
 
 		dashboard.section.buttons.val = {
 			dashboard.button("n", "   New file", ":ene <BAR> startinsert <CR>"),
-			dashboard.button("<C-p>", "󰮗   Find file", ":Telescope find_files<CR>"),
+			--dashboard.button("<C-p>", "󰮗   Find file", ":Telescope find_files<CR>"),
+			dashboard.button("<C-p>", "󰮗   Find file", ":lua vim.cmd(_G.GetFindFilesCmd())<CR>"),
 			dashboard.button("f", "   File Explorer", ":Oil<CR>"),
 			dashboard.button("r", "   Recent", ":Telescope oldfiles<CR>"),
 			dashboard.button("c", "   Configuration", ":cd ~/.config/nvim | :Telescope find_files<CR>"),

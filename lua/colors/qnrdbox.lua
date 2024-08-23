@@ -214,7 +214,7 @@ local qnrd_theme = lush( function(injected_functions)
 		SignColumn						{ fg = Colors.graphite, bg = Q.Active.Border.Bg, gui = Q.Active.Border.Gui },
 		FoldColumn						{ fg = Colors.graphite, bg = Q.Active.Border.Bg, gui = Q.Active.Border.Gui },
 		StatusLine						{ fg = Q.Active.Border.Fg, bg = Q.Active.Border.Bg, gui = Q.Active.Border.Gui },
-		StatusLineNC					{ fg = Q.Inactive.Border.Fg, bg = Q.Inactive.Border.Bg, gui = Q.Inactive.Border.Gui },
+		StatusLineNC					{ fg = Q.Inactive.Border.Fg, bg = Q.Inactive.Border.Bg.darken(20), gui = Q.Inactive.Border.Gui },
 		WinSeparator					{ fg = Q.Inactive.Border.Fg, bg = Q.Inactive.Border.Bg, gui = Q.Inactive.Border.Gui },
 		ModeMsg							{ fg = Palette.Hint, bg = Q.Inactive.Border.Bg,	gui = Q.Standout.Gui },
 

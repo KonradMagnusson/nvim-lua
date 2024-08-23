@@ -48,21 +48,45 @@ set_map("", "<leader><leader>", "<Esc>/<++><CR>:noh<CR>cf>", { noremap = true })
 set_map("!", "<leader><leader>", "<Esc>/<++><CR>:noh<CR>cf>", { noremap = false })
 
 -- telescope
-local find_files = "<CMD>lua require('telescope.builtin').find_files({ search_dirs={ '.' } })<CR>"
-if string.find( os.getenv("PWD"), "proj/develop" ) then
-	find_files = "<CMD>lua require('telescope.builtin').find_files({ search_dirs={ '.', '/home/qnrd/proj/develop/cw' } })<CR>"
-elseif string.find(os.getenv("PWD"), "proj/A" ) then
-	find_files = "<CMD>lua require('telescope.builtin').find_files({ search_dirs={ '.', '/home/qnrd/proj/A/cw' } })<CR>"
-elseif string.find(os.getenv("PWD"), "proj/B" ) then
-	find_files = "<CMD>lua require('telescope.builtin').find_files({ search_dirs={ '.', '/home/qnrd/proj/B/cw' } })<CR>"
+_G.GetFindFilesCmd = function()
+	vim.fn.system( "git rev-parse --is-inside-work-tree" )
+	local is_git_repo = vim.v.shell_error == 0
+
+	local cmd = "lua require('telescope.builtin').find_files({ search_dirs={ "
+	local closer = "'.' } })"
+	if not is_git_repo then
+		return cmd .. closer
+	end
+
+	local dot_git_path = vim.fn.finddir( ".git", ".;" )
+	if dot_git_path == "" then
+		dot_git_path = vim.fn.findfile( ".git", ".;" )
+	end
+	local git_root = vim.fn.fnamemodify( dot_git_path, ":h" )
+
+	local handle = io.popen( "cd " .. git_root .. " && cmake --preset $(cat builddir/current_preset) -N | rg CW_BASE_DIR | sed -E 's/.*\\\"(.*)\\\".*/\\1/g'" )
+	assert(handle)
+	local cw_dir = handle:read("*l")
+	handle:close()
+	if cw_dir and #cw_dir ~= 0 then
+		cmd = cmd .. "'./" .. cw_dir .. "' ,"
+	end
+
+	return cmd .. closer
 end
 
-set_map("n", "<C-p>", find_files, { noremap = true })
+
+set_map("n", "<C-p>", ":lua vim.cmd(_G.GetFindFilesCmd())<CR>", { noremap = true })
 set_map("n", "<A-p>", "<CMD>Telescope commander<CR>", { noremap = true })
 
 
 
 
 -- lsp
-set_map("n", "<leader>S", "<CMD>LspStop<CR>", { noremap = true } )
-set_map("n", "<leader><C-s>", "<CMD>LspRestart<CR>", { noremap = true } )
+reset_hints = function()
+	vim.lsp.inlay_hint.enable( false )
+	vim.lsp.inlay_hint.enable( true )
+end
+set_map("n", "<leader>S", "<CMD>lua reset_hints<CR>", { noremap = true } )
+set_map("n", "<leader><C-s>", "<CMD>LspStop<CR>", { noremap = true } )
+
