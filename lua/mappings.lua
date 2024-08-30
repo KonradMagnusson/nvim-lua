@@ -22,7 +22,7 @@ set_map("", "ö", "l", { noremap = true })
 set_map("", "h", "0", { noremap = true })
 set_map("", "ä", "$", { noremap = true })
 
-set_map("", "tq", "<CMD>tabclose<CR>", { noremap = true })
+set_map("", "tq", ":tabclose<CR>", { noremap = true })
 
 -- scrolling
 set_map("n", "<C-K>", "10<C-E>10k", {noremap = false, nowait = true })
@@ -32,16 +32,16 @@ set_map("n", "<C-A-L>", "<C-Y>l", {noremap = false, nowait = true })
 
 
 -- misc
-set_map("n", "<leader>3", "<CMD>noh<CR>", { noremap = false })
+set_map("n", "<leader>3", ":noh<CR>", { noremap = false })
 set_map("n", "<leader>p", '"+p', { noremap = false } )
 set_map("n", "<leader>y", '"+y', { noremap = false } )
-set_map("n", "<leader>R", "<CMD>Gitsigns refresh<CR>", { noremap = false } )
-set_map("n", "<Leader>w", "<CMD>lua require('whitespace-nvim').trim()<CR>", { noremap = false } )
-set_map("n", "<leader>df", "<CMD>lua vim.diagnostic.open_float()<CR>", { noremap = true })
-set_map("n", "<leader>o", "<CMD>Outline<CR>", { noremap = true })
+set_map("n", "<leader>R", ":Gitsigns refresh<CR>", { noremap = false } )
+set_map("n", "<Leader>w", ":lua require('whitespace-nvim').trim()<CR>", { noremap = false } )
+set_map("n", "<leader>df", ":lua vim.diagnostic.open_float()<CR>", { noremap = true })
+set_map("n", "<leader>o", ":Outline<CR>", { noremap = true })
 
 -- lush
-set_map("n", "<leader>L", '<CMD>Lushify<CR>', { noremap = false } )
+set_map("n", "<leader>L", ':Lushify<CR>', { noremap = false } )
 
 -- snippet navigation
 set_map("", "<leader><leader>", "<Esc>/<++><CR>:noh<CR>cf>", { noremap = true })
@@ -77,7 +77,7 @@ end
 
 
 set_map("n", "<C-p>", ":lua vim.cmd(_G.GetFindFilesCmd())<CR>", { noremap = true })
-set_map("n", "<A-p>", "<CMD>Telescope commander<CR>", { noremap = true })
+set_map("n", "<A-p>", ":Telescope commander<CR>", { noremap = true })
 
 
 
@@ -87,6 +87,6 @@ reset_hints = function()
 	vim.lsp.inlay_hint.enable( false )
 	vim.lsp.inlay_hint.enable( true )
 end
-set_map("n", "<leader>S", "<CMD>lua reset_hints<CR>", { noremap = true } )
-set_map("n", "<leader><C-s>", "<CMD>LspStop<CR>", { noremap = true } )
+set_map("n", "<leader>S", ":lua reset_hints<CR>", { noremap = true } )
+set_map("n", "<leader><C-s>", ":LspStop<CR>", { noremap = true } )
 

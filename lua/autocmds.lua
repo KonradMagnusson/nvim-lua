@@ -66,6 +66,13 @@ vim.api.nvim_create_autocmd( "fileType", {
 	end
 })
 
+vim.api.nvim_create_autocmd("InsertEnter", {
+	command = "ClangdDisableInlayHints",
+})
+vim.api.nvim_create_autocmd("InsertLeave", {
+	command = "ClangdSetInlayHints",
+})
+
 --[[
 vim.api.nvim_create_autocmd( "LspTokenUpdate", {
 	callback = function( args )
