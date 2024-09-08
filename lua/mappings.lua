@@ -65,7 +65,7 @@ _G.GetFindFilesCmd = function()
 	end
 	local git_root = vim.fn.fnamemodify( dot_git_path, ":h" )
 
-	local handle = io.popen( "cd " .. git_root .. " && cmake --preset $(cat builddir/current_preset) -N | rg CW_BASE_DIR | sed -E 's/.*\\\"(.*)\\\".*/\\1/g'" )
+	local handle = io.popen( "cd " .. git_root .. " && cmake --preset $(cat builddir/current_preset) -N 2>/dev/null | rg CW_BASE_DIR | sed -E 's/.*\\\"(.*)\\\".*/\\1/g'" )
 	assert(handle)
 	local cw_dir = handle:read("*l")
 	handle:close()

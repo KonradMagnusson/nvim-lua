@@ -1,6 +1,5 @@
--- dependency for neorg
 return {
     "vhyrro/luarocks.nvim",
-    priority = 1000,
+    priority = 200,
     config = true,
 }

@@ -1,7 +1,7 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
 
-	dependencies = { 
+	dependencies = {
 		"rcarriga/nvim-notify",
 		"nvim-treesitter/playground",
 	},
@@ -22,6 +22,5 @@ return {
 				disable = { "python" }
 			},
 		})
-
 	end
 }

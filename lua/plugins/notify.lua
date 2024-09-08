@@ -3,6 +3,8 @@ return {
 
 	dependencies = { "rktjmp/lush.nvim" },
 
+	priority = 300,
+
 	config = function()
 		vim.notify = require("notify")
 		vim.notify.setup({

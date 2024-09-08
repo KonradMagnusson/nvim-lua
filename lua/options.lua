@@ -15,7 +15,7 @@ vim.opt.expandtab = false
 
 -- show tabs, trailing whitespace, and newlines
 vim.opt.list = true
-vim.opt.listchars = "tab:▸ ,trail:·"
+vim.opt.listchars = "tab:▸ ,trail:×"
 
 vim.opt.colorcolumn = "150,170,210"
 vim.opt.signcolumn = "auto"
