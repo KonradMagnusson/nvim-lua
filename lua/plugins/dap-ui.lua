@@ -7,11 +7,11 @@ local init_dap_ui = function()
 	end
 
 	dap.listeners.before.event_terminated.dapui_config = function()
-	  dapui.close()
+		dapui.close()
 	end
 
 	dap.listeners.before.event_exited.dapui_config = function()
-	  dapui.close()
+		dapui.close()
 	end
 
 	vim.fn.sign_define('DapBreakpoint', {text='󰏃', texthl='DapBreakpoint', numhl='DapBreakpoint', linehl=''})
@@ -27,26 +27,35 @@ return {
 	dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
 	init = init_dap_ui,
 	opts = {
-		layouts = {{
-			elements = {{
-				id = "scopes",
-				size = 0.5,
-			}, {
-				id = "repl",
-				size = 0.5,
-			}},
-			position = "bottom",
-			size = 15,
-		}, {
-			elements = {{
-				id = "stacks",
-				size = 0.7,
-			}, {
-				id = "watches",
-				size = 0.3,
-			}},
-			position = "left",
-			size = 120,
-		}},
+		layouts = {
+			{
+				elements = {
+					{
+						id = "repl",
+						size = 1,
+					}
+				},
+				position = "bottom",
+				size = 15,
+			},
+			{
+				elements = {
+					{
+						id = "stacks",
+						size = 0.4,
+					},
+					{
+						id = "watches",
+						size = 0.3,
+					},
+					{
+						id = "scopes",
+						size = 0.3,
+					},
+				},
+				position = "left",
+				size = 120,
+			}
+		},
 	}
 }

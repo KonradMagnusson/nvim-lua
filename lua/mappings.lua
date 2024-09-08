@@ -39,6 +39,7 @@ set_map("n", "<leader>R", ":Gitsigns refresh<CR>", { noremap = false } )
 set_map("n", "<Leader>w", ":lua require('whitespace-nvim').trim()<CR>", { noremap = false } )
 set_map("n", "<leader>df", ":lua vim.diagnostic.open_float()<CR>", { noremap = true })
 set_map("n", "<leader>o", ":Outline<CR>", { noremap = true })
+set_map("n", "<leader>vk", ':lua os.execute("vkill")<CR>', { noremap = true })
 
 -- lush
 set_map("n", "<leader>L", ':Lushify<CR>', { noremap = false } )

@@ -93,6 +93,7 @@ local init_dap = function( opts )
 			cwd = "${workspaceFolder}",
 			stopOnEntry = false,
 			runInTerminal = false,
+			console = "integratedTerminal",
 			--stopAtBeginningOfMainSubprogram = false,
 		},
 		{
@@ -103,6 +104,7 @@ local init_dap = function( opts )
 			cwd = "${workspaceFolder}",
 			stopOnEntry = false,
 			runInTerminal = false,
+			console = "integratedTerminal",
 			--stopAtBeginningOfMainSubprogram = false,
 		},
 		{
@@ -112,6 +114,7 @@ local init_dap = function( opts )
 			cwd = "${workspaceFolder}",
 			stopOnEntry = false,
 			runInTerminal = false,
+			console = "integratedTerminal",
 			pid = function() return daputils.pick_process({ filter = function( proc ) return proc.name:find("victoria3") or proc.name:find("Marius") end }) end,
 			--stopAtBeginningOfMainSubprogram = false,
 		}
