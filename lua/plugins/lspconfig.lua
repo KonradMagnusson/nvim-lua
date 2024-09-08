@@ -84,7 +84,7 @@ return {
 
 		lspconfig.jsonls.setup({})
 
-		lspconfig.tsserver.setup({})
+		lspconfig.ts_ls.setup({})
 
 	end
 }
