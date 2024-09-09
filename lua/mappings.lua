@@ -91,3 +91,18 @@ end
 set_map("n", "<leader>S", ":lua reset_hints<CR>", { noremap = true } )
 set_map("n", "<leader><C-s>", ":LspStop<CR>", { noremap = true } )
 
+
+
+
+modify_width = function( delta )
+	vim.api.nvim_win_set_width(0, vim.api.nvim_win_get_width( 0 ) + delta )
+end
+
+modify_height = function( delta )
+	vim.api.nvim_win_set_height(0, vim.api.nvim_win_get_height( 0 ) + delta )
+end
+
+set_map("n", "<C-A-j>", ":lua modify_width(5)<CR>", { noremap = true } )
+set_map("n", "<C-A-ö>", ":lua modify_width(-5)<CR>", { noremap = true } )
+set_map("n", "<C-A-k>", ":lua modify_height(3)<CR>", { noremap = true } )
+set_map("n", "<C-A-l>", ":lua modify_height(-3)<CR>", { noremap = true } )
