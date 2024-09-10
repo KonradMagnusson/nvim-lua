@@ -102,7 +102,7 @@ modify_height = function( delta )
 	vim.api.nvim_win_set_height(0, vim.api.nvim_win_get_height( 0 ) + delta )
 end
 
-set_map("n", "<C-A-j>", ":lua modify_width(5)<CR>", { noremap = true } )
-set_map("n", "<C-A-ö>", ":lua modify_width(-5)<CR>", { noremap = true } )
-set_map("n", "<C-A-k>", ":lua modify_height(3)<CR>", { noremap = true } )
-set_map("n", "<C-A-l>", ":lua modify_height(-3)<CR>", { noremap = true } )
+set_map("n", "<C-S-j>", ":lua modify_width(5)<CR>", { noremap = true } )
+set_map("n", "<C-S-ö>", ":lua modify_width(-5)<CR>", { noremap = true } )
+set_map("n", "<C-S-k>", ":lua modify_height(3)<CR>", { noremap = true } )
+set_map("n", "<C-S-l>", ":lua modify_height(-3)<CR>", { noremap = true } )
