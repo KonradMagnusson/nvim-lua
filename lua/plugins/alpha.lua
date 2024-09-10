@@ -86,6 +86,7 @@ return {
 			dashboard.button("r", "   Recent", ":Telescope oldfiles<CR>"),
 			dashboard.button("c", "   Configuration", ":cd ~/.config/nvim | :Telescope find_files<CR>"),
 			dashboard.button("R", "󱘞   Ripgrep", ":Telescope live_grep<CR>"),
+			dashboard.button("L", "   Lazy", ":Lazy<CR>"),
 			dashboard.button("q", "󰗼   Quit", ":qa<CR>"),
 		}
 
