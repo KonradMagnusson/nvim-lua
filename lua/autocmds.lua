@@ -39,8 +39,8 @@ vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
 
 -- (local) clang-format on write
 vim.api.nvim_create_autocmd("BufWritePost", {
-	pattern = {"*.cpp", "*.h", "*.inl" };
-	command = "silent !/home/qnrd/bin/clang-format -i %:p",
+	pattern = {"*.cpp", "*.h", "*.inl" },
+	command = "silent !/home/qnrd/bin/clang-format -i %:p"
 })
 
 -- enter insert mode when switching to a terminal window
@@ -65,6 +65,7 @@ vim.api.nvim_create_autocmd( "fileType", {
 	pattern = "cpp",
 	callback = function(ev)
 		vim.api.nvim_buf_set_option(0, "commentstring", "// %s")
+		vim.api.nvim_buf_set_option(0, "matchpairs", "(:),{:},[:],<:>" )
 	end
 })
 
