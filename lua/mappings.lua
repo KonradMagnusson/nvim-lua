@@ -88,7 +88,7 @@ reset_hints = function()
 	vim.lsp.inlay_hint.enable( false )
 	vim.lsp.inlay_hint.enable( true )
 end
-set_map("n", "<leader>S", ":lua reset_hints<CR>", { noremap = true } )
+set_map("n", "<leader>S", ":lua reset_hints()<CR>", { noremap = true } )
 set_map("n", "<leader><C-s>", ":LspStop<CR>", { noremap = true } )
 
 
