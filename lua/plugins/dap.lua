@@ -34,7 +34,7 @@ function GetAvailableGameBinaries()
 	return coroutine.create(function( co )
 		local bin_dir = vim.fn.getcwd() .. "/build/binaries/"
 		local bins = {}
-		for bin in io.popen("ls " .. bin_dir .. "{victoria3,Marius}*"):lines() do
+		for bin in io.popen("ls " .. bin_dir .. "{victoria3,Marius,Trajan}*"):lines() do
 			bin = bin:gsub( bin_dir, "" )
 			table.insert( bins, bin )
 		end
@@ -70,11 +70,8 @@ local init_dap = function( opts )
 
 	dap.adapters.lldb = {
 		type = "executable",
-		command = "/usr/bin/lldb-dap",
+		command = "/usr/bin/codelldb",
 		name = "lldb",
-		options = {
-			initialize_timeout_sec = 10,
-		}
 	}
 
 	dap.adapters.gdb = {
