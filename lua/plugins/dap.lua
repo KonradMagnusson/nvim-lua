@@ -70,7 +70,7 @@ local init_dap = function( opts )
 
 	dap.adapters.lldb = {
 		type = "executable",
-		command = "/usr/bin/codelldb",
+		command = "/usr/bin/lldb-dap",
 		name = "lldb",
 	}
 
@@ -112,7 +112,7 @@ local init_dap = function( opts )
 			stopOnEntry = false,
 			runInTerminal = true,
 			console = "integratedTerminal",
-			pid = function() return daputils.pick_process({ filter = function( proc ) return proc.name:find("victoria3") or proc.name:find("Marius") end }) end,
+			pid = function() return daputils.pick_process({ filter = function( proc ) return proc.name:find("victoria3") or proc.name:find("Marius") or proc.name:find("Trajan") end }) end,
 			--stopAtBeginningOfMainSubprogram = false,
 		}
 	}

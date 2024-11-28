@@ -73,8 +73,7 @@ return {
 				"--malloc-trim",
 				"--header-insertion-decorators",
 				"--header-insertion=iwyu",
-				"-j=8" --,
-				--"--hidden-features"
+				"-j=8"
 			},
 		})
 

@@ -36,6 +36,11 @@ vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
 	pattern = "*.gui",
 	command = "setf text",
 })
+vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
+	group = file_type_group,
+	pattern = "*.tok",
+	command = "setf tok",
+})
 
 -- (local) clang-format on write
 vim.api.nvim_create_autocmd("BufWritePost", {

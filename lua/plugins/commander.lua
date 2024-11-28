@@ -45,8 +45,9 @@ local init_commander = function()
 		{ desc = "Blame",					cmd = "<CMD>Gitsigns toggle_current_line_blame<CR>", },
 		{ desc = "Marks",					cmd = "<CMD>Telescope marks<CR>", },
 		{ desc = "DAP UI",					cmd = "<CMD>lua require('dapui').toggle()<CR>", },
-		{ desc = "Trouble",					cmd = "<CMD>Trouble diagnostics<CR>", keys = {"n", "<leader>t" } },
-		{ desc = "CPPRef",					cmd = "<CMD>CPPMan<CR>" }
+		{ desc = "Trouble",					cmd = "<CMD>Trouble diagnostics<CR>" },
+		{ desc = "CPPRef",					cmd = "<CMD>CPPMan<CR>" },
+		{ desc = "TODO",					cmd = "<CMD>Dooing<CR>" }
 	})
 end
 

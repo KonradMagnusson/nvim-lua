@@ -1,28 +1,30 @@
-local set_map = vim.api.nvim_set_keymap
+--local set_map = vim.api.nvim_set_keymap
+
+local function set_map( mode, keys, mapping, opts )
+	vim.api.nvim_set_keymap( mode, keys, mapping, opts or { noremap = true } )
+end
 
 vim.g.mapleader = ","
 
 
 
 -- basics
-set_map("t", "<Esc>", "<C-\\><C-n>", { noremap = true })
+set_map("t", "<Esc>", "<C-\\><C-n>")
 set_map("t", "<C-left>", "<Esc><C-w>h", {})
 set_map("t", "<C-down>", "<Esc><C-w>j", {})
 set_map("t", "<C-up>", "<Esc><C-w>k", {})
 set_map("t", "<C-right>", "<Esc><C-w>l", {})
-set_map("", "<C-left>", "<C-w>h", { noremap = true })
-set_map("", "<C-down>", "<C-w>j", { noremap = true })
-set_map("", "<C-up>", "<C-w>k", { noremap = true })
-set_map("", "<C-right>", "<C-w>l", { noremap = true })
+set_map("", "<C-left>", "<C-w>h")
+set_map("", "<C-down>", "<C-w>j")
+set_map("", "<C-up>", "<C-w>k")
+set_map("", "<C-right>", "<C-w>l")
 
-set_map("", "j", "h", { noremap = true })
-set_map("", "k", "j", { noremap = true })
-set_map("", "l", "k", { noremap = true })
-set_map("", "ö", "l", { noremap = true })
-set_map("", "h", "0", { noremap = true })
-set_map("", "ä", "$", { noremap = true })
-
-set_map("", "tq", ":tabclose<CR>", { noremap = true })
+set_map("", "j", "h")
+set_map("", "k", "j")
+set_map("", "l", "k")
+set_map("", "ö", "l")
+set_map("", "h", "0")
+set_map("", "ä", "$")
 
 -- scrolling
 set_map("n", "<C-K>", "10<C-E>10k", {noremap = false, nowait = true })
@@ -37,15 +39,15 @@ set_map("n", "<leader>p", '"+p', { noremap = false } )
 set_map("n", "<leader>y", '"+y', { noremap = false } )
 set_map("n", "<leader>R", ":Gitsigns refresh<CR>", { noremap = false } )
 set_map("n", "<Leader>w", ":lua require('whitespace-nvim').trim()<CR>", { noremap = false } )
-set_map("n", "<leader>df", ":lua vim.diagnostic.open_float()<CR>", { noremap = true })
-set_map("n", "<leader>o", ":Outline<CR>", { noremap = true })
-set_map("n", "<leader>vk", ':lua os.execute("vkill")<CR>', { noremap = true })
+set_map("n", "<leader>df", ":lua vim.diagnostic.open_float()<CR>")
+set_map("n", "<leader>o", ":Outline<CR>")
+set_map("n", "<leader>vk", ':lua os.execute("vkill")<CR>')
 
 -- lush
 set_map("n", "<leader>L", ':Lushify<CR>', { noremap = false } )
 
 -- snippet navigation
-set_map("", "<leader><leader>", "<Esc>/<++><CR>:noh<CR>cf>", { noremap = true })
+set_map("", "<leader><leader>", "<Esc>/<++><CR>:noh<CR>cf>")
 set_map("!", "<leader><leader>", "<Esc>/<++><CR>:noh<CR>cf>", { noremap = false })
 
 -- telescope
@@ -77,10 +79,20 @@ _G.GetFindFilesCmd = function()
 end
 
 
-set_map("n", "<C-p>", ":lua vim.cmd(_G.GetFindFilesCmd())<CR>", { noremap = true })
-set_map("n", "<A-p>", ":Telescope commander<CR>", { noremap = true })
+set_map("n", "<C-p>", ":lua vim.cmd(_G.GetFindFilesCmd())<CR>")
+set_map("n", "<A-p>", ":Telescope commander<CR>")
 
 
+-- (toggle) open current buffer in a new full screen tab, or close it if one is open
+-- I don't otherwise use tabs, so I can rely on only one open tab being the defualt
+_G.ToggleTabSplit = function()
+	if tonumber(vim.fn.tabpagenr()) == 1 then
+		vim.cmd( "tab split" )
+	else
+		vim.api.nvim_win_close( 0, false )
+	end
+end
+set_map("n", "<leader>f", ":lua _G.ToggleTabSplit()<CR>")
 
 
 -- lsp
@@ -88,8 +100,8 @@ reset_hints = function()
 	vim.lsp.inlay_hint.enable( false )
 	vim.lsp.inlay_hint.enable( true )
 end
-set_map("n", "<leader>S", ":lua reset_hints()<CR>", { noremap = true } )
-set_map("n", "<leader><C-s>", ":LspStop<CR>", { noremap = true } )
+set_map("n", "<leader>S", ":lua reset_hints()<CR>" )
+set_map("n", "<leader><C-s>", ":LspStop<CR>" )
 
 
 
@@ -102,7 +114,7 @@ modify_height = function( delta )
 	vim.api.nvim_win_set_height(0, vim.api.nvim_win_get_height( 0 ) + delta )
 end
 
-set_map("n", "<C-S-j>", ":lua modify_width(5)<CR>", { noremap = true } )
-set_map("n", "<C-S-ö>", ":lua modify_width(-5)<CR>", { noremap = true } )
-set_map("n", "<C-S-k>", ":lua modify_height(3)<CR>", { noremap = true } )
-set_map("n", "<C-S-l>", ":lua modify_height(-3)<CR>", { noremap = true } )
+set_map("n", "<C-S-j>", ":lua modify_width(5)<CR>" )
+set_map("n", "<C-S-ö>", ":lua modify_width(-5)<CR>" )
+set_map("n", "<C-S-k>", ":lua modify_height(3)<CR>" )
+set_map("n", "<C-S-l>", ":lua modify_height(-3)<CR>" )

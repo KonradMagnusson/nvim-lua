@@ -3,8 +3,8 @@ return {
 	opts = {
 		inlay_hints = {
 			inline = vim.fn.has("nvim-0.10") == 1,
-			only_current_line = false,
-			only_current_line_autocmd = { "CursorHold" },
+			only_current_line = true,
+			only_current_line_autocmd = { "CursorMoved" },
 			show_parameter_hints = true,
 			parameter_hints_prefix =  "",
 			other_hints_prefix = "→ ",
