@@ -95,17 +95,6 @@ end
 set_map("n", "<leader>f", ":lua _G.ToggleTabSplit()<CR>")
 
 
--- lsp
-reset_hints = function()
-	vim.lsp.inlay_hint.enable( false )
-	vim.lsp.inlay_hint.enable( true )
-end
-set_map("n", "<leader>S", ":lua reset_hints()<CR>" )
-set_map("n", "<leader><C-s>", ":LspStop<CR>" )
-
-
-
-
 modify_width = function( delta )
 	vim.api.nvim_win_set_width(0, vim.api.nvim_win_get_width( 0 ) + delta )
 end
@@ -118,3 +107,8 @@ set_map("n", "<C-S-j>", ":lua modify_width(5)<CR>" )
 set_map("n", "<C-S-ö>", ":lua modify_width(-5)<CR>" )
 set_map("n", "<C-S-k>", ":lua modify_height(3)<CR>" )
 set_map("n", "<C-S-l>", ":lua modify_height(-3)<CR>" )
+
+
+set_map("", "<leader>B", ":!touch /tmp/.buildtoken<CR>" )
+set_map("", "<leader>n", ":cnext<CR>" )
+set_map("", "<leader>N", ":cprev<CR>" )

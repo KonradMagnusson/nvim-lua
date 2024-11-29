@@ -30,6 +30,10 @@ local live_grep_with_cw = function()
 end
 
 
+local set_sock = function()
+	os.execute( "ln -sf " .. vim.v.servername .. " /tmp/.nvim_sock" )
+end
+
 local init_commander = function()
 	local commander = require("commander")
 	commander.setup({
@@ -41,13 +45,14 @@ local init_commander = function()
 		}
 	})
 	commander.add({
-		{ desc = "Find",					cmd = live_grep_with_cw, },
-		{ desc = "Blame",					cmd = "<CMD>Gitsigns toggle_current_line_blame<CR>", },
+		{ desc = "Find",					cmd = live_grep_with_cw },
+		{ desc = "Blame",					cmd = "<CMD>Gitsigns toggle_current_line_blame<CR>" },
 		{ desc = "Marks",					cmd = "<CMD>Telescope marks<CR>", },
-		{ desc = "DAP UI",					cmd = "<CMD>lua require('dapui').toggle()<CR>", },
+		{ desc = "DAP UI",					cmd = "<CMD>lua require('dapui').toggle()<CR>" },
 		{ desc = "Trouble",					cmd = "<CMD>Trouble diagnostics<CR>" },
 		{ desc = "CPPRef",					cmd = "<CMD>CPPMan<CR>" },
-		{ desc = "TODO",					cmd = "<CMD>Dooing<CR>" }
+		{ desc = "TODO",					cmd = "<CMD>Dooing<CR>" },
+		{ desc = "SetSock",					cmd = set_sock }
 	})
 end
 
