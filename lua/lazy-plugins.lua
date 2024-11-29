@@ -1,4 +1,3 @@
-local plugins = require("plugins")
 local opts = {
 	root = vim.fn.stdpath("data") .. "/lazy",
 	defaults = {
@@ -6,18 +5,33 @@ local opts = {
 		version = nil,
 		cond = nil,
 	},
-	spec = nil,
+	spec = {
+		{ import = "plugins" },
+	},
 	lockfile = vim.fn.stdpath("config") .. "/lazy-lock.json",
-	concurrency = jit.os:find("Windows") and (vim.loop.available_parallelism() * 2) or nil,
+	concurrency = vim.loop.available_parallelism(),
 	git = {
-		log = { "-8" },
+		log = { "-5" },
 		timeout = 120,
 		url_format = "https://github.com/%s.git",
 		filter = true,
 	},
+	pkg = {
+		enabled = true,
+		cache = vim.fn.stdpath("state") .. "/lazy/pkg-cache.lua",
+		sources = {
+			"lazy", "rockspec", "packspec"
+		}
+	},
+	rocks = {
+		enabled = true,
+		root = vim.fn.stdpath("data") .. "/lazy-rocks",
+		server = "https://nvim-neorocks.github.io/rocks-binaries/",
+		hererocks = nil -- means "auto", hererocks/luarocks
+	},
 	dev = {
 		path = "~/k",
-		patterns = {"qnrd"}, -- For example {"folke"}
+		patterns = { "qnrd" }, -- For example {"folke"}
 		fallback = false,
 	},
 	install = {
@@ -83,9 +97,10 @@ local opts = {
 	},
 	checker = {
 		enabled = false,
-		concurrency = 16,
+		concurrency = vim.loop.available_parallelism(),
 		notify = true,
 		frequency = 3600,
+		check_pinned = false
 	},
 	change_detection = {
 		enabled = true,
@@ -99,21 +114,24 @@ local opts = {
 		rtp = {
 			reset = true,
 			paths = {},
-			disabled_plugins = {
-			},
+			disabled_plugins = {},
 		},
 	},
 	readme = {
 		enabled = true,
 		root = vim.fn.stdpath("state") .. "/lazy/readme",
 		files = { "README.md", "README.rtf", "lua/**/README.md" },
-		skip_if_doc_exists = true,
+		skip_if_doc_exists = false,
 	},
 	state = vim.fn.stdpath("state") .. "/lazy/state.json",
+	profile = {
+		loader = true,
+		require = true
+	},
 	build = {
 		warn_on_override = true,
 	},
 
 }
 
-require("lazy").setup(plugins, opts)
+require("lazy").setup(opts)
