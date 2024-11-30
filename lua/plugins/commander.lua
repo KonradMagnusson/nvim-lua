@@ -52,7 +52,7 @@ local init_commander = function()
 		{ desc = "Trouble",					cmd = "<CMD>Trouble diagnostics<CR>" },
 		{ desc = "CPPRef",					cmd = "<CMD>CPPMan<CR>" },
 		{ desc = "TODO",					cmd = "<CMD>Dooing<CR>" },
-		{ desc = "SetSock",					cmd = set_sock }
+		{ desc = "SetSock override",		cmd = set_sock }
 	})
 end
 

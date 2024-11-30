@@ -32,3 +32,7 @@ vim.opt.relativenumber = true
 
 vim.opt.swapfile = false
 vim.opt.hidden = true
+
+vim.opt.errorformat = [[
+%-GIn file%.%#:,%W%f:%l:%c: %tarning: %m,%E%f:%l:%c: %trror: %m,%C%s,%C%m,%Z%m,%E%>ld.lld: %trror: %m,%C%>>>> referenced by %s (%f:%l),%-C%>>>>%s,%C%s,%-Z,%-G%.%#
+]]

@@ -501,6 +501,10 @@ local qnrd_theme = lush( function(injected_functions)
 
 		TokenKey						{ fg = Macro.fg,						bg = Macro.bg,				gui = NoFmt },
 		TokenId							{ fg = Constant.fg,						bg = Constants.bg,			gui = NoFmt },
+
+		qfFileName						{ String },
+		qfLineNr						{ LineNrAbove },
+		qfSeparator						{ Comment },
 	}
 end)
 

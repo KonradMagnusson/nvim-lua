@@ -109,6 +109,11 @@ set_map("n", "<C-S-k>", ":lua modify_height(3)<CR>" )
 set_map("n", "<C-S-l>", ":lua modify_height(-3)<CR>" )
 
 
-set_map("", "<leader>B", ":!touch /tmp/.buildtoken<CR>" )
-set_map("", "<leader>n", ":cnext<CR>" )
-set_map("", "<leader>N", ":cprev<CR>" )
+_G.SetSockAndBuild = function()
+	os.execute( "ln -sf " .. vim.v.servername .. " /tmp/.nvim_sock" )
+	os.execute( "touch /tmp/.build_token" )
+end
+
+set_map("", "<leader>B", ":lua _G.SetSockAndBuild()<CR>" )
+set_map("n", "cn", ":cnext<CR>" )
+set_map("n", "cN", ":cprev<CR>" )
