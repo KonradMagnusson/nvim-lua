@@ -36,3 +36,24 @@ vim.opt.hidden = true
 vim.opt.errorformat = [[
 %-GIn file%.%#:,%W%f:%l:%c: %tarning: %m,%E%f:%l:%c: %trror: %m,%C%s,%C%m,%Z%m,%E%>ld.lld: %trror: %m,%C%>>>> referenced by %s (%f:%l),%-C%>>>>%s,%C%s,%-Z,%-G%.%#
 ]]
+
+local function cmake_preset()
+	handle = io.popen([[cat builddir/current_preset 2>/dev/null]])
+	assert(handle)
+	local preset = handle:read("*l")
+	handle:close()
+	if preset == nil then
+		return ""
+	end
+
+	return "⫷ " .. preset .. "⫸ "
+end
+local function get_workspace()
+	handle = io.popen([[pwd | sed 's/.*proj\/\(.*\)\/.*/\1/']])
+	assert(handle)
+	local workspace = handle:read("*l")
+	handle:close()
+	return "[" .. (workspace or "") .. "]"
+end
+
+vim.opt.statusline = [[%<%f %h%w%m%r%=%S    ]] .. cmake_preset() ..  [[%=%-14.(%l,%c%V%) ]] .. get_workspace() .. [[ %P]]
