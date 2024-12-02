@@ -30,10 +30,6 @@ local live_grep_with_cw = function()
 end
 
 
-local set_sock = function()
-	os.execute( "ln -sf " .. vim.v.servername .. " /tmp/.nvim_sock" )
-end
-
 local init_commander = function()
 	local commander = require("commander")
 	commander.setup({
@@ -52,7 +48,6 @@ local init_commander = function()
 		{ desc = "Trouble",					cmd = "<CMD>Trouble diagnostics<CR>" },
 		{ desc = "CPPRef",					cmd = "<CMD>CPPMan<CR>" },
 		{ desc = "TODO",					cmd = "<CMD>Dooing<CR>" },
-		{ desc = "SetSock override",		cmd = set_sock }
 	})
 end
 

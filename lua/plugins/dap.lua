@@ -34,7 +34,7 @@ function GetDebugee()
 	return coroutine.create(function( co )
 		local bin_dir = vim.fn.getcwd() .. "/build/binaries/"
 		local bins = {}
-		for bin in io.popen("ls " .. bin_dir .. "{victoria3,Marius,Trajan}* 2>/dev/null"):lines() do
+		for bin in io.popen("ls " .. bin_dir .. "{Marius,Trajan}* 2>/dev/null"):lines() do
 			bin = bin:gsub( bin_dir, "" )
 			table.insert( bins, bin )
 		end
@@ -95,7 +95,6 @@ local init_dap = function( opts )
 			stopOnEntry = false,
 			runInTerminal = true,
 			console = "integratedTerminal",
-			--stopAtBeginningOfMainSubprogram = false,
 		},
 		{
 			name = "Debug [noargs]",
@@ -106,7 +105,6 @@ local init_dap = function( opts )
 			stopOnEntry = false,
 			runInTerminal = true,
 			console = "integratedTerminal",
-			--stopAtBeginningOfMainSubprogram = false,
 		},
 		{
 			name = "Attach to running game",
@@ -116,8 +114,7 @@ local init_dap = function( opts )
 			stopOnEntry = false,
 			runInTerminal = true,
 			console = "integratedTerminal",
-			pid = function() return daputils.pick_process({ filter = function( proc ) return proc.name:find("victoria3") or proc.name:find("Marius") or proc.name:find("Trajan") end }) end,
-			--stopAtBeginningOfMainSubprogram = false,
+			pid = function() return daputils.pick_process({ filter = function( proc ) return proc.name:find("Marius") or proc.name:find("Trajan") end }) end,
 		}
 	}
 end

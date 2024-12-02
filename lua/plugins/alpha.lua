@@ -12,17 +12,6 @@ return {
 		local version = " v" .. v.major .. "." .. v.minor .. "." .. v.patch
 
 		dashboard.section.header.val = {
-			-- "                                           ▄▄                   ",
-			-- " ▀███▄   ▀███▀                             ██                   ",
-			-- "   ███▄    █                                                    ",
-			-- "   █ ███   █   ▄▄█▀██  ▄██▀██▄▀██▀   ▀██▀▀███ ▀████████▄█████▄  ",
-			-- "   █  ▀██▄ █  ▄█▀   ████▀   ▀██ ██   ▄█    ██   ██    ██    ██  ",
-			-- "   █   ▀██▄█  ██▀▀▀▀▀▀██     ██  ██ ▄█     ██   ██    ██    ██  ",
-			-- "   █     ███  ██▄    ▄██▄   ▄██   ███      ██   ██    ██    ██  ",
-			-- " ▄███▄    ██   ▀█████▀ ▀█████▀     █     ▄████▄████  ████  ████▄",
-			-- "                                                                ",
-			-- "                                                                "
-
 "                                                                                                                                ",
 "                                                                                                                                ",
 "                                                                                                                                ",
@@ -80,7 +69,6 @@ return {
 
 		dashboard.section.buttons.val = {
 			dashboard.button("n", "   New file", ":ene <BAR> startinsert <CR>"),
-			--dashboard.button("<C-p>", "󰮗   Find file", ":Telescope find_files<CR>"),
 			dashboard.button("<C-p>", "󰮗   Find file", ":lua vim.cmd(_G.GetFindFilesCmd())<CR>"),
 			dashboard.button("f", "   File Explorer", ":Oil<CR>"),
 			dashboard.button("r", "   Recent", ":Telescope oldfiles<CR>"),
@@ -108,7 +96,6 @@ return {
 
 		alpha.setup(dashboard.opts)
 
-		-- Disable folding on alpha buffer
 		vim.cmd([[autocmd FileType alpha setlocal nofoldenable]])
 	end,
 }

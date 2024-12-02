@@ -42,16 +42,17 @@ set_map("n", "<Leader>w", ":lua require('whitespace-nvim').trim()<CR>", { norema
 set_map("n", "<leader>df", ":lua vim.diagnostic.open_float()<CR>")
 set_map("n", "<leader>o", ":Outline<CR>")
 set_map("n", "<leader>vk", ':lua os.execute("vkill")<CR>')
-
--- lush
 set_map("n", "<leader>L", ':Lushify<CR>', { noremap = false } )
+set_map("", "<leader>B", ":!touch /tmp/.build_token<CR>" )
+set_map("n", "cn", ":cnext<CR>" )
+set_map("n", "cN", ":cprev<CR>" )
 
 -- snippet navigation
 set_map("", "<leader><leader>", "<Esc>/<++><CR>:noh<CR>cf>")
 set_map("!", "<leader><leader>", "<Esc>/<++><CR>:noh<CR>cf>", { noremap = false })
 
 -- telescope
-_G.GetFindFilesCmd = function()
+GetFindFilesCmd = function()
 	vim.fn.system( "git rev-parse --is-inside-work-tree" )
 	local is_git_repo = vim.v.shell_error == 0
 
@@ -79,36 +80,29 @@ _G.GetFindFilesCmd = function()
 end
 
 
-set_map("n", "<C-p>", ":lua vim.cmd(_G.GetFindFilesCmd())<CR>")
+set_map("n", "<C-p>", ":lua vim.cmd( GetFindFilesCmd() )<CR>")
 set_map("n", "<A-p>", ":Telescope commander<CR>")
 
 
 -- (toggle) open current buffer in a new full screen tab, or close it if one is open
 -- I don't otherwise use tabs, so I can rely on only one open tab being the defualt
-_G.ToggleTabSplit = function()
+ToggleTabSplit = function()
 	if tonumber(vim.fn.tabpagenr()) == 1 then
 		vim.cmd( "tab split" )
 	else
 		vim.api.nvim_win_close( 0, false )
 	end
 end
-set_map("n", "<leader>f", ":lua _G.ToggleTabSplit()<CR>")
+set_map("n", "<leader>f", ":lua ToggleTabSplit()<CR>")
 
 
 modify_width = function( delta )
 	vim.api.nvim_win_set_width(0, vim.api.nvim_win_get_width( 0 ) + delta )
 end
-
 modify_height = function( delta )
 	vim.api.nvim_win_set_height(0, vim.api.nvim_win_get_height( 0 ) + delta )
 end
-
 set_map("n", "<C-S-j>", ":lua modify_width(5)<CR>" )
 set_map("n", "<C-S-ö>", ":lua modify_width(-5)<CR>" )
 set_map("n", "<C-S-k>", ":lua modify_height(3)<CR>" )
 set_map("n", "<C-S-l>", ":lua modify_height(-3)<CR>" )
-
-
-set_map("", "<leader>B", ":!touch /tmp/.build_token<CR>" )
-set_map("n", "cn", ":cnext<CR>" )
-set_map("n", "cN", ":cprev<CR>" )

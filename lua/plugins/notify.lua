@@ -13,7 +13,7 @@ return {
 			on_open = function() end,
 			on_close = function() end,
 			background_colour = "NotifyBackground",
-			fps = 30,
+			fps = 165,
 			icons = {
 			  DEBUG = "",
 			  ERROR = "",

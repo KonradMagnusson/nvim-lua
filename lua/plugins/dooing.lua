@@ -6,29 +6,29 @@ return {
 
 		-- Window appearance
 		window = {
-			width = 300,         -- Width of the floating window
-			height = 30,        -- Height of the floating window
-			border = 'rounded', -- Border style
+			width = 300,
+			height = 30,
+			border = 'rounded',
 		},
 
 		-- Icons
 		icons = {
-			pending = '',      -- ○Pending todo icon
-			done = '󰱒',        -- ✓Completed todo icon
+			pending = '',
+			done = '󰱒',
 		},
 
 		-- Keymaps
 		keymaps = {
-			toggle_window = "<leader>td", -- Toggle the main window
-			new_todo = "i",              -- Add a new todo
-			toggle_todo = "x",           -- Toggle todo status
-			delete_todo = "d",           -- Delete the current todo
-			delete_completed = "D",      -- Delete all completed todos
-			close_window = "q",          -- Close the window
-			toggle_help = "?",           -- Toggle help window
-			toggle_tags = "t",           -- Toggle tags window
-			clear_filter = "c",          -- Clear active tag filter
-			edit_todo = "e",             -- Edit todo item
+			toggle_window = "<leader>td",
+			new_todo = "i",
+			toggle_todo = "x",
+			delete_todo = "d",
+			delete_completed = "D",
+			close_window = "q",
+			toggle_help = "?",
+			toggle_tags = "t",
+			clear_filter = "c",
+			edit_todo = "e",
 		},
 	}
 }

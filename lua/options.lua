@@ -17,7 +17,7 @@ vim.opt.expandtab = false
 vim.opt.list = true
 vim.opt.listchars = "tab:›  ,trail:󰱪,nbsp:󱁐"
 
-vim.opt.colorcolumn = "150,170,210"
+--vim.opt.colorcolumn = "150,170,210"
 vim.opt.signcolumn = "auto"
 vim.opt.cursorline = true
 

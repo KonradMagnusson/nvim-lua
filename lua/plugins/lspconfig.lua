@@ -85,5 +85,6 @@ return {
 
 		lspconfig.ts_ls.setup({})
 
+		lspconfig.cmake.setup({})
 	end
 }
