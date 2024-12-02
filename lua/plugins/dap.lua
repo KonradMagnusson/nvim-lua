@@ -30,19 +30,23 @@ function BlockingUISelect( items, opts )
 end
 
 
-function GetAvailableGameBinaries()
+function GetDebugee()
 	return coroutine.create(function( co )
 		local bin_dir = vim.fn.getcwd() .. "/build/binaries/"
 		local bins = {}
-		for bin in io.popen("ls " .. bin_dir .. "{victoria3,Marius,Trajan}*"):lines() do
+		for bin in io.popen("ls " .. bin_dir .. "{victoria3,Marius,Trajan}* 2>/dev/null"):lines() do
 			bin = bin:gsub( bin_dir, "" )
 			table.insert( bins, bin )
 		end
-		vim.ui.select( bins, { label = "bin: " }, function( bin ) coroutine.resume( co, bin_dir .. bin ) end )
+		if #bins > 0 then
+			vim.ui.select( bins, { label = "bin: " }, function( bin ) coroutine.resume( co, bin_dir .. bin ) end )
+		else
+			vim.ui.input( { prompt = "  Target > " } , function( bin ) coroutine.resume( co, bin ) end )
+		end
 	end)
 end
 
-function GetOrSetGameArgs()
+function GetOrSetArgs()
 	return coroutine.create(
 		function( co )
 			vim.ui.input(
@@ -85,8 +89,8 @@ local init_dap = function( opts )
 			name = "Debug",
 			type = "lldb",
 			request = "launch",
-			program = GetAvailableGameBinaries,
-			args = GetOrSetGameArgs,
+			program = GetDebugee,
+			args = GetOrSetArgs,
 			cwd = "${workspaceFolder}",
 			stopOnEntry = false,
 			runInTerminal = true,
@@ -97,7 +101,7 @@ local init_dap = function( opts )
 			name = "Debug [noargs]",
 			type = "lldb",
 			request = "launch",
-			program = GetAvailableGameBinaries,
+			program = GetDebugee,
 			cwd = "${workspaceFolder}",
 			stopOnEntry = false,
 			runInTerminal = true,
