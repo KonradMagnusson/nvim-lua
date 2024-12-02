@@ -73,8 +73,11 @@ au( "fileType", {
 	callback = function(ev)
 		vim.api.nvim_buf_set_option(0, "commentstring", "// %s")
 		vim.api.nvim_buf_set_option(0, "matchpairs", "(:),{:},[:],<:>" )
-		if vim.fn.findfile( "/tmp/.build_token" ) then
-			os.execute( "ln -sf " .. vim.v.servername .. " /tmp/.nvim_sock" )
+
+		-- RPC messages from build system (hacked ninja)
+		local addr = "127.0.0.1:8080"
+		if pcall( vim.fn.serverstart, addr ) then
+			vim.notify( "RPC server listening on " .. addr )
 		end
 	end
 })
