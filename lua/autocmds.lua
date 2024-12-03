@@ -57,9 +57,17 @@ au({ "BufWinEnter", "WinEnter" }, {
 	command = "startinsert",
 })
 
+au("WinEnter", {
+	group = buffer_group,
+	callback = function(ev)
+		if vim.bo[0].filetype == "notify" then
+			vim.api.nvim_feedkeys( vim.api.nvim_replace_termcodes( "<C-W><C-W>", true, false, true ), "n", true )
+		end
+	end
+})
 
 -- diff-specific mappings
-au( {"VimEnter"}, {
+au("VimEnter", {
 	callback = function(ev)
 		if vim.api.nvim_win_get_option(0, "diff") then
 			require("diff")
