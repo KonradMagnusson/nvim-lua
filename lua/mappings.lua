@@ -43,7 +43,7 @@ set_map("n", "<leader>df", ":lua vim.diagnostic.open_float()<CR>")
 set_map("n", "<leader>o", ":Outline<CR>")
 set_map("n", "<leader>vk", ':lua os.execute("vkill")<CR>')
 set_map("n", "<leader>L", ':Lushify<CR>', { noremap = false } )
-set_map("", "<leader>B", ":!touch /tmp/.build_token<CR>" )
+set_map("n", "<leader>B", ":!touch /tmp/.build_token<CR>", { noremap = false, nowait = true } )
 set_map("n", "cn", ":cnext<CR>" )
 set_map("n", "cN", ":cprev<CR>" )
 
