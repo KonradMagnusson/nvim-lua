@@ -57,3 +57,45 @@ local function get_workspace()
 end
 
 vim.opt.statusline = [[%<%f %h%w%m%r%=%S    ]] .. cmake_preset() ..  [[%=%-14.(%l,%c%V%) ]] .. get_workspace() .. [[ %P]]
+
+-- TODO: I want to make this very flexible, but syntax/qf.vim has a hardcoded dependency on column order...
+local qf_format = "{file}|L{line}:{col}{padding}{type}|{text}"
+local pad_target = 50 --(temporary) number of characters (from start of line) to pad the {text}↑ to
+
+QFTextFunc = function( info )
+	if info.quickfix ~= 1 then
+		return -- idc about loclist atm
+	end
+
+	local list = vim.fn.getqflist( { id = info.id, items = 0, qfbufnr = 0, context = 0 } )
+	local ret = {}
+
+	for i = info.start_idx, info.end_idx do
+		local item = list.items[ i ]
+		if item.valid then
+			local full_path = vim.api.nvim_buf_get_name( item.bufnr )
+			local file = string.gsub( full_path, "([/%w]+)/(%w.%w)", "%2" )
+
+			local type = "?"
+			if item.type == "e" then type = "error" end
+			if item.type == "w" then type = "warning" end
+			if item.type == "n" then type = "note" end
+
+			-- (temporary) - hardcoded padding calculations to match the hardcoded format above
+			local pad_width = pad_target - ( #file + 2 + #tostring(item.lnum) + 1 + #tostring(item.col) + #type + 1)
+			local padding = string.rep(" ", pad_width)
+
+			local fmt = qf_format
+			fmt = string.gsub( fmt, "{col}", item.col )
+			fmt = string.gsub( fmt, "{file}", file )
+			fmt = string.gsub( fmt, "{line}", item.lnum )
+			fmt = string.gsub( fmt, "{padding}", padding )
+			fmt = string.gsub( fmt, "{text}", item.text )
+			fmt = string.gsub( fmt, "{type}", type )
+			table.insert( ret, fmt)
+		end
+	end
+
+	return ret
+end
+vim.o.quickfixtextfunc = "v:lua.QFTextFunc"
