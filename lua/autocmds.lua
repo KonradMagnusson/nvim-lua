@@ -81,12 +81,6 @@ au( "fileType", {
 	callback = function(ev)
 		vim.api.nvim_buf_set_option(0, "commentstring", "// %s")
 		vim.api.nvim_buf_set_option(0, "matchpairs", "(:),{:},[:],<:>" )
-
-		-- RPC messages from build system (hacked ninja)
-		local addr = "127.0.0.1:48199"
-		if pcall( vim.fn.serverstart, addr ) then
-			vim.notify( "RPC server listening on " .. addr )
-		end
 	end
 })
 
