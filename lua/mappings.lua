@@ -35,8 +35,8 @@ set_map("n", "<C-A-L>", "<C-Y>l", {noremap = false, nowait = true })
 
 -- misc
 set_map("n", "<leader>3", ":noh<CR>", { noremap = false })
-set_map("n", "<leader>p", '"+p', { noremap = false } )
-set_map("n", "<leader>y", '"+y', { noremap = false } )
+set_map("", "<leader>p", '"+p')
+set_map("", "<leader>y", '"+y')
 set_map("n", "<leader>R", ":Gitsigns refresh<CR>", { noremap = false } )
 set_map("n", "<Leader>w", ":lua require('whitespace-nvim').trim()<CR>", { noremap = false } )
 set_map("n", "<leader>df", ":lua vim.diagnostic.open_float()<CR>")
