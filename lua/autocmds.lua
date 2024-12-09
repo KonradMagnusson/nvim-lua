@@ -100,3 +100,40 @@ au( {"WinResized", "WinNew", "WinEnter"}, {
 		vim.api.nvim_buf_set_option( 0, "scrolloff", offset )
 	end
 })
+
+
+au( { "FileType" }, {
+	pattern="cpp",
+	callback = function( _ )
+		local namespace = vim.api.nvim_create_namespace( "_CurrentScope" )
+		local ts_utils = require("nvim-treesitter.ts_utils")
+		local cur_scope_group = vim.api.nvim_create_augroup("_CurrentScope", { clear = true })
+
+
+		au( { "CursorMoved" }, { -- yo dawg!
+			group = cur_scope_group,
+			callback = function( _ )
+				vim.api.nvim_buf_clear_namespace( 0, namespace, 0, -1 )
+				if vim.bo[0].ft ~= "cpp" then
+					return
+				end
+
+				-- find current scope
+				local node = vim.treesitter.get_node()
+				while node and node:type() ~= "compound_statement" do
+					node = node:parent()
+				end
+				if not node then return end
+
+				local first_line, _, last_line, _ = node:range()
+				vim.api.nvim_buf_set_extmark( 0, namespace, first_line, 0, {
+					end_row = last_line + 1, -- + 1 (and end_col = 0) to achieve a rectangular highlight
+					end_col = 0,
+					hl_group = "CurrentScope",
+					hl_eol = true,
+				})
+
+			end
+		})
+	end
+})

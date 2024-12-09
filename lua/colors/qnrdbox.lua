@@ -210,6 +210,7 @@ local qnrd_theme = lush( function(injected_functions)
 
 		CursorColumn					{ bg = Q.Active.Text.Bg.lighten(5) },
 		ColorColumn						{ bg = Q.Active.Text.Bg.lighten(5) },
+		CurrentScope					{ bg = Q.Active.Text.Bg.lighten(1.5) },
 
 		SignColumn						{ fg = Colors.graphite, bg = Q.Active.Border.Bg, gui = Q.Active.Border.Gui },
 		FoldColumn						{ fg = Colors.graphite, bg = Q.Active.Border.Bg, gui = Q.Active.Border.Gui },
