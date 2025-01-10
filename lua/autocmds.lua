@@ -119,9 +119,11 @@ au( { "FileType" }, {
 				end
 
 				-- find current scope
+				local its = 0
 				local node = vim.treesitter.get_node()
-				while node and node:type() ~= "compound_statement" do
+				while node and its < 10 and node:type() ~= "compound_statement" do
 					node = node:parent()
+					its = its + 1
 				end
 				if not node then return end
 
