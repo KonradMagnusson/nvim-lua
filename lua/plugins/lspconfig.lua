@@ -45,7 +45,8 @@ return {
 				vim.api.nvim_buf_set_keymap(bufnr, "n", "gt", "<CMD>Telescope lsp_type_definitions<CR>", { noremap = true, silent = true })
 				vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<CMD>Telescope lsp_references<CR>", { noremap = true, silent = true })
 				vim.api.nvim_buf_set_keymap(bufnr, "n", "g?", "<CMD>lua vim.lsp.buf.signature_help()<CR>", { noremap = true, silent = true })
-				vim.api.nvim_buf_set_keymap(bufnr, "n", "gh", "<CMD>lua vim.lsp.buf.hover()<CR>", { noremap = true, silent = true })
+				vim.api.nvim_buf_set_keymap(bufnr, "n", "gh", "<CMD>lua vim.lsp.buf.typehierarchy('supertypes')<CR>", { noremap = true, silent = true })
+				vim.api.nvim_buf_set_keymap(bufnr, "n", "gH", "<CMD>lua vim.lsp.buf.typehierarchy('subtypes')<CR>", { noremap = true, silent = true })
 
 				vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>s", "<CMD>Telescope lsp_dynamic_workspace_symbols<CR>", { noremap = true })
 				vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>m", "<CMD>Telescope lsp_document_symbols<CR>", { noremap = true })
