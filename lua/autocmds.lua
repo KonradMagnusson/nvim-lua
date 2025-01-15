@@ -129,7 +129,7 @@ au( { "FileType" }, {
 
 				local first_line, _, last_line, _ = node:range()
 				vim.api.nvim_buf_set_extmark( 0, namespace, first_line, 0, {
-					end_row = last_line + 1, -- + 1 (and end_col = 0) to achieve a rectangular highlight
+					end_row = math.min( last_line + 1, vim.api.nvim_buf_line_count( 0 ) ), -- + 1 (and end_col = 0) to achieve a rectangular highlight
 					end_col = 0,
 					hl_group = "CurrentScope",
 					hl_eol = true,
