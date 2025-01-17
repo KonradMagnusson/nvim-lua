@@ -47,6 +47,7 @@ set_map("", "<leader>B", ":!touch /tmp/.build_token<CR>" )
 set_map("n", "cn", ":cnext<CR>" )
 set_map("n", "cN", ":cprev<CR>" )
 set_map("n", "<A-i>", ":Inspect<CR>" )
+set_map("n", "<C-q>", "<C-6>" )
 
 -- snippet navigation
 set_map("", "<leader><leader>", "<Esc>/<++><CR>:noh<CR>cf>")
