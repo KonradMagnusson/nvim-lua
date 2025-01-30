@@ -52,4 +52,7 @@ local function get_workspace()
 	return "[" .. (workspace or "") .. "]"
 end
 
-vim.opt.statusline = [[%<%f %h%w%m%r%=%S    ]] .. cmake_preset() ..  [[%=%-14.(%l,%c%V%) ]] .. get_workspace() .. [[ %P]]
+vim.g.BuildStatusLine = function( build_status )
+	return [[%<%f %h%w%m%r%=%S    ]] .. cmake_preset() ..  [[%=%-14.(%l,%c%V%) ]] .. (build_status or "") .. "  " .. get_workspace() .. [[ %P]]
+end
+vim.opt.statusline = vim.g.BuildStatusLine()

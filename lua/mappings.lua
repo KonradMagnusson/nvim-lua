@@ -46,6 +46,7 @@ set_map("n", "<leader>L", ':Lushify<CR>', { noremap = false } )
 set_map("", "<leader>B", ":!touch /tmp/.build_token<CR>" )
 set_map("n", "cn", ":cnext<CR>" )
 set_map("n", "cN", ":cprev<CR>" )
+set_map("n", "cc", ":cexpr []<CR>" )
 set_map("n", "<A-i>", ":Inspect<CR>" )
 set_map("n", "<C-q>", "<C-6>" )
 

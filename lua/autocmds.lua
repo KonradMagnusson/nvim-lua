@@ -84,6 +84,25 @@ au( "fileType", {
 	end
 })
 
+au( "User", {
+	pattern = "NinjaBuildStarted",
+	callback = function(ev)
+		vim.opt.statusline = vim.g.BuildStatusLine("󰣪  Building...")
+	end
+})
+au( "User", {
+	pattern = "NinjaBuildFinished",
+	callback = function(ev)
+		vim.opt.statusline = vim.g.BuildStatusLine("✓  Built")
+	end
+})
+au( "User", {
+	pattern = "NinjaBuildFailed",
+	callback = function(ev)
+		vim.opt.statusline = vim.g.BuildStatusLine(" BUILD FAILED!")
+	end
+})
+
 -- hide inlay hints in insert mode
 au("InsertEnter", {
 	callback = function( ev )
