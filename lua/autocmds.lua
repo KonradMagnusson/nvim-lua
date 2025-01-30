@@ -163,8 +163,8 @@ au( { "FileType" }, {
 	end
 })
 
-au( { "FocusGained" }, {
-	command = 'let @" = @*'
-})
+-- au( { "FocusGained" }, {
+-- 	command = 'let @" = @*'
+-- })
 -- This very nicely breaks taking screenshots to clipboard while vim is active, which ain't great.
 -- au( { "FocusLost" }, { command = 'let @* = @"' })
