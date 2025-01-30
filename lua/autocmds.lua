@@ -47,7 +47,7 @@ au({"BufNewFile", "BufRead"}, {
 -- (local) clang-format on write
 au("BufWritePost", {
 	pattern = {"*.cpp", "*.h", "*.inl" },
-	command = "silent !/home/qnrd/bin/clang-format -i %:p"
+	command = "silent !$(git rev-parse --show-toplevel)/external_tools/llvm-clang-format/clang-format -i %:p"
 })
 
 -- enter insert mode when switching to a terminal window
