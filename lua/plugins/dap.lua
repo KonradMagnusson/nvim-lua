@@ -30,7 +30,7 @@ function BlockingUISelect( items, opts )
 end
 
 
-function GetDebugee()
+function GetDebuggee()
 	return coroutine.create(function( co )
 		local bin_dir = vim.fn.getcwd() .. "/build/binaries/"
 		local bins = {}
@@ -89,7 +89,18 @@ local init_dap = function( opts )
 			name = "Debug",
 			type = "lldb",
 			request = "launch",
-			program = GetDebugee,
+			program = GetDebuggee,
+			args = GetOrSetArgs,
+			cwd = "${workspaceFolder}",
+			stopOnEntry = false,
+			runInTerminal = true,
+			console = "integratedTerminal",
+		},
+		{
+			name = "Debug [gdb]",
+			type = "gdb",
+			request = "launch",
+			program = GetDebuggee,
 			args = GetOrSetArgs,
 			cwd = "${workspaceFolder}",
 			stopOnEntry = false,
@@ -100,7 +111,7 @@ local init_dap = function( opts )
 			name = "Debug [noargs]",
 			type = "lldb",
 			request = "launch",
-			program = GetDebugee,
+			program = GetDebuggee,
 			cwd = "${workspaceFolder}",
 			stopOnEntry = false,
 			runInTerminal = true,
