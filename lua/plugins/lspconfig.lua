@@ -32,8 +32,7 @@ return {
 
 		lspconfig.clangd.setup({
 			on_attach = function(client, bufnr)
-				require("clangd_extensions.inlay_hints").setup_autocmd()
-				require("clangd_extensions.inlay_hints").set_inlay_hints()
+				vim.lsp.inlay_hint.enable( true )
 				vim.opt.cmdheight = 2
 				vim.opt.updatetime = 300
 				vim.opt.shortmess = vim.opt.shortmess + "c"

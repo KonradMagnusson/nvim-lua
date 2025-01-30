@@ -86,10 +86,14 @@ au( "fileType", {
 
 -- hide inlay hints in insert mode
 au("InsertEnter", {
-	command = "ClangdDisableInlayHints",
+	callback = function( ev )
+		vim.lsp.inlay_hint.enable(false)
+	end
 })
 au("InsertLeave", {
-	command = "ClangdSetInlayHints",
+	callback = function( ev )
+		vim.lsp.inlay_hint.enable()
+	end
 })
 
 -- dynamic scrolloff based on window height
