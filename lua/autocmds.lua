@@ -103,13 +103,13 @@ au( "User", {
 	end
 })
 
--- hide inlay hints in insert mode
-au("InsertEnter", {
+-- auto hide inlay hints
+au({ "CursorMoved", "InsertEnter" }, {
 	callback = function( ev )
 		vim.lsp.inlay_hint.enable(false)
 	end
 })
-au("InsertLeave", {
+au( "CursorHold", {
 	callback = function( ev )
 		vim.lsp.inlay_hint.enable()
 	end

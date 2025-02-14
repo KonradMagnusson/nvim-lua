@@ -35,8 +35,7 @@ return {
 		lspconfig.clangd.setup({
 			on_attach = function(client, bufnr)
 				vim.lsp.inlay_hint.enable( true )
-				vim.opt.cmdheight = 2
-				vim.opt.updatetime = 300
+				vim.opt.updatetime = 3000
 				vim.opt.shortmess = vim.opt.shortmess + "c"
 				vim.opt.signcolumn = "yes"
 
