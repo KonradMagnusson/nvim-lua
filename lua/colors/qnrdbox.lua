@@ -497,9 +497,6 @@ local qnrd_theme = lush( function(injected_functions)
 
 		NotifyBackground				{ fg = NoFmt,					bg = Colors.black,			gui = NoFmt },
 
-		HighlightUndo					{ fg = Colors.black,					bg = Colors.matte_sapphire,	gui = NoFmt },
-		HighlightRedo					{ fg = Colors.black,					bg = Colors.faded_green,	gui = NoFmt },
-
 		TokenKey						{ fg = Macro.fg,						bg = Macro.bg,				gui = NoFmt },
 		TokenId							{ fg = Constant.fg,						bg = Constants.bg,			gui = NoFmt },
 
