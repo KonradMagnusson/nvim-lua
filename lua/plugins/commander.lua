@@ -38,7 +38,8 @@ local init_commander = function()
 				enable = true,
 				theme = require("telescope.themes").commander
 			}
-		}
+		},
+		components = { "DESC" }
 	})
 	commander.add({
 		{ desc = "Find",					cmd = live_grep_with_cw },
@@ -48,6 +49,7 @@ local init_commander = function()
 		{ desc = "Trouble",					cmd = "<CMD>Trouble diagnostics<CR>" },
 		{ desc = "CPPRef",					cmd = "<CMD>CPPMan<CR>" },
 		{ desc = "TODO",					cmd = "<CMD>Dooing<CR>" },
+		{ desc = "Smear",					cmd = function() require("smear_cursor").enabled = not require("smear_cursor").enabled end },
 	})
 end
 
