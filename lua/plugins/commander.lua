@@ -46,7 +46,6 @@ local init_commander = function()
 		{ desc = "Blame",					cmd = "<CMD>Gitsigns toggle_current_line_blame<CR>" },
 		{ desc = "Marks",					cmd = "<CMD>Telescope marks<CR>", },
 		{ desc = "DAP UI",					cmd = "<CMD>lua require('dapui').toggle()<CR>" },
-		{ desc = "Trouble",					cmd = "<CMD>Trouble diagnostics<CR>" },
 		{ desc = "CPPRef",					cmd = "<CMD>CPPMan<CR>" },
 		{ desc = "TODO",					cmd = "<CMD>Dooing<CR>" },
 		{ desc = "Smear",					cmd = function() require("smear_cursor").enabled = not require("smear_cursor").enabled end },
