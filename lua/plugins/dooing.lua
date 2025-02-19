@@ -1,6 +1,5 @@
 return {
 	"atiladefreitas/dooing",
-	dev = true,
 	opts = {
 		save_path = '/home/qnrd/d/dooing_todos.json',
 
