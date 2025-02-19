@@ -1,6 +1,3 @@
 require("lazy-bootstrap")
-require("options")
-require("mappings")
-require("diagnostics")
+vim.g.mapleader = ','
 require("lazy-plugins")
-require("autocmds")
