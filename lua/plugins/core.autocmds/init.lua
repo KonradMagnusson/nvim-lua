@@ -85,6 +85,10 @@ local function setup()
 		pattern = "NinjaBuildFinished",
 		callback = function(ev)
 			vim.opt.statusline = vim.g.BuildStatusLine("✓  Built")
+			local has_neotest, neotest = pcall(require, "neotest")
+			if has_neotest then
+				neotest.run.run_last()
+			end
 		end
 	})
 	au( "User", {

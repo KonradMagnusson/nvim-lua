@@ -479,6 +479,25 @@ local qnrd_theme = lush( function(injected_functions)
 		qfFileName						{ String },
 		qfLineNr						{ LineNrAbove },
 		qfSeparator						{ Comment },
+
+
+		NeotestAdapterName				{ Function },
+		NeotestBorder					{},
+		NeotestDir						{ fg = Colors.blue_clay },
+		NeotestFailed					{ DiagnosticError },
+		NeotestFile						{ ClassName },
+		NeotestFocused					{},
+		NeotestIndent					{},
+		NeotestMarked					{},
+		NeotestNamespace				{ Enumerator },
+		NeotestPassed					{},
+		NeotestRunning					{},
+		NeotestWinSelect				{},
+		NeotestSkipped					{},
+		NeotestTarget					{},
+		NeotestTest						{ Variable },
+		NeotestUnknown					{},
+		NeotestWatching					{},
 	}
 end)
 

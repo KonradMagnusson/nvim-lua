@@ -48,6 +48,7 @@ local init_commander = function()
 		{ desc = "DAP UI",					cmd = "<CMD>lua require('dapui').toggle()<CR>" },
 		{ desc = "CPPRef",					cmd = "<CMD>CPPMan<CR>" },
 		{ desc = "TODO",					cmd = "<CMD>Dooing<CR>" },
+		{ desc = "Test",					cmd = "<CMD>Neotest summary toggle<CR>" },
 		{ desc = "Smear",					cmd = function() require("smear_cursor").enabled = not require("smear_cursor").enabled end },
 	})
 end
