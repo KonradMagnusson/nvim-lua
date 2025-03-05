@@ -50,6 +50,7 @@ local init_commander = function()
 		{ desc = "TODO",					cmd = "<CMD>Dooing<CR>" },
 		{ desc = "Test",					cmd = "<CMD>Neotest summary toggle<CR>" },
 		{ desc = "Smear",					cmd = function() require("smear_cursor").enabled = not require("smear_cursor").enabled end },
+		{ desc = "Undo",					cmd = "<CMD>UndotreeToggle<CR>"},
 	})
 end
 
