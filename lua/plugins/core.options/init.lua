@@ -36,6 +36,8 @@ local function setup()
 	vim.opt.swapfile = false
 	vim.opt.hidden = true
 
+	vim.opt.undofile = true
+
 	local function cmake_preset()
 		handle = io.popen([[cat builddir/current_preset 2>/dev/null]])
 		assert(handle)
@@ -45,7 +47,7 @@ local function setup()
 			return ""
 		end
 
-		return "⫷ " .. preset .. "⫸ "
+		return "[" .. preset .. "]"
 	end
 	local function get_workspace()
 		handle = io.popen([[pwd | sed 's/.*proj\/\(.*\)\/.*/\1/']])

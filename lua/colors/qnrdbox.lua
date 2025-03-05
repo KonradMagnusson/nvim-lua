@@ -390,7 +390,7 @@ local qnrd_theme = lush( function(injected_functions)
 
 
 		sym('@attribute')				{ fg = Colors.dust.darken(20),									gui = NoFmt },
-		sym('@lsp.mod.readonly') 		{ gui = FontMods.I },
+		sym('@lsp.mod.readonly') 		{  },
 		sym('@lsp.type.class')			{ fg = ClassName.fg,		bg = ClassName.bg,			gui = ClassName.gui },
 		sym('@lsp.type.decorator')		{ fg = Function.fg,			bg = Function.bg,			gui = Function.gui },
 		sym('@lsp.type.enum')			{ fg = Enumerator.fg,		bg = Enumerator.bg,			gui = Enumerator.gui },
@@ -407,7 +407,8 @@ local qnrd_theme = lush( function(injected_functions)
 		sym('@lsp.type.type')     		{ fg = Type.fg,				bg = Type.bg,				gui = Type.gui },
 		sym('@lsp.type.typeParameter')	{ fg = TypeDef.fg,			bg = TypeDef.bg,			gui = TypeDef.gui },
 		sym('@lsp.type.variable') 		{ fg = Variable.fg,			bg = Variable.bg,			gui = Variable.gui },
-		sym('@lsp.mod.usedAsMutableReference.cpp')			{ fg = Colors.crimson.lighten(60), 		gui = FontMods.I },
+		Mutable							{ fg = Colors.crimson.lighten(60),						gui = FontMods.I },
+		sym('@lsp.mod.usedAsMutableReference.cpp')			{ Mutable },
 
 		sym('@punctuation.bracket') 	{ fg = Q.Operator.Fg,		bg = Q.Operator.Bg,			gui = Q.Operator.Gui },
 		sym('@punctuation.delimiter') 	{ fg = Q.Operator.Fg,		bg = Q.Operator.Bg,			gui = Q.Operator.Gui },

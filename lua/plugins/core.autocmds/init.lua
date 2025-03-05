@@ -104,9 +104,14 @@ local function setup()
 			vim.lsp.inlay_hint.enable(false)
 		end
 	})
-	au( "CursorHold", {
+
+	-- semantic highlight for non-const member functions
+	au( "LspTokenUpdate" , {
 		callback = function( ev )
-			vim.lsp.inlay_hint.enable()
+			local token = ev.data.token
+			if token.type == "method" and not token.modifiers.readonly then
+				vim.lsp.semantic_tokens.highlight_token( token, ev.buf, ev.data.client_id, "Mutable", { priority = 120 } )
+			end
 		end
 	})
 

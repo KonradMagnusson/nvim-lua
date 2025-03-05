@@ -44,6 +44,7 @@ local function setup()
 	set_map("n", "cc", ":cexpr []<CR>" )
 	set_map("n", "<A-i>", ":Inspect<CR>" )
 	set_map("n", "<C-q>", "<C-6>" )
+	set_map("n", "<C-h>", ":lua vim.lsp.inlay_hint.enable()<CR>" )
 
 	-- snippet navigation
 	set_map("", "<leader><leader>", "<Esc>/<++><CR>:noh<CR>cf>")
