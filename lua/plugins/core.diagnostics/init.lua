@@ -13,9 +13,15 @@ local function setup( opts )
 
 	--- @param args vim.api.keyset.create_autocmd.callback_args
 	local function diagnose(args)
+		-- avoid issues with short-lived buffers and eager pressing of keybinds...
+		if not vim.api.nvim_buf_is_valid( args.buf ) then
+			return
+		end
+
 		if not vim.diagnostic.is_enabled({bufnr = args.buf}) then
 			return
 		end
+
 		-- don't diagnose strange stuff
 		if vim.bo[args.buf].buftype ~= '' then
 			return
