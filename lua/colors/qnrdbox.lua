@@ -6,6 +6,7 @@ local Colors = {
 	black					= hsl("#000000"),
 	charcoal				= hsl("#151515"),
 	graphite 				= hsl("#2c2c2c"),
+	anthracite 				= hsl("#383E42"),
 	heavy_cloud				= hsl("#706b66"),
 	gunmetal 				= hsl("#8d918d"),
 	dust					= hsl("#a89f94"),
