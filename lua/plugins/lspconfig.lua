@@ -35,15 +35,15 @@ return {
 		lspconfig.clangd.setup({
 			on_attach = function(client, bufnr)
 				vim.lsp.inlay_hint.enable( true )
-				vim.opt.updatetime = 3000
+				vim.opt.updatetime = 300
 				vim.opt.shortmess = vim.opt.shortmess + "c"
 				vim.opt.signcolumn = "yes"
 
 				-- code navigation
-				vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<CMD>Telescope lsp_definitions<CR>", { noremap = true, silent = true })
+				vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<CMD>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
 				vim.api.nvim_buf_set_keymap(bufnr, "n", "go", "<CMD>Ouroboros<CR>", { noremap = true, silent = true })
-				vim.api.nvim_buf_set_keymap(bufnr, "n", "gt", "<CMD>Telescope lsp_type_definitions<CR>", { noremap = true, silent = true })
-				vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<CMD>Telescope lsp_references<CR>", { noremap = true, silent = true })
+				vim.api.nvim_buf_set_keymap(bufnr, "n", "gt", "<CMD>lua vim.lsp.buf.type_definition()<CR>", { noremap = true, silent = true })
+				vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<CMD>lua vim.lsp.buf.references()<CR>", { noremap = true, silent = true })
 				vim.api.nvim_buf_set_keymap(bufnr, "n", "g?", "<CMD>lua vim.lsp.buf.signature_help()<CR>", { noremap = true, silent = true })
 				vim.api.nvim_buf_set_keymap(bufnr, "n", "gh", "<CMD>lua vim.lsp.buf.typehierarchy('supertypes')<CR>", { noremap = true, silent = true })
 				vim.api.nvim_buf_set_keymap(bufnr, "n", "gH", "<CMD>lua vim.lsp.buf.typehierarchy('subtypes')<CR>", { noremap = true, silent = true })
