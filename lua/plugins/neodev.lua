@@ -17,6 +17,11 @@ return {
 						enable = true,
 						callSnippet = "Both",
 						displayContext = 3
+					},
+					hint = {
+						enable = true,
+						arrayIndex = "Enable",
+						setType = true
 					}
 				}
 			}

@@ -1,143 +1,106 @@
 local function setup()
-	local au = vim.api.nvim_create_autocmd
-
-	local file_type_group = vim.api.nvim_create_augroup("fileTypeCommands", { clear = true })
-	local buffer_group = vim.api.nvim_create_augroup("bufCommands", { clear = true })
+	local au = require( "qnrd-utils" ).autocmd
 
 	-- toggle relativenumber / norelativenumber based on mode
-	au("InsertEnter", {
+	au( { "InsertEnter" }, {
 		command = "set norelativenumber",
-	})
-	au("InsertLeave", {
+	} )
+	au( { "InsertLeave" }, {
 		command = "set relativenumber",
-	})
+	} )
+
+	-- dynamic scrolloff based on window height
+	au( { "WinResized", "WinNew", "WinEnter" }, {
+		callback = function( _ )
+			local window_height = vim.api.nvim_win_get_height( 0 )
+			local offset = math.floor( window_height / 6 )
+			vim.api.nvim_set_option_value( "scrolloff", offset, { scope = "local" } )
+		end
+	} )
 
 	-- makefiles require tabs
-	au("fileType", {
-		group = file_type_group,
+	au( { "FileType" }, {
 		pattern = "make",
 		command = "setlocal ts=4 sts=4 sw=4 noexpandtab",
-	})
+	} )
 
-	-- vertical help
-	au("fileType", {
-		group = file_type_group,
+	-- hack - make help window vertical when it opens
+	au( { "FileType" }, {
 		pattern = "help",
 		command = "wincmd L",
-	})
+	} )
 
 	-- yaml requires spaces
-	au("fileType", {
-		group = file_type_group,
+	au( { "FileType" }, {
 		pattern = "yaml",
 		command = "setlocal ts=2 sts=2 sw=2 expandtab",
-	})
+	} )
 
-	-- pretend cw gui files are regular script files
-	au({"BufNewFile", "BufRead"}, {
-		group = file_type_group,
-		pattern = "*.gui",
-		command = "setf text",
-	})
-	au({"BufNewFile", "BufRead"}, {
-		group = file_type_group,
-		pattern = "*.tok",
-		command = "setf tok",
-	})
-
-	-- (local) clang-format on write
-	au("BufWritePost", {
-		pattern = {"*.cpp", "*.h", "*.inl" },
-		command = "silent !$(git rev-parse --show-toplevel)/external_tools/llvm-clang-format/clang-format -i %:p"
-	})
-
-	-- enter insert mode when switching to a terminal window
-	au({ "BufWinEnter", "WinEnter" }, {
-		group = buffer_group,
-		pattern = "term://*",
-		command = "startinsert",
-	})
-
-	au("WinEnter", {
-		group = buffer_group,
-		callback = function(ev)
-			if vim.bo[0].filetype == "notify" then
+	-- disallow focusing notifications
+	au( { "WinEnter" }, {
+		callback = function( _ )
+			if vim.bo.ft == "notify" then
+				-- focusing a notification kicks focus on to the next window
 				vim.api.nvim_feedkeys( vim.api.nvim_replace_termcodes( "<C-W><C-W>", true, false, true ), "n", true )
 			end
 		end
-	})
-
-	au( "fileType", {
-		pattern = "cpp",
-		callback = function(ev)
-			vim.api.nvim_buf_set_option(0, "commentstring", "// %s")
-			vim.api.nvim_buf_set_option(0, "matchpairs", "(:),{:},[:],<:>" )
-		end
-	})
-
-	au( "User", {
-		pattern = "NinjaBuildStarted",
-		callback = function(ev)
-			vim.opt.statusline = vim.g.BuildStatusLine("󰣪  Building...")
-		end
-	})
-	au( "User", {
-		pattern = "NinjaBuildFinished",
-		callback = function(ev)
-			vim.opt.statusline = vim.g.BuildStatusLine("✓  Built")
-			local has_neotest, neotest = pcall(require, "neotest")
-			if has_neotest then
-				neotest.run.run_last()
-			end
-		end
-	})
-	au( "User", {
-		pattern = "NinjaBuildFailed",
-		callback = function(ev)
-			vim.opt.statusline = vim.g.BuildStatusLine(" BUILD FAILED!")
-		end
-	})
+	} )
 
 	-- auto hide inlay hints
-	au({ "CursorMoved", "InsertEnter" }, {
-		callback = function( ev )
-			vim.lsp.inlay_hint.enable(false)
+	au( { "CursorMoved", "InsertEnter" }, {
+		callback = function( _ )
+			vim.lsp.inlay_hint.enable( false )
 		end
-	})
+	} )
 
+	-- highlight trailing whitespace
+	au( { "BufEnter", "FileType", "UIEnter", "WinEnter" }, {
+		pattern = "*",
+		callback = function( _ )
+			local ignored = { "TelescopePrompt", "TelescopeResults", "help", "alpha", "qf", "markdown", "notify" }
+			if vim.tbl_contains( ignored, vim.bo.ft ) then
+				vim.cmd( [[match]] )
+				return
+			end
+
+			vim.cmd( [[match Error /\s\+$/]] )
+		end
+	} )
+
+	-- generic C++ things
+	au( { "FileType" }, {
+		pattern = "cpp",
+		callback = function( _ )
+			vim.api.nvim_set_option_value( "commentstring", "// %s", { scope = "local" } )
+			-- < and > are not in matchpairs by default 🤷
+			vim.api.nvim_set_option_value( "matchpairs", "(:),{:},[:],<:>" , { scope = "local" } )
+		end
+	} )
 	-- semantic highlight for non-const member functions
-	au( "LspTokenUpdate" , {
+	au( { "LspTokenUpdate" }, {
 		callback = function( ev )
 			local token = ev.data.token
 			if token.type == "method" and not token.modifiers.readonly then
 				vim.lsp.semantic_tokens.highlight_token( token, ev.buf, ev.data.client_id, "Mutable", { priority = 120 } )
 			end
 		end
-	})
-
-	-- dynamic scrolloff based on window height
-	au( {"WinResized", "WinNew", "WinEnter"}, {
-		callback = function(ev)
-			local window_height = vim.api.nvim_win_get_height( 0 )
-			local offset = math.floor( window_height / 6 )
-			vim.api.nvim_buf_set_option( 0, "scrolloff", offset )
-		end
-	})
+	} )
 
 
+	-- Highlight current scope.
+	-- Deeply nested code becomes very difficult to read.
+	-- When working in a codebase that for some reason avoids early outs and the use of 'continue', this has proven very helpful.
 	au( { "FileType" }, {
-		pattern="cpp",
+		pattern = "cpp",
 		callback = function( _ )
 			local namespace = vim.api.nvim_create_namespace( "_CurrentScope" )
-			local ts_utils = require("nvim-treesitter.ts_utils")
-			local cur_scope_group = vim.api.nvim_create_augroup("_CurrentScope", { clear = true })
-
+			local cur_scope_group = vim.api.nvim_create_augroup( "_CurrentScope", { clear = true } )
 
 			au( { "CursorMoved" }, { -- yo dawg!
 				group = cur_scope_group,
 				callback = function( _ )
 					vim.api.nvim_buf_clear_namespace( 0, namespace, 0, -1 )
-					if vim.bo[0].ft ~= "cpp" then
+					if vim.bo.ft ~= "cpp" then
 						return
 					end
 
@@ -156,22 +119,41 @@ local function setup()
 						end_col = 0,
 						hl_group = "CurrentScope",
 						hl_eol = true,
-					})
-
+						priority = 75, -- lower than default (100) so as to not fight e.g. LspReferenceRead/Write highlights
+					} )
 				end
-			})
+			} )
+
 		end
-	})
+	} )
+
+	-- basically emulate rrethy/vim-illuminate, but only when a language server is attached
+	local lsp_group = vim.api.nvim_create_augroup( "LspAu", { clear = true } )
+	au( { "LspAttach" }, {
+		group = lsp_group,
+		callback = function( _ )
+			vim.g._prev_updatetime = vim.opt.updatetime
+			vim.opt.updatetime = 10
+			au( { "CursorMoved" }, { group = lsp_group, callback = function( _ ) vim.lsp.buf.clear_references() end } )
+			au( { "CursorHold" }, { group = lsp_group, callback = function( _ ) vim.lsp.buf.document_highlight() end } )
+		end
+	} )
+	au( { "LspDetach" }, {
+		callback = function( _ )
+			vim.opt.updatetime = vim.g._prev_updatetime
+			vim.g._prev_updatetime = nil
+			vim.lsp.buf.clear_references()
+			vim.api.nvim_clear_autocmds( { group = lsp_group } )
+		end
+	} )
 
 end
 
 
 return {
-	dir = vim.fn.stdpath("config") .. "/lua/plugins/core.autocmds",
+	dir = vim.fn.stdpath( "config" ) .. "/lua/plugins/core.autocmds",
 	name = "core.autocmds",
 	lazy = false,
 	priority = 100,
 	config = setup
 }
-
-

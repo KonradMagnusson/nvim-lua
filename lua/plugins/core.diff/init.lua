@@ -1,4 +1,7 @@
 local function setup()
+	if not vim.o.diff then
+		return
+	end
 	vim.api.nvim_set_keymap( "n", "<leader>w", "[c", { noremap = false } ) -- previous diff
 	vim.api.nvim_set_keymap( "n", "<A-l>", "[c", { noremap = false } ) -- previous diff
 	vim.api.nvim_set_keymap( "n", "<leader>e", "]c", { noremap = false } ) -- next diff
@@ -12,6 +15,5 @@ end
 return {
 	dir = vim.fn.stdpath("config") .. "/lua/plugins/core.diff",
 	name = "core.diff",
-	cond = function( plugin ) return vim.o.diff  end,
-	init = setup
+	config = setup
 }
