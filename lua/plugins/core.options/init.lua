@@ -38,6 +38,11 @@ local function setup()
 
 	vim.opt.undofile = true
 
+	-- basically service locators
+	vim.g.qnrd_get_workspace = function() return string.match(vim.fn.getcwd(), ".*/([^/]+)") end
+	vim.g.qnrd_get_project_dirs = function() return { "." } end
+
+
 	local function cmake_preset()
 		handle = io.popen([[cat builddir/current_preset 2>/dev/null]])
 		assert(handle)
@@ -49,16 +54,13 @@ local function setup()
 
 		return "[" .. preset .. "]"
 	end
-	local function get_workspace()
-		handle = io.popen([[pwd | sed 's/.*proj\/\(.*\)\/.*/\1/']])
-		assert(handle)
-		local workspace = handle:read("*l")
-		handle:close()
-		return "[" .. (workspace or "") .. "]"
-	end
 
 	vim.g.BuildStatusLine = function( build_status )
-		return [[%<%f %h%w%m%r%=%S    ]] .. cmake_preset() ..  [[%=%-14.(%l,%c%V%) ]] .. (build_status or "") .. "  " .. get_workspace() .. [[ %P]]
+		return [[%<%f %h%w%m%r%=%S    ]]
+			.. cmake_preset()
+			.. [[%=%-14.(%l,%c%V%) ]] .. (build_status or "") .. "  "
+			.. "[" .. vim.g.qnrd_get_workspace() .. "]"
+			.. [[ %P]]
 	end
 	vim.opt.statusline = vim.g.BuildStatusLine()
 end

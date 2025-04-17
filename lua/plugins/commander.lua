@@ -1,35 +1,3 @@
-local live_grep_with_cw = function()
-	local live_grep = require( "telescope.builtin" ).live_grep
-
-	vim.fn.system( "git rev-parse --is-inside-work-tree" )
-	local is_git_repo = vim.v.shell_error == 0
-
-	if not is_git_repo then
-		return live_grep()
-	end
-
-	local dot_git_path = vim.fn.finddir( ".git", ".;" )
-	if dot_git_path == "" then
-		dot_git_path = vim.fn.findfile( ".git", ".;" )
-	end
-	local git_root = vim.fn.fnamemodify( dot_git_path, ":h" )
-
-	local handle = io.popen( "cd " .. git_root .. " && cmake --preset $(cat builddir/current_preset) -N | rg CW_BASE_DIR | sed -E 's/.*\\\"(.*)\\\".*/\\1/g'" )
-	assert(handle)
-	local cw_dir = handle:read("*l")
-	handle:close()
-
-	if cw_dir == "" then
-		live_grep()
-	end
-
-	live_grep({
-		search_dirs = { git_root, cw_dir },
-		max_results = 200,
-	})
-end
-
-
 local init_commander = function()
 	local commander = require("commander")
 	commander.setup({
@@ -42,11 +10,10 @@ local init_commander = function()
 		components = { "DESC" }
 	})
 	commander.add({
-		{ desc = "Find",					cmd = live_grep_with_cw },
+		{ desc = "Find",					cmd = ":lua require('telescope.builtin').live_grep( { search_dirs = vim.g.qnrd_get_project_dirs() } )<CR>" },
 		{ desc = "Blame",					cmd = "<CMD>Gitsigns toggle_current_line_blame<CR>" },
 		{ desc = "Marks",					cmd = "<CMD>Telescope marks<CR>", },
 		{ desc = "DAP UI",					cmd = "<CMD>lua require('dapui').toggle()<CR>" },
-		{ desc = "CPPRef",					cmd = "<CMD>CPPMan<CR>" },
 		{ desc = "TODO",					cmd = "<CMD>Dooing<CR>" },
 		{ desc = "Test",					cmd = "<CMD>Neotest summary toggle<CR>" },
 		{ desc = "Smear",					cmd = function() require("smear_cursor").enabled = not require("smear_cursor").enabled end },

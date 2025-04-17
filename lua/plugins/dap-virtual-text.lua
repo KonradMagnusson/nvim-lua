@@ -8,18 +8,17 @@ return {
 		show_stop_reason = true,
 		commented = false,
 		only_first_definition = true,
-		all_references = false,
+		all_references = true,
 		clear_on_continue = false,
 
 		display_callback = function(variable, buf, stackframe, node, options)
-		  if options.virt_text_pos == 'inline' then
-			return ' = ' .. variable.value
-		  else
+			if options.virt_text_pos == 'inline' then
+				return ' = ' .. variable.value
+			end
 			return variable.name .. ' = ' .. variable.value
-		  end
 		end,
 
-		virt_text_pos = vim.fn.has 'nvim-0.10' == 1 and 'inline' or 'eol',
+		virt_text_pos = vim.fn.has('nvim-0.10') and 'inline' or 'eol',
 
 		all_frames = false,
 		virt_lines = false,

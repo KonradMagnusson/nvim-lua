@@ -4,8 +4,8 @@ local function setup( opts )
 	vim.fn.sign_define( 'DiagnosticSignInfo',  { text='', texthl='DiagnosticSignInfo', numhl='DiagnosticSignInfo', linehl='' } )
 	vim.fn.sign_define( 'DiagnosticSignHint',  { text='🯈', texthl='DiagnosticSignHint', numhl='DiagnosticSignHint', linehl='' } )
 
-	-- stolen from /r/robertogrows's post:  https://www.reddit.com/r/neovim/comments/1ir069p/treesitter_diagnostics/
-	-- and modified to work with nvim 0.10
+	-- The TS-based diagnostics below are originally from /r/robertogrows's post:  https://www.reddit.com/r/neovim/comments/1ir069p/treesitter_diagnostics/
+	-- Modified by me (github.com/KonradMagnusson) to suit my needs and preferences.
 
 	--- language-independent query for syntax errors and missing elements
 	local error_query = vim.treesitter.query.parse('query', '(ERROR) @a')
@@ -28,7 +28,7 @@ local function setup( opts )
 		end
 
 		-- don't fight language servers, please
-		if vim.lsp.buf_is_attached() then
+		if #vim.lsp.get_clients({ bufnr = args.buf }) > 0 then
 			return
 		end
 
@@ -109,6 +109,6 @@ return {
 	dir = vim.fn.stdpath("config") .. "/lua/plugins/core.diagnostics",
 	name = "core.diagnostics",
 	lazy = false,
-	priority = 3,
-	config = setup
+	priority = 4,
+	init = setup
 }
