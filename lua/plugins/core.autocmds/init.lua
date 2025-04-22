@@ -57,7 +57,7 @@ local function setup()
 	au( { "BufEnter", "FileType", "UIEnter", "WinEnter" }, {
 		pattern = "*",
 		callback = function( _ )
-			local ignored = { "TelescopePrompt", "TelescopeResults", "help", "alpha", "qf", "markdown", "notify" }
+			local ignored = { "TelescopePrompt", "TelescopeResults", "help", "alpha", "qf", "markdown", "notify", "lazy" }
 			if vim.tbl_contains( ignored, vim.bo.ft ) then
 				vim.cmd( [[match]] )
 				return
