@@ -498,6 +498,16 @@ local qnrd_theme = lush( function(injected_functions)
 		NeotestTest						{ Variable },
 		NeotestUnknown					{},
 		NeotestWatching					{},
+
+		UndotreeNode					{ fg = Colors.venom },
+		UndotreeBranch					{ fg = Colors.heavy_cloud},
+		UndotreeCurrent					{ CursorLineNr },
+		UndotreeSeq						{ LineNrAbove },
+		UndotreeHead					{ fg = Colors.ripe_lemon },
+		UndotreeNext					{ fg = Colors.cloud },
+		UndotreeTimeStamp				{ Comment },
+		UndotreeSavedSmall				{ fg = Colors.sky_blue },
+		UndotreeSavedBig				{ fg = Colors.sky_blue.lighten(30) },
 	}
 end)
 
