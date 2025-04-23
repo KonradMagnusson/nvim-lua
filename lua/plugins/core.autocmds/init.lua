@@ -63,7 +63,7 @@ local function setup()
 				return
 			end
 
-			vim.cmd( [[match Error /\s\+$/]] )
+			vim.cmd( [[match ErrorMsg /\s\+$/]] )
 		end
 	} )
 
