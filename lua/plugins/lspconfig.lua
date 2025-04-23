@@ -35,14 +35,14 @@ return {
 
 
 		local _border = {
-			{ "🭽", "FloatBoarder" },
-			{ "▔", "FloatBoarder" },
-			{ "🭾", "FloatBoarder" },
-			{ "▕", "FloatBoarder" },
-			{ "🭿", "FloatBoarder" },
-			{ "▁", "FloatBoarder" },
-			{ "🭼", "FloatBoarder" },
-			{ "▏", "FloatBoarder" }
+			{ "🭽", "FloatBorder" },
+			{ "▔", "FloatBorder" },
+			{ "🭾", "FloatBorder" },
+			{ "▕", "FloatBorder" },
+			{ "🭿", "FloatBorder" },
+			{ "▁", "FloatBorder" },
+			{ "🭼", "FloatBorder" },
+			{ "▏", "FloatBorder" }
 		}
 
 		local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
