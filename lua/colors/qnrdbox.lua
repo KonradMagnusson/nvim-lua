@@ -331,12 +331,10 @@ local qnrd_theme = lush( function(injected_functions)
 		-----------------------------------------------------------------------------------------------------
 
 		LspReferenceText				{							bg = Colors.chambray.darken(50),	gui = FontMods.BI },
+		LspReferenceTarget				{							bg = Colors.chambray.darken(50),	gui = FontMods.BI },
 		LspReferenceRead				{							bg = Colors.leaf.darken(50),		gui = FontMods.BI },
 		LspReferenceWrite				{							bg = Colors.pumpkin.darken(50),		gui = FontMods.BI },
 
-		IlluminatedWordText				{							bg = Colors.chambray.darken(50),	gui = FontMods.BI },
-		IlluminatedWordRead				{							bg = Colors.leaf.darken(50),		gui = FontMods.BI },
-		IlluminatedWordWrite			{							bg = Colors.pumpkin.darken(50),		gui = FontMods.BI },
 
 		LspCodeLens						{ fg = Colors.jade,			bg = NoFmt,					gui = NoFmt },
 		LspCodeLensSeparator			{ fg = Colors.sky_blue,		bg = NoFmt,					gui = NoFmt },
@@ -500,6 +498,16 @@ local qnrd_theme = lush( function(injected_functions)
 		NeotestTest						{ Variable },
 		NeotestUnknown					{},
 		NeotestWatching					{},
+
+		UndotreeNode					{ fg = Colors.venom },
+		UndotreeBranch					{ fg = Colors.heavy_cloud},
+		UndotreeCurrent					{ CursorLineNr },
+		UndotreeSeq						{ LineNrAbove },
+		UndotreeHead					{ fg = Colors.ripe_lemon },
+		UndotreeNext					{ fg = Colors.cloud },
+		UndotreeTimeStamp				{ Comment },
+		UndotreeSavedSmall				{ fg = Colors.sky_blue },
+		UndotreeSavedBig				{ fg = Colors.sky_blue.lighten(30) },
 	}
 end)
 
