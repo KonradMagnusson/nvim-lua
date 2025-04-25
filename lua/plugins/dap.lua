@@ -26,7 +26,7 @@ function GetDebuggee()
 
 		local fd_cmd = "fd --no-ignore --type x --exclude .git"
 		for _, ext in pairs( ignored_extensions ) do
-			fd_cmd = fd_cmd .. " --exclude " .. ext
+			fd_cmd = fd_cmd .. " --exclude '" .. ext .. "'"
 		end
 
 		local handle = io.popen( fd_cmd )
