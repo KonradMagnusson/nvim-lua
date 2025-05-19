@@ -1,7 +1,7 @@
 local M = {}
 
 M.set_map = function( mode, keys, mapping, opts )
-	vim.api.nvim_set_keymap(
+	vim.keymap.set(
 		mode,
 		keys,
 		mapping,
@@ -10,12 +10,21 @@ M.set_map = function( mode, keys, mapping, opts )
 end
 
 M.set_buf_map = function( mode, keys, mapping, buf, opts )
-	vim.api.nvim_buf_set_keymap(
-		buf or 0,
+	default_opts = {
+		buffer = 0,
+		noremap = true,
+		silent = true
+	}
+	opts = vim.tbl_extend( "force", default_opts, opts )
+	if buf then
+		opts.buffer = buf
+	end
+
+	vim.keymap.set(
 		mode,
 		keys,
 		mapping,
-		opts or { noremap = true, silent = true }
+		opts
 	)
 end
 

@@ -55,5 +55,6 @@ return {
 	dir = vim.fn.stdpath("config") .. "/lua/plugins/core.pds",
 	name = "core.pds",
 	priority = 3,
-	init = setup
+	lazy = false,
+	config = setup
 }

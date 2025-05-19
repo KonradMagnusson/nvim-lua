@@ -10,10 +10,10 @@ local init_commander = function()
 		components = { "DESC" }
 	})
 	commander.add({
-		{ desc = "Find",					cmd = ":lua require('telescope.builtin').live_grep( { search_dirs = vim.g.qnrd_get_project_dirs() } )<CR>" },
+		{ desc = "Find",					cmd = function() require('telescope.builtin').live_grep( { search_dirs = vim.g.qnrd_get_project_dirs() } ) end },
 		{ desc = "Blame",					cmd = "<CMD>Gitsigns toggle_current_line_blame<CR>" },
 		{ desc = "Marks",					cmd = "<CMD>Telescope marks<CR>", },
-		{ desc = "DAP UI",					cmd = "<CMD>lua require('dapui').toggle()<CR>" },
+		{ desc = "DAP UI",					cmd = function() require('dapui').toggle() end },
 		{ desc = "TODO",					cmd = "<CMD>Dooing<CR>" },
 		{ desc = "Test",					cmd = "<CMD>Neotest summary toggle<CR>" },
 		{ desc = "Smear",					cmd = function() require("smear_cursor").enabled = not require("smear_cursor").enabled end },
