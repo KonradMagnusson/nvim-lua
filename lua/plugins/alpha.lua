@@ -69,7 +69,7 @@ return {
 
 		dashboard.section.buttons.val = {
 			dashboard.button("n", "   New file", ":ene <BAR> startinsert <CR>"),
-			dashboard.button("<C-p>", "󰮗   Find file", ":lua require('telescope.builtin').find_files({ search_dirs = vim.g.qnrd_get_project_dirs() })<CR>" ),
+			dashboard.button("<C-p>", "󰮗   Find file", function() require('telescope.builtin').find_files({ search_dirs = vim.g.qnrd_get_project_dirs() }) end ),
 			dashboard.button("f", "   File Explorer", ":Oil<CR>"),
 			dashboard.button("r", "   Recent", ":Telescope oldfiles<CR>"),
 			dashboard.button("c", "   Configuration", ":cd ~/.config/nvim | :Telescope find_files<CR>"),

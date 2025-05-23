@@ -44,10 +44,11 @@ return {
 			})
 		end,
 	},
-	init = function( LazyPlugin )
-		vim.api.nvim_set_keymap( "n", "<A-j>", ":WinShift left<CR>", { noremap = false })
-		vim.api.nvim_set_keymap( "n", "<A-k>", ":WinShift down<CR>", { noremap = false })
-		vim.api.nvim_set_keymap( "n", "<A-l>", ":WinShift up<CR>", { noremap = false })
-		vim.api.nvim_set_keymap( "n", "<A-ö>", ":WinShift right<CR>", { noremap = false })
+	init = function()
+		local set_map = require("qnrd-utils").set_map
+		set_map( "n", "<A-j>", ":WinShift left<CR>", { noremap = false })
+		set_map( "n", "<A-k>", ":WinShift down<CR>", { noremap = false })
+		set_map( "n", "<A-l>", ":WinShift up<CR>", { noremap = false })
+		set_map( "n", "<A-ö>", ":WinShift right<CR>", { noremap = false })
 	end
 }

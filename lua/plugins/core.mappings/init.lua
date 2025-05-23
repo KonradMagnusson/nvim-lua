@@ -1,7 +1,5 @@
 local function setup()
-	local function set_map( mode, keys, mapping, opts )
-		vim.api.nvim_set_keymap( mode, keys, mapping, opts or { noremap = true } )
-	end
+	local set_map = require("qnrd-utils").set_map
 
 	do -- Basic text navigation
 		set_map( "", "j", "h" )
@@ -10,19 +8,19 @@ local function setup()
 		set_map( "", "ö", "l" )
 		set_map( "", "h", "0" )
 		set_map( "", "ä", "$" )
-
+		--
 		-- scrolling. Effectively scrolls buffer while keeping the cursorline fixed in the window
-		set_map( "n", "<C-K>", "10<C-E>10k", { noremap = false, nowait = true } )
-		set_map( "n", "<C-L>", "10<C-Y>10l", { noremap = false, nowait = true } )
-		set_map( "n", "<C-A-K>", "<C-E>k", { noremap = false, nowait = true } )
-		set_map( "n", "<C-A-L>", "<C-Y>l", { noremap = false, nowait = true } )
+		set_map( "n", "<C-k>", "10<C-e>10k", { remap = true, nowait = true } )
+		set_map( "n", "<C-l>", "10<C-y>10l", { remap = true, nowait = true } )
+		set_map( "n", "<C-A-k>", "<C-e>k", { remap = true, nowait = true } )
+		set_map( "n", "<C-A-l>", "<C-y>l", { remap = true, nowait = true } )
 	end
 
 	do -- Window navigation
-		set_map( "", "<C-left>", "<C-w>h" )
-		set_map( "", "<C-down>", "<C-w>j" )
-		set_map( "", "<C-up>", "<C-w>k" )
-		set_map( "", "<C-right>", "<C-w>l" )
+		set_map( "", "<C-Left>", "<C-w>h" )
+		set_map( "", "<C-Down>", "<C-w>j" )
+		set_map( "", "<C-Up>", "<C-w>k" )
+		set_map( "", "<C-Right>", "<C-w>l" )
 	end
 
 	do -- quickfix
@@ -33,16 +31,16 @@ local function setup()
 
 	do -- misc
 		-- clear hlsearch
-		set_map( "n", "<leader>3", ":noh<CR>" )
+		set_map( "n", "<Leader>3", ":noh<CR>" )
 
 		-- clear trailing whitespace
 		set_map( "n", "<Leader>w", ":%s/\\s\\+$<CR>" )
 
 		-- yank/paste to/from quoteplus ( system clipboard )
-		set_map( "", "<leader>y", '"+y' )
-		set_map( "", "<leader>p", '"+p' )
+		set_map( "", "<Leader>y", '"+y' )
+		set_map( "", "<Leader>p", '"+p' )
 
-		set_map( "n", "<leader>df", ":lua vim.diagnostic.open_float()<CR>" )
+		set_map( "n", "<Leader>df", vim.diagnostic.open_float )
 		set_map( "n", "<A-i>", ":Inspect<CR>" )
 
 		-- remember, switching to your alternate file is always faster than reloading
@@ -58,7 +56,7 @@ local function setup()
 				vim.api.nvim_win_close( 0, false )
 			end
 		end
-		set_map( "n", "<leader>f", ":lua ToggleTabSplit()<CR>" )
+		set_map( "n", "<Leader>f", ToggleTabSplit )
 	end
 end
 

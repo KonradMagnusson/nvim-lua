@@ -41,7 +41,7 @@ local function setup()
 		callback = function( _ )
 			if vim.bo.ft == "notify" then
 				-- focusing a notification kicks focus on to the next window
-				vim.api.nvim_feedkeys( vim.api.nvim_replace_termcodes( "<C-W><C-W>", true, false, true ), "n", true )
+				vim.api.nvim_feedkeys( vim.api.nvim_replace_termcodes( "<C-w><C-w>", true, false, true ), "n", true )
 			end
 		end
 	} )

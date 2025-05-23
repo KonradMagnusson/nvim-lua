@@ -1,22 +1,22 @@
 local function set_lsp_maps( client, bufnr )
 	local qnrdutils = require("qnrd-utils")
 	local set_map = qnrdutils.set_map
-	set_map( "n", "<C-h>", ":lua vim.lsp.inlay_hint.enable()<CR>" )
+	set_map( "n", "<C-h>", vim.lsp.inlay_hint.enable )
 
 	-- code navigation
-	set_map( "n", "gd", "<CMD>lua vim.lsp.buf.definition()<CR>" )
-	set_map( "n", "gr", "<CMD>lua vim.lsp.buf.references()<CR>" )
-	set_map( "n", "g?", "<CMD>lua vim.lsp.buf.signature_help()<CR>" )
-	set_map( "n", "gh", "<CMD>lua vim.lsp.buf.typehierarchy('supertypes')<CR>" )
-	set_map( "n", "gH", "<CMD>lua vim.lsp.buf.typehierarchy('subtypes')<CR>" )
+	set_map( "n", "gd", vim.lsp.buf.definition )
+	set_map( "n", "gr", vim.lsp.buf.references )
+	set_map( "n", "g?", vim.lsp.buf.signature_help )
+	set_map( "n", "gh", function() vim.lsp.buf.typehierarchy('supertypes') end )
+	set_map( "n", "gH", function() vim.lsp.buf.typehierarchy('subtypes') end )
 
 	set_map( "n", "<leader>s", "<CMD>Telescope lsp_dynamic_workspace_symbols<CR>" )
 	set_map( "n", "<leader>m", "<CMD>Telescope lsp_document_symbols<CR>" )
 
 	-- edit actions
-	set_map( "n", "<leader>r", "<CMD>lua vim.lsp.buf.rename()<CR>" )
-	set_map( "n", "<leader>q", "<CMD>lua vim.lsp.buf.code_action()<CR>" )
-	set_map( "n", "<leader>h", "<CMD>lua vim.lsp.buf.hover, bufnr()<CR>" )
+	set_map( "n", "<leader>r", vim.lsp.buf.rename )
+	set_map( "n", "<leader>q", vim.lsp.buf.code_action )
+	set_map( "n", "<leader>h", vim.lsp.buf.hover, bufnr )
 end
 
 return {

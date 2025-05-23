@@ -1,24 +1,4 @@
-local set_map = function( keys, action )
-	vim.api.nvim_set_keymap( "n", keys, action, { noremap = true } )
-end
-
-set_map( "<leader>db", "<CMD>lua require( 'persistent-breakpoints.api' ).toggle_breakpoint()<CR>" )
-set_map( "<leader>dB", "<CMD>lua require( 'persistent-breakpoints.api' ).set_conditional_breakpoint()<CR>" )
-set_map( "<leader>dlp", "<CMD>lua require( 'dap' ).set_breakpoint( nil, nil, vim.fn.input( 'Log point message: ' ))<CR>" )
-
-set_map( "<leader>dc", "<CMD>lua require( 'dap' ).continue()<CR>" )
-set_map( "<leader>dr", "<CMD>lua require( 'dap' ).run_to_cursor()<CR>" )
-
-set_map( "<leader>ds", "<CMD>lua require( 'dap' ).step_over()<CR>" )
-set_map( "<leader>di", "<CMD>lua require( 'dap' ).step_into()<CR>" )
-set_map( "<leader>do", "<CMD>lua require( 'dap' ).step_out()<CR>" )
-
-
--- According to DAP, stacks grow downwards. This is somewhat sensible, considering they often do in terms of memory addressing, but very few people
--- would say you "pop something off the bottom of the stack".
-set_map( "<C-A-down>", "<CMD>lua require( 'dap' ).up()<CR>" )
-set_map( "<C-A-up>", "<CMD>lua require( 'dap' ).down()<CR>" )
-
+local set_map = require("qnrd-utils").set_map
 
 function GetDebuggee()
 	return coroutine.create( function( co )
@@ -85,6 +65,26 @@ end
 local init_dap = function( opts )
 	local dap = require( "dap" )
 	local daputils = require( "dap.utils" )
+	local pbapi = require( "persistent-breakpoints.api" )
+
+	set_map( "n", "<leader>db", pbapi.toggle_breakpoint )
+	set_map( "n", "<leader>dB", pbapi.set_conditional_breakpoint )
+	set_map( "n", "<leader>dlp", function() dap.set_breakpoint( nil, nil, vim.fn.input( 'Log point message: ' )) end )
+
+	set_map( "n", "<leader>dc", dap.continue )
+	set_map( "n", "<leader>dr", dap.run_to_cursor )
+
+	set_map( "n", "<leader>ds", dap.step_over )
+	set_map( "n", "<leader>di", dap.step_into )
+	set_map( "n", "<leader>do", dap.step_out )
+
+
+	-- According to DAP, stacks grow downwards. This is somewhat sensible, considering they often do in terms of memory addressing, but very few people
+	-- would say you "pop something off the bottom of the stack".
+	set_map( "n", "<C-A-Down>", dap.up )
+	set_map( "n", "<C-A-Up>", dap.down )
+
+
 
 	if vim.g.QNRD_DEBUG_ARGS == nil or type( vim.g.QNRD_DEBUG_ARGS ) ~= "string" then
 		vim.g.QNRD_DEBUG_ARGS = ""
@@ -156,5 +156,9 @@ end
 
 
 return {
-  "mfussenegger/nvim-dap", init = init_dap
+	"mfussenegger/nvim-dap",
+	dependencies = {
+		"weissle/persistent-breakpoints.nvim"
+	},
+	init = init_dap
 }
