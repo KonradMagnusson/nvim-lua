@@ -1,5 +1,5 @@
 local function setup()
-	local set_map = require("qnrd-utils").set_map
+	local set_map = require("qnrd-utils").make_map_middlehand( "core.mappings" )
 
 	do -- Basic text navigation
 		set_map( "", "j", "h" )

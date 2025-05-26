@@ -1,4 +1,3 @@
-local set_map = require("qnrd-utils").set_map
 
 function GetDebuggee()
 	return coroutine.create( function( co )
@@ -67,6 +66,7 @@ local init_dap = function( opts )
 	local daputils = require( "dap.utils" )
 	local pbapi = require( "persistent-breakpoints.api" )
 
+	local set_map = require("qnrd-utils").make_map_middlehand( "dap" )
 	set_map( "n", "<leader>db", pbapi.toggle_breakpoint )
 	set_map( "n", "<leader>dB", pbapi.set_conditional_breakpoint )
 	set_map( "n", "<leader>dlp", function() dap.set_breakpoint( nil, nil, vim.fn.input( 'Log point message: ' )) end )

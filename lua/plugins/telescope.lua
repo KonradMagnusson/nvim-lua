@@ -1,10 +1,10 @@
 local function setup()
 	require("telescope").setup()
 
-	local utils = require("qnrd-utils")
+	local set_map = require("qnrd-utils").make_map_middlehand( "telescope" )
 
-	utils.set_map("n", "<C-p>", function() require('telescope.builtin').find_files({ search_dirs = vim.g.qnrd_get_project_dirs() }) end )
-	utils.set_map("n", "<A-p>", ":Telescope commander<CR>")
+	set_map("n", "<C-p>", function() require('telescope.builtin').find_files({ search_dirs = vim.g.qnrd_get_project_dirs() }) end )
+	set_map("n", "<A-p>", ":Telescope commander<CR>")
 end
 
 

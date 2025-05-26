@@ -48,7 +48,11 @@ local function setup()
 	end
 
 
-	utils.set_map("n", "<leader>vk", ':silent !vkill<CR>')
+	local set_map = utils.make_map_middlehand( "core.pds" )
+	set_map("n", "<leader>vk", ':silent !vkill<CR>')
+
+	local domap = require("qnrd-utils").make_map_middlehand( "core" )
+	domap( "n", "<Leader>k", function() vim.notify('hello') end )
 end
 
 return {

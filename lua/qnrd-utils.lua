@@ -1,6 +1,6 @@
 local M = {}
 
-M.set_map = function( mode, keys, mapping, opts )
+M.__set_map = function( mode, keys, mapping, opts )
 	vim.keymap.set(
 		mode,
 		keys,
@@ -35,6 +35,56 @@ M.get_current_file = function()
 end
 
 M.autocmd = vim.api.nvim_create_autocmd
+
+
+
+M.__prev_maps = {}
+M.__maps = {}
+
+M.make_map_middlehand = function( who )
+	M.__maps[who] = {}
+	return function( mode, keys, mapping, opts )
+		table.insert( M.__maps[who], { mode, keys, mapping, opts } )
+	end
+end
+
+M.__update_maps = function()
+		-- purge old
+		if M.__prev_maps then
+			for who, entries in pairs( M.__prev_maps ) do
+				for _, entry in pairs( entries ) do
+					local mode, keys, _, _ = unpack( entry )
+					vim.notify( "unmapping " .. keys )
+					pcall( vim.keymap.del, mode, keys )
+				end
+			end
+		end
+
+		M.__prev_maps = {}
+
+		-- map new
+		if M.__maps then
+			for who, entries in pairs( M.__maps ) do
+				M.__prev_maps[who] = {}
+				for _, entry in pairs( entries ) do
+					local mode, keys, mapping, opts = unpack( entry )
+					--vim.notify( "mapping " .. keys )
+					M.__set_map( mode, keys, mapping, opts )
+					table.insert( M.__prev_maps[who], { mode, keys, mapping, opts } )
+				end
+			end
+		end
+end
+
+M.autocmd( { "User" }, {
+	pattern = "Remap",
+	callback = M.__update_maps
+} )
+
+M.autocmd( { "VimEnter" }, {
+	callback = function() M.__update_maps() end
+} )
+
 
 M.spec_mtimes = {}
 

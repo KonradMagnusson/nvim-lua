@@ -53,5 +53,8 @@ utils.autocmd( { "User"  }, {
 			end
 		end
 		utils.spec_mtimes = new_mtimes
+		if utils.__map_dirty then
+			vim.api.nvim_exec_autocmds( "User", { pattern = "Remap" } )
+		end
 	end
 } )

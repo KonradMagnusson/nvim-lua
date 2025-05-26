@@ -45,7 +45,7 @@ return {
 		end,
 	},
 	init = function()
-		local set_map = require("qnrd-utils").set_map
+		local set_map = require("qnrd-utils").make_map_middlehand( "winshift" )
 		set_map( "n", "<A-j>", ":WinShift left<CR>", { noremap = false })
 		set_map( "n", "<A-k>", ":WinShift down<CR>", { noremap = false })
 		set_map( "n", "<A-l>", ":WinShift up<CR>", { noremap = false })
