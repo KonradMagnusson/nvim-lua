@@ -41,6 +41,7 @@ local function setup()
 		-- yank/paste to/from quoteplus ( system clipboard )
 		set_map( "", "<leader>y", '"+y' )
 		set_map( "", "<leader>p", '"+p' )
+		set_map( "", "<leader>P", '"+P' )
 
 		set_map( "n", "<leader>df", ":lua vim.diagnostic.open_float()<CR>" )
 		set_map( "n", "<A-i>", ":Inspect<CR>" )
