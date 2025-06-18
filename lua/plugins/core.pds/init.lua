@@ -19,7 +19,7 @@ local function setup()
 
 
 	vim.g.qnrd_get_workspace = function()
-		local handle = io.popen([[pwd | sed 's/.*proj\/\(.*\)\/.*/\1/']])
+		local handle = io.popen([[pwd | sed 's/.*proj\/\([^\/]*\)\/.*/\1/']])
 		assert(handle)
 		local workspace = handle:read("*l")
 		handle:close()

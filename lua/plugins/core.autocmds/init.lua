@@ -140,7 +140,7 @@ local function setup()
 	} )
 	au( { "LspDetach" }, {
 		callback = function( _ )
-			vim.opt.updatetime = vim.g._prev_updatetime
+			vim.opt.updatetime = (type(vim.g._prev_updatetime) == "number" and vim.g.__prev_updatetime) or 10
 			vim.g._prev_updatetime = nil
 			vim.lsp.buf.clear_references()
 			vim.api.nvim_clear_autocmds( { group = lsp_group } )
